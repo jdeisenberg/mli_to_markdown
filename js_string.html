@@ -1,0 +1,777 @@
+<h2 id="reading-homedavidbucklescriptjscompothersjs_string.ml">Reading /home/david/bucklescript/jscomp/others/js_string.ml</h2>
+<h2 id="title-js.string">title: Js.String</h2>
+<p><code>make value</code> converts the given value to a string</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb1-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  make <span class="fl">3.5</span> = <span class="st">&quot;3.5&quot;</span>;;</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  make [|<span class="dv">1</span>;<span class="dv">2</span>;<span class="dv">3</span>|]) = <span class="st">&quot;1,2,3&quot;</span>;;</a></code></pre></div>
+<pre class="reason"><code>!!!
+  make 3.5 = &quot;3.5&quot;;;
+  make [|1;2;3|]) = &quot;1,2,3&quot;;;
+!!!</code></pre>
+<h3 id="js.string.make">Js.String.make</h3>
+<pre class="reason"><code>[@bs.val] external make : &#39;a =&gt; t = &quot;String&quot;;</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">external</span> make : &#39;a -&gt; t = <span class="st">&quot;String&quot;</span> [@@bs.<span class="kw">val</span>]</a></code></pre></div>
+<p><code>fromCharCode n</code> creates a string containing the character corresponding to that number; {i n} ranges from 0 to 65535. If out of range, the lower 16 bits of the value are used. Thus, <code>fromCharCode 0x1F63A</code> gives the same result as <code>fromCharCode 0xF63A</code>.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb5-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  fromCharCode <span class="dv">65</span> = <span class="st">&quot;A&quot;</span>;;</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">  fromCharCode <span class="bn">0x3c8</span> = {js|ψ|js};;</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">  fromCharCode <span class="bn">0xd55c</span> = {js|한|js};;</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">  fromCharCode <span class="dv">-64568</span> = {js|ψ|js};;</a></code></pre></div>
+<pre class="reason"><code>
+  fromCharCode(65) == &quot;A&quot;;
+  fromCharCode(968) == {js|ψ|js};
+  fromCharCode(54620) == {js|한|js};
+  fromCharCode - 64568 == {js|ψ|js};
+  </code></pre>
+<h3 id="js.string.fromcharcode">Js.String.fromCharCode</h3>
+<pre class="reason"><code>[@bs.val] external fromCharCode : int =&gt; t = &quot;String.fromCharCode&quot;;</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">external</span> fromCharCode : <span class="dt">int</span> -&gt; t = <span class="st">&quot;String.fromCharCode&quot;</span> [@@bs.<span class="kw">val</span>]</a></code></pre></div>
+<h3 id="js.string.fromcharcodemany">Js.String.fromCharCodeMany</h3>
+<pre class="reason"><code>[@bs.val] [@bs.splice]
+external fromCharCodeMany : array(int) =&gt; t = &quot;String.fromCharCode&quot;;</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">external</span> fromCharCodeMany : <span class="dt">int</span> <span class="dt">array</span> -&gt; t = <span class="st">&quot;String.fromCharCode&quot;</span> [@@bs.<span class="kw">val</span>] [@@bs.splice]</a></code></pre></div>
+<p><code>fromCharCodeMany \[|n1;n2;n3|\</code>] creates a string from the characters corresponding to the given numbers, using the same rules as <code>fromCharCode</code>.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb11-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  fromCharCodeMany([|<span class="bn">0xd55c</span>, <span class="bn">0xae00</span>, <span class="dv">33</span>|]) = {js|한글!|js};;</a></code></pre></div>
+<pre class="reason"><code>
+  fromCharCodeMany([|(54620, 44544, 33)|]) == {js|한글!|js};
+  </code></pre>
+<p><code>fromCodePoint n</code> creates a string containing the character corresponding to that numeric code point. If the number is not a valid code point, {b raises} <code>RangeError</code>. Thus, <code>fromCodePoint 0x1F63A</code> will produce a correct value, unlike <code>fromCharCode 0x1F63A</code>, and <code>fromCodePoint -5</code> will raise a <code>RangeError</code>.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb13-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">  fromCodePoint <span class="dv">65</span> = <span class="st">&quot;A&quot;</span>;;</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">  fromCodePoint <span class="bn">0x3c8</span> = {js|ψ|js};;</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">  fromCodePoint <span class="bn">0xd55c</span> = {js|한|js};;</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">  fromCodePoint <span class="bn">0x1f63a</span> = {js|😺|js};;</a></code></pre></div>
+<pre class="reason"><code>
+  fromCodePoint(65) == &quot;A&quot;;
+  fromCodePoint(968) == {js|ψ|js};
+  fromCodePoint(54620) == {js|한|js};
+  fromCodePoint(128570) == {js|😺|js};
+  </code></pre>
+<h3 id="js.string.fromcodepoint">Js.String.fromCodePoint</h3>
+<pre class="reason"><code>[@bs.val] /** ES2015 */
+external fromCodePoint : int =&gt; t = &quot;String.fromCodePoint&quot;;</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">external</span> fromCodePoint : <span class="dt">int</span> -&gt; t = <span class="st">&quot;String.fromCodePoint&quot;</span> [@@bs.<span class="kw">val</span>] <span class="co">(** ES2015 *)</span></a></code></pre></div>
+<p><code>fromCharCodeMany \[|n1;n2;n3|\</code>] creates a string from the characters corresponding to the given code point numbers, using the same rules as <code>fromCodePoint</code>.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb17-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">  fromCodePointMany([|<span class="bn">0xd55c</span>; <span class="bn">0xae00</span>; <span class="bn">0x1f63a</span>|]) = {js|한글😺|js}</a></code></pre></div>
+<pre class="reason"><code>
+  fromCodePointMany([|54620, 44544, 128570|]) == {js|한글😺|js};
+  </code></pre>
+<h3 id="js.string.fromcodepointmany">Js.String.fromCodePointMany</h3>
+<pre class="reason"><code>[@bs.val] [@bs.splice] /** ES2015 */
+external fromCodePointMany : array(int) =&gt; t = &quot;String.fromCodePoint&quot;;
+/* String.raw: ES2015, meant to be used with template strings, not directly */</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">external</span> fromCodePointMany : <span class="dt">int</span> <span class="dt">array</span> -&gt; t = <span class="st">&quot;String.fromCodePoint&quot;</span> [@@bs.<span class="kw">val</span>] [@@bs.splice] <span class="co">(** ES2015 *)</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="co">(* String.raw: ES2015, meant to be used with template strings, not directly *)</span></a></code></pre></div>
+<p><code>length s</code> returns the length of the given string.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb21-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">  length <span class="st">&quot;abcd&quot;</span> = <span class="dv">4</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  length(&quot;abcd&quot;) == 4;
+  </code></pre>
+<h3 id="js.string.length">Js.String.length</h3>
+<pre class="reason"><code>[@bs.get] external length : t =&gt; int = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">external</span> length : t -&gt; <span class="dt">int</span> = <span class="st">&quot;&quot;</span> [@@bs.get]</a></code></pre></div>
+<p><code>get s n</code> returns as a string the character at the given index number. If <code>n</code> is out of range, this function returns <code>undefined</code>, so at some point this function may be modified to return <code>t option</code>.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb25-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">  get <span class="st">&quot;Reason&quot;</span> <span class="dv">0</span> = <span class="st">&quot;R&quot;</span>;;</a>
+<a class="sourceLine" id="cb25-3" data-line-number="3">  get <span class="st">&quot;Reason&quot;</span> <span class="dv">4</span> = <span class="st">&quot;o&quot;</span>;;</a>
+<a class="sourceLine" id="cb25-4" data-line-number="4">  get {js|Rẽasöń|js} <span class="dv">5</span> = {js|ń|js};;</a></code></pre></div>
+<pre class="reason"><code>
+  get(&quot;Reason&quot;, 0) == &quot;R&quot;;
+  get(&quot;Reason&quot;, 4) == &quot;o&quot;;
+  get({js|Rẽasöń|js}, 5) == {js|ń|js};
+  </code></pre>
+<h3 id="js.string.get">Js.String.get</h3>
+<pre class="reason"><code>[@bs.get_index] external get : (t, int) =&gt; t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">external</span> get : t -&gt; <span class="dt">int</span> -&gt; t = <span class="st">&quot;&quot;</span> [@@bs.get_index]</a></code></pre></div>
+<p><code>charAt n s</code> gets the character at index <code>n</code> within string <code>s</code>. If <code>n</code> is negative or greater than the length of <code>s</code>, returns the empty string. If the string contains characters outside the range <code>\u0000-\uffff</code>, it will return the first 16-bit value at that position in the string.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb29-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2">  charAt <span class="dv">0</span>, <span class="st">&quot;Reason&quot;</span> = <span class="st">&quot;R&quot;</span></a>
+<a class="sourceLine" id="cb29-3" data-line-number="3">  charAt( <span class="dv">12</span>, <span class="st">&quot;Reason&quot;</span>) = <span class="st">&quot;&quot;</span>;</a>
+<a class="sourceLine" id="cb29-4" data-line-number="4">  charAt( <span class="dv">5</span>, {js|Rẽasöń|js} = {js|ń|js}</a></code></pre></div>
+<pre class="reason"><code>!!!
+  charAt 0, &quot;Reason&quot; = &quot;R&quot;
+  charAt( 12, &quot;Reason&quot;) = &quot;&quot;;
+  charAt( 5, {js|Rẽasöń|js} = {js|ń|js}
+!!!</code></pre>
+<h3 id="js.string.charat">Js.String.charAt</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external charAt : int =&gt; t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">external</span> charAt : <span class="dt">int</span> -&gt;  t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>charCodeAt n s</code> returns the character code at position <code>n</code> in string <code>s</code>; the result is in the range 0-65535, unlke <code>codePointAt</code>, so it will not work correctly for characters with code points greater than or equal to <code>0x10000</code>. The return type is <code>float</code> because this function returns <code>NaN</code> if <code>n</code> is less than zero or greater than the length of the string.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb33-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb33-2" data-line-number="2">  charCodeAt <span class="dv">0</span> {js|😺|js} returns <span class="bn">0xd83d</span></a>
+<a class="sourceLine" id="cb33-3" data-line-number="3">  codePointAt <span class="dv">0</span> {js|😺|js} returns <span class="dt">Some</span> <span class="bn">0x1f63a</span></a></code></pre></div>
+<pre class="reason"><code>
+  charCodeAt(
+    0,
+    {js|😺|js},
+    returns,
+    55357,
+    codePointAt,
+    0,
+    {js|😺|js},
+    returns,
+    Some,
+    128570,
+  );
+  </code></pre>
+<h3 id="js.string.charcodeat">Js.String.charCodeAt</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external charCodeAt : int =&gt; float = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">external</span> charCodeAt : <span class="dt">int</span> -&gt; <span class="dt">float</span>  = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>codePointAt n s</code> returns the code point at position <code>n</code> within string <code>s</code> as a <code>Some</code> value. The return value handles code points greater than or equal to <code>0x10000</code>. If there is no code point at the given position, the function returns <code>None</code>.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb37-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb37-2" data-line-number="2">  codePointAt <span class="dv">1</span> {js|¿😺?|js} = <span class="dt">Some</span> <span class="bn">0x1f63a</span></a>
+<a class="sourceLine" id="cb37-3" data-line-number="3">  codePointAt <span class="dv">5</span> <span class="st">&quot;abc&quot;</span> = <span class="dt">None</span></a></code></pre></div>
+<pre class="reason"><code>!!!
+  codePointAt 1 {js|¿😺?|js} = Some 0x1f63a
+  codePointAt 5 &quot;abc&quot; = None
+!!!</code></pre>
+<h3 id="js.string.codepointat">Js.String.codePointAt</h3>
+<pre class="reason"><code>[@bs.send.pipe: t]
+[@bs.return {undefined_to_opt: undefined_to_opt}]
+/** ES2015 */
+external codePointAt : int =&gt; option(int) = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="kw">external</span> codePointAt : <span class="dt">int</span> -&gt; <span class="dt">int</span> <span class="dt">option</span> = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t] [@@bs.return {undefined_to_opt}] <span class="co">(** ES2015 *)</span></a></code></pre></div>
+<p><code>concat append original</code> returns a new string with <code>append</code> added after <code>original</code>.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb41-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">  concat <span class="st">&quot;bell&quot;</span> <span class="st">&quot;cow&quot;</span> = <span class="st">&quot;cowbell&quot;</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  concat(&quot;bell&quot;, &quot;cow&quot;) == &quot;cowbell&quot;;
+  </code></pre>
+<h3 id="js.string.concat">Js.String.concat</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external concat : t =&gt; t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="kw">external</span> concat : t -&gt; t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>concat arr original</code> returns a new string consisting of each item of an array of strings added to the <code>original</code> string.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb45-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb45-2" data-line-number="2">  concatMany [|<span class="st">&quot;2nd&quot;</span>; <span class="st">&quot;3rd&quot;</span>; <span class="st">&quot;4th&quot;</span>|] <span class="st">&quot;1st&quot;</span> = <span class="st">&quot;1st2nd3rd4th&quot;</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  concatMany([|&quot;2nd&quot;, &quot;3rd&quot;, &quot;4th&quot;|], &quot;1st&quot;) == &quot;1st2nd3rd4th&quot;;
+  </code></pre>
+<h3 id="js.string.concatmany">Js.String.concatMany</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] [@bs.splice]
+external concatMany : array(t) =&gt; t = &quot;concat&quot;;</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">external</span> concatMany : t <span class="dt">array</span> -&gt; t = <span class="st">&quot;concat&quot;</span> [@@bs.send.pipe: t] [@@bs.splice]</a></code></pre></div>
+<p>ES2015: <code>endsWith substr str</code> returns <code>true</code> if the <code>str</code> ends with <code>substr</code>, <code>false</code> otherwise.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb49-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb49-2" data-line-number="2">  endsWith <span class="st">&quot;Script&quot;</span> <span class="st">&quot;BuckleScript&quot;</span> = <span class="kw">true</span>;;</a>
+<a class="sourceLine" id="cb49-3" data-line-number="3">  endsWith <span class="st">&quot;Script&quot;</span> <span class="st">&quot;BuckleShoes&quot;</span> = <span class="kw">false</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  endsWith(&quot;Script&quot;, &quot;BuckleScript&quot;) == true;
+  endsWith(&quot;Script&quot;, &quot;BuckleShoes&quot;) == false;
+  </code></pre>
+<h3 id="js.string.endswith">Js.String.endsWith</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external endsWith : t =&gt; bool = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">external</span> endsWith : t -&gt; <span class="dt">bool</span> = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t] </a></code></pre></div>
+<p><code>endsWithFrom ending len str</code> returns <code>true</code> if the first <code>len</code> characters of <code>str</code> end with <code>ending</code>, <code>false</code> otherwise. If <code>n</code> is greater than or equal to the length of <code>str</code>, then it works like <code>endsWith</code>. (Honestly, this should have been named <code>endsWithAt</code>, but oh well.)</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb53-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb53-2" data-line-number="2">  endsWithFrom <span class="st">&quot;cd&quot;</span> <span class="dv">4</span> <span class="st">&quot;abcd&quot;</span> = <span class="kw">true</span>;;</a>
+<a class="sourceLine" id="cb53-3" data-line-number="3">  endsWithFrom <span class="st">&quot;cd&quot;</span> <span class="dv">3</span> <span class="st">&quot;abcde&quot;</span> = <span class="kw">false</span>;;</a>
+<a class="sourceLine" id="cb53-4" data-line-number="4">  endsWithFrom <span class="st">&quot;cde&quot;</span> <span class="dv">99</span> <span class="st">&quot;abcde&quot;</span> = <span class="kw">true</span>;;</a>
+<a class="sourceLine" id="cb53-5" data-line-number="5">  endsWithFrom <span class="st">&quot;ple&quot;</span> <span class="dv">7</span> <span class="st">&quot;example.dat&quot;</span> = <span class="kw">true</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  endsWithFrom(&quot;cd&quot;, 4, &quot;abcd&quot;) == true;
+  endsWithFrom(&quot;cd&quot;, 3, &quot;abcde&quot;) == false;
+  endsWithFrom(&quot;cde&quot;, 99, &quot;abcde&quot;) == true;
+  endsWithFrom(&quot;ple&quot;, 7, &quot;example.dat&quot;) == true;
+  </code></pre>
+<h3 id="js.string.endswithfrom">Js.String.endsWithFrom</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] /** ES2015 */
+external endsWithFrom : (t, int) =&gt; bool = &quot;endsWith&quot;;</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="kw">external</span> endsWithFrom : t -&gt; <span class="dt">int</span> -&gt; <span class="dt">bool</span> = <span class="st">&quot;endsWith&quot;</span> [@@bs.send.pipe: t] <span class="co">(** ES2015 *)</span></a></code></pre></div>
+<p><code>includes searchValue s</code> returns <code>true</code> if <code>searchValue</code> is found anywhere within <code>s</code>, <code>false</code> otherwise.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb57-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb57-2" data-line-number="2">  includes <span class="st">&quot;gram&quot;</span> <span class="st">&quot;programmer&quot;</span> = <span class="kw">true</span>;;</a>
+<a class="sourceLine" id="cb57-3" data-line-number="3">  includes <span class="st">&quot;er&quot;</span> <span class="st">&quot;programmer&quot;</span> = <span class="kw">true</span>;;</a>
+<a class="sourceLine" id="cb57-4" data-line-number="4">  includes <span class="st">&quot;pro&quot;</span> <span class="st">&quot;programmer&quot;</span> = <span class="kw">true</span>;;</a>
+<a class="sourceLine" id="cb57-5" data-line-number="5">  includes <span class="st">&quot;xyz&quot;</span> <span class="st">&quot;programmer&quot;</span> = <span class="kw">false</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  includes(&quot;gram&quot;, &quot;programmer&quot;) == true;
+  includes(&quot;er&quot;, &quot;programmer&quot;) == true;
+  includes(&quot;pro&quot;, &quot;programmer&quot;) == true;
+  includes(&quot;xyz&quot;, &quot;programmer&quot;) == false;
+  </code></pre>
+<h3 id="js.string.includes">Js.String.includes</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] /** ES2015 */ external includes : t =&gt; bool = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="kw">external</span> includes : t -&gt; <span class="dt">bool</span> = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t] <span class="co">(** ES2015 *)</span></a></code></pre></div>
+<p><code>includes searchValue start s</code> returns <code>true</code> if <code>searchValue</code> is found anywhere within <code>s</code> starting at character number <code>start</code> (where 0 is the first character), <code>false</code> otherwise.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb61-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb61-2" data-line-number="2">  includesFrom <span class="st">&quot;gram&quot;</span> <span class="dv">1</span> <span class="st">&quot;programmer&quot;</span> = <span class="kw">true</span>;;</a>
+<a class="sourceLine" id="cb61-3" data-line-number="3">  includesFrom <span class="st">&quot;gram&quot;</span> <span class="dv">4</span> <span class="st">&quot;programmer&quot;</span> = <span class="kw">false</span>;;</a>
+<a class="sourceLine" id="cb61-4" data-line-number="4">  includesFrom {js|한|js} <span class="dv">1</span> {js|대한민국|js} = <span class="kw">true</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  includesFrom(&quot;gram&quot;, 1, &quot;programmer&quot;) == true;
+  includesFrom(&quot;gram&quot;, 4, &quot;programmer&quot;) == false;
+  includesFrom({js|한|js}, 1, {js|대한민국|js}) == true;
+  </code></pre>
+<h3 id="js.string.includesfrom">Js.String.includesFrom</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] /** ES2015 */
+external includesFrom : (t, int) =&gt; bool = &quot;includes&quot;;</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="kw">external</span> includesFrom : t -&gt; <span class="dt">int</span> -&gt; <span class="dt">bool</span> = <span class="st">&quot;includes&quot;</span> [@@bs.send.pipe: t] <span class="co">(** ES2015 *)</span></a></code></pre></div>
+<p><code>indexOf searchValue s</code> returns the position at which <code>searchValue</code> was first found within <code>s</code>, or <code>-1</code> if <code>searchValue</code> is not in <code>s</code>.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb65-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb65-2" data-line-number="2">  indexOf <span class="st">&quot;ok&quot;</span> <span class="st">&quot;bookseller&quot;</span> = <span class="dv">2</span>;;</a>
+<a class="sourceLine" id="cb65-3" data-line-number="3">  indexOf <span class="st">&quot;sell&quot;</span> <span class="st">&quot;bookseller&quot;</span> = <span class="dv">4</span>;;</a>
+<a class="sourceLine" id="cb65-4" data-line-number="4">  indexOf <span class="st">&quot;ee&quot;</span> <span class="st">&quot;beekeeper&quot;</span> = <span class="dv">1</span>;;</a>
+<a class="sourceLine" id="cb65-5" data-line-number="5">  indexOf <span class="st">&quot;xyz&quot;</span> <span class="st">&quot;bookseller&quot;</span> = <span class="dv">-1</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  indexOf(&quot;ok&quot;, &quot;bookseller&quot;) == 2;
+  indexOf(&quot;sell&quot;, &quot;bookseller&quot;) == 4;
+  indexOf(&quot;ee&quot;, &quot;beekeeper&quot;) == 1;
+  indexOf(&quot;xyz&quot;, &quot;bookseller&quot;) == (-1);
+  </code></pre>
+<h3 id="js.string.indexof">Js.String.indexOf</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external indexOf : t =&gt; int = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="kw">external</span> indexOf : t -&gt; <span class="dt">int</span> = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>indexOfFrom searchValue start s</code> returns the position at which <code>searchValue</code> was found within <code>s</code> starting at character position <code>start</code>, or <code>-1</code> if <code>searchValue</code> is not found in that portion of <code>s</code>. The return value is relative to the beginning of the string, no matter where the search started from.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb69-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb69-2" data-line-number="2">  indexOfFrom <span class="st">&quot;ok&quot;</span> <span class="dv">1</span> <span class="st">&quot;bookseller&quot;</span> = <span class="dv">2</span>;;</a>
+<a class="sourceLine" id="cb69-3" data-line-number="3">  indexOfFrom <span class="st">&quot;sell&quot;</span> <span class="dv">2</span> <span class="st">&quot;bookseller&quot;</span> = <span class="dv">4</span>;;</a>
+<a class="sourceLine" id="cb69-4" data-line-number="4">  indexOfFrom <span class="st">&quot;sell&quot;</span> <span class="dv">5</span> <span class="st">&quot;bookseller&quot;</span> = <span class="dv">-1</span>;;</a>
+<a class="sourceLine" id="cb69-5" data-line-number="5">  indexOf <span class="st">&quot;xyz&quot;</span> <span class="st">&quot;bookseller&quot;</span> = <span class="dv">-1</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  indexOfFrom(&quot;ok&quot;, 1, &quot;bookseller&quot;) == 2;
+  indexOfFrom(&quot;sell&quot;, 2, &quot;bookseller&quot;) == 4;
+  indexOfFrom(&quot;sell&quot;, 5, &quot;bookseller&quot;) == (-1);
+  indexOf(&quot;xyz&quot;, &quot;bookseller&quot;) == (-1);
+  </code></pre>
+<h3 id="js.string.indexoffrom">Js.String.indexOfFrom</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external indexOfFrom : (t, int) =&gt; int = &quot;indexOf&quot;;</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="kw">external</span> indexOfFrom : t -&gt; <span class="dt">int</span> -&gt; <span class="dt">int</span> = <span class="st">&quot;indexOf&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>lastIndexOf searchValue s</code> returns the position of the {i last} occurrence of <code>searchValue</code> within <code>s</code>, searching backwards from the end of the string. Returns <code>-1</code> if <code>searchValue</code> is not in <code>s</code>. The return value is always relative to the beginning of the string.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb73-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb73-2" data-line-number="2">  lastIndexOf <span class="st">&quot;ok&quot;</span> <span class="st">&quot;bookseller&quot;</span> = <span class="dv">2</span>;;</a>
+<a class="sourceLine" id="cb73-3" data-line-number="3">  lastIndexOf <span class="st">&quot;ee&quot;</span> <span class="st">&quot;beekeeper&quot;</span> = <span class="dv">4</span>;;</a>
+<a class="sourceLine" id="cb73-4" data-line-number="4">  lastIndexOf <span class="st">&quot;xyz&quot;</span> <span class="st">&quot;abcdefg&quot;</span> = <span class="dv">-1</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  lastIndexOf(&quot;ok&quot;, &quot;bookseller&quot;) == 2;
+  lastIndexOf(&quot;ee&quot;, &quot;beekeeper&quot;) == 4;
+  lastIndexOf(&quot;xyz&quot;, &quot;abcdefg&quot;) == (-1);
+  </code></pre>
+<h3 id="js.string.lastindexof">Js.String.lastIndexOf</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external lastIndexOf : t =&gt; int = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">external</span> lastIndexOf : t -&gt; <span class="dt">int</span> = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>lastIndexOfFrom searchValue start s</code> returns the position of the {i last} occurrence of <code>searchValue</code> within <code>s</code>, searching backwards from the given <code>start</code> position. Returns <code>-1</code> if <code>searchValue</code> is not in <code>s</code>. The return value is always relative to the beginning of the string.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb77-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb77-2" data-line-number="2">  lastIndexOfFrom <span class="st">&quot;ok&quot;</span> <span class="dv">6</span> <span class="st">&quot;bookseller&quot;</span> = <span class="dv">2</span>;;</a>
+<a class="sourceLine" id="cb77-3" data-line-number="3">  lastIndexOfFrom <span class="st">&quot;ee&quot;</span> <span class="dv">8</span> <span class="st">&quot;beekeeper&quot;</span> = <span class="dv">4</span>;;</a>
+<a class="sourceLine" id="cb77-4" data-line-number="4">  lastIndexOfFrom <span class="st">&quot;ee&quot;</span> <span class="dv">3</span> <span class="st">&quot;beekeeper&quot;</span> = <span class="dv">1</span>;;</a>
+<a class="sourceLine" id="cb77-5" data-line-number="5">  lastIndexOfFrom <span class="st">&quot;xyz&quot;</span> <span class="dv">4</span> <span class="st">&quot;abcdefg&quot;</span> = <span class="dv">-1</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  lastIndexOfFrom(&quot;ok&quot;, 6, &quot;bookseller&quot;) == 2;
+  lastIndexOfFrom(&quot;ee&quot;, 8, &quot;beekeeper&quot;) == 4;
+  lastIndexOfFrom(&quot;ee&quot;, 3, &quot;beekeeper&quot;) == 1;
+  lastIndexOfFrom(&quot;xyz&quot;, 4, &quot;abcdefg&quot;) == (-1);
+  </code></pre>
+<h3 id="js.string.lastindexoffrom">Js.String.lastIndexOfFrom</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external lastIndexOfFrom : (t, int) =&gt; int = &quot;lastIndexOf&quot;;
+/* extended by ECMA-402 */</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="kw">external</span> lastIndexOfFrom : t -&gt; <span class="dt">int</span> -&gt; <span class="dt">int</span> = <span class="st">&quot;lastIndexOf&quot;</span> [@@bs.send.pipe: t]</a>
+<a class="sourceLine" id="cb80-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb80-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb80-4" data-line-number="4"><span class="co">(* extended by ECMA-402 *)</span></a></code></pre></div>
+<p><code>localeCompare comparison reference</code> returns</p>
+<p>{ul {- a negative value if <code>reference</code> comes before <code>comparison</code> in sort order} {- zero if <code>reference</code> and <code>comparison</code> have the same sort order} {- a positive value if <code>reference</code> comes after <code>comparison</code> in sort order}}</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb81-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb81-2" data-line-number="2">  (localeCompare <span class="st">&quot;ant&quot;</span> <span class="st">&quot;zebra&quot;</span>) &gt; <span class="fl">0.0</span>;;</a>
+<a class="sourceLine" id="cb81-3" data-line-number="3">  (localeCompare <span class="st">&quot;zebra&quot;</span> <span class="st">&quot;ant&quot;</span>) &lt; <span class="fl">0.0</span>;;</a>
+<a class="sourceLine" id="cb81-4" data-line-number="4">  (localeCompare <span class="st">&quot;cat&quot;</span> <span class="st">&quot;cat&quot;</span>) = <span class="fl">0.0</span>;;</a>
+<a class="sourceLine" id="cb81-5" data-line-number="5">  (localeCompare <span class="st">&quot;cat&quot;</span> <span class="st">&quot;CAT&quot;</span>) &gt; <span class="fl">0.0</span>;; </a></code></pre></div>
+<pre class="reason"><code>
+  localeCompare(&quot;ant&quot;, &quot;zebra&quot;) &gt; 0.0;
+  localeCompare(&quot;zebra&quot;, &quot;ant&quot;) &lt; 0.0;
+  localeCompare(&quot;cat&quot;, &quot;cat&quot;) == 0.0;
+  localeCompare(&quot;cat&quot;, &quot;CAT&quot;) &gt; 0.0;
+  </code></pre>
+<h3 id="js.string.localecompare">Js.String.localeCompare</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external localeCompare : t =&gt; float = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="kw">external</span> localeCompare : t -&gt; <span class="dt">float</span> = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>match regexp str</code> matches a string against the given <code>regexp</code>. If there is no match, it returns <code>None</code>. For regular expressions without the <code>g</code> modifier, if there is a match, the return value is <code>Some array</code> where the array contains:</p>
+<p>{ul {- The entire matched string} {- Any capture groups if the <code>regexp</code> had parentheses} }</p>
+<p>For regular expressions with the <code>g</code> modifier, a matched expression returns <code>Some array</code> with all the matched substrings and no capture groups.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb85-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb85-2" data-line-number="2">  <span class="kw">match</span> [%re <span class="st">&quot;/b[aeiou]t/&quot;</span>] <span class="st">&quot;The better bats&quot;</span> = <span class="dt">Some</span> [|<span class="st">&quot;bet&quot;</span>|]</a>
+<a class="sourceLine" id="cb85-3" data-line-number="3">  <span class="kw">match</span> [%re <span class="st">&quot;/b[aeiou]t/g&quot;</span>] <span class="st">&quot;The better bats&quot;</span> = <span class="dt">Some</span> [|<span class="st">&quot;bet&quot;</span>;<span class="st">&quot;bat&quot;</span>|]</a>
+<a class="sourceLine" id="cb85-4" data-line-number="4">  <span class="kw">match</span> [%re <span class="st">&quot;/(</span><span class="ch">\\</span><span class="st">d+)-(</span><span class="ch">\\</span><span class="st">d+)-(</span><span class="ch">\\</span><span class="st">d+)/&quot;</span>] <span class="st">&quot;Today is 2018-04-05.&quot;</span> =</a>
+<a class="sourceLine" id="cb85-5" data-line-number="5">    <span class="dt">Some</span> [|<span class="st">&quot;2018-04-05&quot;</span>; <span class="st">&quot;2018&quot;</span>; <span class="st">&quot;04&quot;</span>; <span class="st">&quot;05&quot;</span>|]</a>
+<a class="sourceLine" id="cb85-6" data-line-number="6">  <span class="kw">match</span> [%re <span class="st">&quot;/b[aeiou]g/&quot;</span>] <span class="st">&quot;The large container.&quot;</span> = <span class="dt">None</span></a></code></pre></div>
+<pre class="reason"><code>!!!
+  match [%re &quot;/b[aeiou]t/&quot;] &quot;The better bats&quot; = Some [|&quot;bet&quot;|]
+  match [%re &quot;/b[aeiou]t/g&quot;] &quot;The better bats&quot; = Some [|&quot;bet&quot;;&quot;bat&quot;|]
+  match [%re &quot;/(\\d+)-(\\d+)-(\\d+)/&quot;] &quot;Today is 2018-04-05.&quot; =
+    Some [|&quot;2018-04-05&quot;; &quot;2018&quot;; &quot;04&quot;; &quot;05&quot;|]
+  match [%re &quot;/b[aeiou]g/&quot;] &quot;The large container.&quot; = None
+!!!</code></pre>
+<h3 id="js.string.match_">Js.String.match_</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] [@bs.return {null_to_opt: null_to_opt}]
+external match : Js_re.t =&gt; option(array(t)) = &quot;match&quot;;</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">external</span> match_ : Js_re.t -&gt; t <span class="dt">array</span> <span class="dt">option</span> = <span class="st">&quot;match&quot;</span> [@@bs.send.pipe: t] [@@bs.return {null_to_opt}]</a></code></pre></div>
+<p><code>normalize str</code> returns the normalized Unicode string using Normalization Form Canonical (NFC) Composition.</p>
+<p>Consider the character <code>ã</code>, which can be represented as the single codepoint <code>\u00e3</code> or the combination of a lower case letter A <code>\u0061</code> and a combining tilde <code>\u0303</code>. Normalization ensures that both can be stored in an equivalent binary representation.</p>
+<p><span class="citation" data-cites="see">@see</span> <a href="https://www.unicode.org/reports/tr15/tr15-45.html" class="uri">https://www.unicode.org/reports/tr15/tr15-45.html</a> Unicode technical report for details</p>
+<h3 id="js.string.normalize">Js.String.normalize</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] /** ES2015 */ external normalize : t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="kw">external</span> normalize : t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t] <span class="co">(** ES2015 *)</span></a></code></pre></div>
+<p><code>normalize str form</code> (ES2015) returns the normalized Unicode string using the specified form of normalization, which may be one of:</p>
+<p>{ul {- “NFC” — Normalization Form Canonical Composition.} {- “NFD” — Normalization Form Canonical Decomposition.} {- “NFKC” — Normalization Form Compatibility Composition.} {- “NFKD” — Normalization Form Compatibility Decomposition.} }</p>
+<p><span class="citation" data-cites="see">@see</span> <a href="https://www.unicode.org/reports/tr15/tr15-45.html" class="uri">https://www.unicode.org/reports/tr15/tr15-45.html</a> Unicode technical report for details</p>
+<h3 id="js.string.normalizebyform">Js.String.normalizeByForm</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external normalizeByForm : t =&gt; t = &quot;normalize&quot;;</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">external</span> normalizeByForm : t -&gt; t = <span class="st">&quot;normalize&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>repeat n s</code> returns a string that consists of <code>n</code> repetitions of <code>s</code>. Raises <code>RangeError</code> if <code>n</code> is negative.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb93-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb93-2" data-line-number="2">  repeat <span class="dv">3</span> <span class="st">&quot;ha&quot;</span> = <span class="st">&quot;hahaha&quot;</span></a>
+<a class="sourceLine" id="cb93-3" data-line-number="3">  repeat <span class="dv">0</span> <span class="st">&quot;empty&quot;</span> = <span class="st">&quot;&quot;</span></a></code></pre></div>
+<pre class="reason"><code>
+  repeat(3, &quot;ha&quot;) == &quot;hahaha&quot;(repeat, 0, &quot;empty&quot;) == &quot;&quot;;
+  </code></pre>
+<h3 id="js.string.repeat">Js.String.repeat</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] /** ES2015 */ external repeat : int =&gt; t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="kw">external</span> repeat : <span class="dt">int</span> -&gt; t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t] <span class="co">(** ES2015 *)</span></a></code></pre></div>
+<p><code>replace substr newSubstr string</code> returns a new string which is identical to <code>string</code> except with the first matching instance of <code>substr</code> replaced by <code>newSubstr</code>.</p>
+<p><code>substr</code> is treated as a verbatim string to match, not a regular expression.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb97-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb97-2" data-line-number="2">  replace <span class="st">&quot;old&quot;</span> <span class="st">&quot;new&quot;</span> <span class="st">&quot;old string&quot;</span> = <span class="st">&quot;new string&quot;</span></a>
+<a class="sourceLine" id="cb97-3" data-line-number="3">  replace <span class="st">&quot;the&quot;</span> <span class="st">&quot;this&quot;</span> <span class="st">&quot;the cat and the dog&quot;</span> = <span class="st">&quot;this cat and the dog&quot;</span></a></code></pre></div>
+<pre class="reason"><code>
+  replace(&quot;old&quot;, &quot;new&quot;, &quot;old string&quot;)
+  == &quot;new string&quot;(replace, &quot;the&quot;, &quot;this&quot;, &quot;the cat and the dog&quot;) == &quot;this cat and the dog&quot;;
+  </code></pre>
+<h3 id="js.string.replace">Js.String.replace</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external replace : (t, t) =&gt; t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="kw">external</span> replace : t -&gt;  t -&gt;  t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>replaceByRe regex replacement string</code> returns a new string where occurrences matching <code>regex</code> have been replaced by <code>replacement</code>.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb101-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb101-2" data-line-number="2">  replaceByRe [%re <span class="st">&quot;/[aeiou]/g&quot;</span>] <span class="st">&quot;x&quot;</span> <span class="st">&quot;vowels be gone&quot;</span> = <span class="st">&quot;vxwxls bx gxnx&quot;</span></a>
+<a class="sourceLine" id="cb101-3" data-line-number="3">  replaceByRe [%re <span class="st">&quot;/(</span><span class="ch">\\</span><span class="st">w+) (</span><span class="ch">\\</span><span class="st">w+)/&quot;</span>] <span class="st">&quot;$2, $1&quot;</span> <span class="st">&quot;Juan Fulano&quot;</span> = <span class="st">&quot;Fulano, Juan&quot;</span></a></code></pre></div>
+<pre class="reason"><code>
+  replaceByRe([%re &quot;/[aeiou]/g&quot;], &quot;x&quot;, &quot;vowels be gone&quot;)
+  == &quot;vxwxls bx gxnx&quot;(
+       replaceByRe,
+       [%re &quot;/(\\w+) (\\w+)/&quot;],
+       &quot;$2, $1&quot;,
+       &quot;Juan Fulano&quot;,
+     ) == &quot;Fulano, Juan&quot;;
+  </code></pre>
+<h3 id="js.string.replacebyre">Js.String.replaceByRe</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external replaceByRe : (Js_re.t, t) =&gt; t = &quot;replace&quot;;</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">external</span> replaceByRe : Js_re.t -&gt;  t -&gt;  t = <span class="st">&quot;replace&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p>returns a new string with some or all matches of a pattern with no capturing parentheses replaced by the value returned from the given function. The function receives as its parameters the matched string, the offset at which the match begins, and the whole string being matched</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb105-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb105-2" data-line-number="2"><span class="kw">let</span> str = <span class="st">&quot;beautiful vowels&quot;</span></a>
+<a class="sourceLine" id="cb105-3" data-line-number="3"><span class="kw">let</span> re = [%re <span class="st">&quot;/[aeiou]/g&quot;</span>]</a>
+<a class="sourceLine" id="cb105-4" data-line-number="4"><span class="kw">let</span> matchFn matchPart offset wholeString =</a>
+<a class="sourceLine" id="cb105-5" data-line-number="5">  Js.<span class="dt">String</span>.toUpperCase matchPart</a>
+<a class="sourceLine" id="cb105-6" data-line-number="6">  </a>
+<a class="sourceLine" id="cb105-7" data-line-number="7"><span class="kw">let</span> replaced = Js.<span class="dt">String</span>.unsafeReplaceBy0 re matchFn str</a>
+<a class="sourceLine" id="cb105-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb105-9" data-line-number="9"><span class="kw">let</span> () = Js.<span class="dt">log</span> replaced <span class="co">(* prints &quot;bEAUtifUl vOwEls&quot; *)</span></a></code></pre></div>
+<pre class="reason"><code>
+let str = &quot;beautiful vowels&quot;;
+let re = [%re &quot;/[aeiou]/g&quot;];
+let matchFn = (matchPart, offset, wholeString) =&gt;
+  Js.String.toUpperCase(matchPart);
+let replaced = Js.String.unsafeReplaceBy0(re, matchFn, str);
+let () = Js.log(replaced); /* prints &quot;bEAUtifUl vOwEls&quot; */
+</code></pre>
+<p><span class="citation" data-cites="see">@see</span> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_function_as_a_parameter" class="uri">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_function_as_a_parameter</a> MDN</p>
+<h3 id="js.string.unsafereplaceby0">Js.String.unsafeReplaceBy0</h3>
+<pre class="reason"><code>[@bs.send.pipe: t]
+external unsafeReplaceBy0 : (Js_re.t, [@bs.uncurry] ((t, int, t) =&gt; t)) =&gt; t =
+  &quot;replace&quot;;</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb108-1" data-line-number="1"><span class="kw">external</span> unsafeReplaceBy0 : Js_re.t -&gt; (t -&gt; <span class="dt">int</span> -&gt; t -&gt; t [@bs.uncurry]) -&gt; t = <span class="st">&quot;replace&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p>returns a new string with some or all matches of a pattern with one set of capturing parentheses replaced by the value returned from the given function. The function receives as its parameters the matched string, the captured string, the offset at which the match begins, and the whole string being matched.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb109-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb109-2" data-line-number="2"><span class="kw">let</span> str = <span class="st">&quot;increment 23&quot;</span></a>
+<a class="sourceLine" id="cb109-3" data-line-number="3"><span class="kw">let</span> re = [%re <span class="st">&quot;/increment (</span><span class="ch">\\</span><span class="st">d+)/g&quot;</span>]</a>
+<a class="sourceLine" id="cb109-4" data-line-number="4"><span class="kw">let</span> matchFn matchPart p1 offset wholeString =</a>
+<a class="sourceLine" id="cb109-5" data-line-number="5">  wholeString ^ <span class="st">&quot; is &quot;</span> ^ (<span class="dt">string_of_int</span> ((<span class="dt">int_of_string</span> p1) + <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb109-6" data-line-number="6">  </a>
+<a class="sourceLine" id="cb109-7" data-line-number="7"><span class="kw">let</span> replaced = Js.<span class="dt">String</span>.unsafeReplaceBy1 re matchFn str</a>
+<a class="sourceLine" id="cb109-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb109-9" data-line-number="9"><span class="kw">let</span> () = Js.<span class="dt">log</span> replaced <span class="co">(* prints &quot;increment 23 is 24&quot; *)</span></a></code></pre></div>
+<pre class="reason"><code>
+let str = &quot;increment 23&quot;;
+let re = [%re &quot;/increment (\\d+)/g&quot;];
+let matchFn = (matchPart, p1, offset, wholeString) =&gt;
+  wholeString ++ &quot; is &quot; ++ string_of_int(int_of_string(p1) + 1);
+let replaced = Js.String.unsafeReplaceBy1(re, matchFn, str);
+let () = Js.log(replaced); /* prints &quot;increment 23 is 24&quot; */
+</code></pre>
+<p><span class="citation" data-cites="see">@see</span> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_function_as_a_parameter" class="uri">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_function_as_a_parameter</a> MDN</p>
+<h3 id="js.string.unsafereplaceby1">Js.String.unsafeReplaceBy1</h3>
+<pre class="reason"><code>[@bs.send.pipe: t]
+external unsafeReplaceBy1 : (Js_re.t, [@bs.uncurry] ((t, t, int, t) =&gt; t)) =&gt; t =
+  &quot;replace&quot;;</code></pre>
+<div class="sourceCode" id="cb112"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb112-1" data-line-number="1"><span class="kw">external</span> unsafeReplaceBy1 : Js_re.t -&gt; (t -&gt; t -&gt; <span class="dt">int</span> -&gt; t -&gt; t [@bs.uncurry]) -&gt; t = <span class="st">&quot;replace&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p>returns a new string with some or all matches of a pattern with two sets of capturing parentheses replaced by the value returned from the given function. The function receives as its parameters the matched string, the captured strings, the offset at which the match begins, and the whole string being matched.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb113-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb113-2" data-line-number="2"><span class="kw">let</span> str = <span class="st">&quot;7 times 6&quot;</span></a>
+<a class="sourceLine" id="cb113-3" data-line-number="3"><span class="kw">let</span> re = [%re <span class="st">&quot;/(</span><span class="ch">\\</span><span class="st">d+) times (</span><span class="ch">\\</span><span class="st">d+)/&quot;</span>]</a>
+<a class="sourceLine" id="cb113-4" data-line-number="4"><span class="kw">let</span> matchFn matchPart p1 p2 offset wholeString =</a>
+<a class="sourceLine" id="cb113-5" data-line-number="5">  <span class="dt">string_of_int</span> ((<span class="dt">int_of_string</span> p1) * (<span class="dt">int_of_string</span> p2))</a>
+<a class="sourceLine" id="cb113-6" data-line-number="6">  </a>
+<a class="sourceLine" id="cb113-7" data-line-number="7"><span class="kw">let</span> replaced = Js.<span class="dt">String</span>.unsafeReplaceBy2 re matchFn str</a>
+<a class="sourceLine" id="cb113-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb113-9" data-line-number="9"><span class="kw">let</span> () = Js.<span class="dt">log</span> replaced <span class="co">(* prints &quot;42&quot; *)</span></a></code></pre></div>
+<pre class="reason"><code>
+let str = &quot;7 times 6&quot;;
+let re = [%re &quot;/(\\d+) times (\\d+)/&quot;];
+let matchFn = (matchPart, p1, p2, offset, wholeString) =&gt;
+  string_of_int(int_of_string(p1) * int_of_string(p2));
+let replaced = Js.String.unsafeReplaceBy2(re, matchFn, str);
+let () = Js.log(replaced); /* prints &quot;42&quot; */
+</code></pre>
+<p><span class="citation" data-cites="see">@see</span> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_function_as_a_parameter" class="uri">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_function_as_a_parameter</a> MDN</p>
+<h3 id="js.string.unsafereplaceby2">Js.String.unsafeReplaceBy2</h3>
+<pre class="reason"><code>[@bs.send.pipe: t]
+external unsafeReplaceBy2 :
+  (Js_re.t, [@bs.uncurry] ((t, t, t, int, t) =&gt; t)) =&gt; t =
+  &quot;replace&quot;;</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="kw">external</span> unsafeReplaceBy2 : Js_re.t -&gt; (t -&gt; t -&gt; t -&gt; <span class="dt">int</span> -&gt; t -&gt; t [@bs.uncurry]) -&gt; t = <span class="st">&quot;replace&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p>returns a new string with some or all matches of a pattern with three sets of capturing parentheses replaced by the value returned from the given function. The function receives as its parameters the matched string, the captured strings, the offset at which the match begins, and the whole string being matched.</p>
+<p><span class="citation" data-cites="see">@see</span> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_function_as_a_parameter" class="uri">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_function_as_a_parameter</a> MDN</p>
+<h3 id="js.string.unsafereplaceby3">Js.String.unsafeReplaceBy3</h3>
+<pre class="reason"><code>[@bs.send.pipe: t]
+external unsafeReplaceBy3 :
+  (Js_re.t, [@bs.uncurry] ((t, t, t, t, int, t) =&gt; t)) =&gt; t =
+  &quot;replace&quot;;</code></pre>
+<div class="sourceCode" id="cb118"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb118-1" data-line-number="1"><span class="kw">external</span> unsafeReplaceBy3 : Js_re.t -&gt; (t -&gt; t -&gt; t -&gt; t -&gt; <span class="dt">int</span> -&gt; t -&gt; t [@bs.uncurry]) -&gt; t = <span class="st">&quot;replace&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>search regexp str</code> returns the starting position of the first match of <code>regexp</code> in the given <code>str</code>, or -1 if there is no match.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb119-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb119-2" data-line-number="2">search [%re <span class="st">&quot;/</span><span class="ch">\\</span><span class="st">d+/&quot;</span>] <span class="st">&quot;testing 1 2 3&quot;</span> = <span class="dv">8</span>;;</a>
+<a class="sourceLine" id="cb119-3" data-line-number="3">search [%re <span class="st">&quot;/</span><span class="ch">\\</span><span class="st">d+/&quot;</span>] <span class="st">&quot;no numbers&quot;</span> = <span class="dv">-1</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+search([%re &quot;/\\d+/&quot;], &quot;testing 1 2 3&quot;) == 8;
+search([%re &quot;/\\d+/&quot;], &quot;no numbers&quot;) == (-1);
+</code></pre>
+<h3 id="js.string.search">Js.String.search</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external search : Js_re.t =&gt; int = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb122-1" data-line-number="1"><span class="kw">external</span> search : Js_re.t -&gt; <span class="dt">int</span> = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>slice from:n1 to_:n2 str</code> returns the substring of <code>str</code> starting at character <code>n1</code> up to but not including <code>n2</code></p>
+<p>If either <code>n1</code> or <code>n2</code> is negative, then it is evaluated as <code>length str - n1</code> (or <code>length str - n2</code>.</p>
+<p>If <code>n2</code> is greater than the length of <code>str</code>, then it is treated as <code>length str</code>.</p>
+<p>If <code>n1</code> is greater than <code>n2</code>, <code>slice</code> returns the empty string.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb123-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb123-2" data-line-number="2">  slice ~from:<span class="dv">2</span> ~to_:<span class="dv">5</span> <span class="st">&quot;abcdefg&quot;</span> == <span class="st">&quot;cde&quot;</span>;;</a>
+<a class="sourceLine" id="cb123-3" data-line-number="3">  slice ~from:<span class="dv">2</span> ~to_:<span class="dv">9</span> <span class="st">&quot;abcdefg&quot;</span> == <span class="st">&quot;cdefg&quot;</span>;;</a>
+<a class="sourceLine" id="cb123-4" data-line-number="4">  slice ~from:(<span class="dv">-4</span>) ~to_:(<span class="dv">-2</span>) <span class="st">&quot;abcdefg&quot;</span> == <span class="st">&quot;de&quot;</span>;; </a>
+<a class="sourceLine" id="cb123-5" data-line-number="5">  slice ~from:<span class="dv">5</span> ~to_:<span class="dv">1</span> <span class="st">&quot;abcdefg&quot;</span> == <span class="st">&quot;&quot;</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  slice(~from=2, ~to_=5, &quot;abcdefg&quot;) === &quot;cde&quot;;
+  slice(~from=2, ~to_=9, &quot;abcdefg&quot;) === &quot;cdefg&quot;;
+  slice(~from=-4, ~to_=-2, &quot;abcdefg&quot;) === &quot;de&quot;;
+  slice(~from=5, ~to_=1, &quot;abcdefg&quot;) === &quot;&quot;;
+  </code></pre>
+<h3 id="js.string.slice">Js.String.slice</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external slice : (~from: int, ~to_: int) =&gt; t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb126"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb126-1" data-line-number="1"><span class="kw">external</span> slice : from:<span class="dt">int</span> -&gt; to_:<span class="dt">int</span> -&gt;  t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>sliceToEnd from: n str</code> returns the substring of <code>str</code> starting at character <code>n</code> to the end of the string</p>
+<p>If <code>n</code> is negative, then it is evaluated as <code>length str - n</code>.</p>
+<p>If <code>n</code> is greater than the length of <code>str</code>, then <code>sliceToEnd</code> returns the empty string.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb127-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb127-2" data-line-number="2">  sliceToEnd ~from: <span class="dv">4</span> <span class="st">&quot;abcdefg&quot;</span> == <span class="st">&quot;efg&quot;</span>;;</a>
+<a class="sourceLine" id="cb127-3" data-line-number="3">  sliceToEnd ~from: (<span class="dv">-2</span>) <span class="st">&quot;abcdefg&quot;</span> == <span class="st">&quot;fg&quot;</span>;; </a>
+<a class="sourceLine" id="cb127-4" data-line-number="4">  sliceToEnd ~from: <span class="dv">7</span> <span class="st">&quot;abcdefg&quot;</span> == <span class="st">&quot;&quot;</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  sliceToEnd(~from=4, &quot;abcdefg&quot;) === &quot;efg&quot;;
+  sliceToEnd(~from=-2, &quot;abcdefg&quot;) === &quot;fg&quot;;
+  sliceToEnd(~from=7, &quot;abcdefg&quot;) === &quot;&quot;;
+  </code></pre>
+<h3 id="js.string.slicetoend">Js.String.sliceToEnd</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external sliceToEnd : (~from: int) =&gt; t = &quot;slice&quot;;</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="kw">external</span> sliceToEnd : from:<span class="dt">int</span> -&gt;  t = <span class="st">&quot;slice&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>split delimiter str</code> splits the given <code>str</code> at every occurrence of <code>delimiter</code> and returns an array of the resulting substrings.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb131-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb131-2" data-line-number="2">  split <span class="st">&quot;-&quot;</span> <span class="st">&quot;2018-01-02&quot;</span> = [|<span class="st">&quot;2018&quot;</span>; <span class="st">&quot;01&quot;</span>; <span class="st">&quot;02&quot;</span>|];;</a>
+<a class="sourceLine" id="cb131-3" data-line-number="3">  split <span class="st">&quot;,&quot;</span> <span class="st">&quot;a,b,,c&quot;</span> = [|<span class="st">&quot;a&quot;</span>; <span class="st">&quot;b&quot;</span>; <span class="st">&quot;&quot;</span>; <span class="st">&quot;c&quot;</span>|];;</a>
+<a class="sourceLine" id="cb131-4" data-line-number="4">  split <span class="st">&quot;::&quot;</span> <span class="st">&quot;good::bad as great::awful&quot;</span> = [|<span class="st">&quot;good&quot;</span>; <span class="st">&quot;bad as great&quot;</span>; <span class="st">&quot;awful&quot;</span>|];;</a>
+<a class="sourceLine" id="cb131-5" data-line-number="5">  split <span class="st">&quot;;&quot;</span> <span class="st">&quot;has-no-delimiter&quot;</span> = [|<span class="st">&quot;has-no-delimiter&quot;</span>|];;</a></code></pre></div>
+<pre class="reason"><code>
+  split(&quot;-&quot;, &quot;2018-01-02&quot;) == [|&quot;2018&quot;, &quot;01&quot;, &quot;02&quot;|];
+  split(&quot;,&quot;, &quot;a,b,,c&quot;) == [|&quot;a&quot;, &quot;b&quot;, &quot;&quot;, &quot;c&quot;|];
+  split(&quot;::&quot;, &quot;good::bad as great::awful&quot;)
+  == [|&quot;good&quot;, &quot;bad as great&quot;, &quot;awful&quot;|];
+  split(&quot;;&quot;, &quot;has-no-delimiter&quot;) == [|&quot;has-no-delimiter&quot;|];
+  </code></pre>
+<p>;</p>
+<h3 id="js.string.split">Js.String.split</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external split : t =&gt; array(t) = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="kw">external</span> split : t -&gt; t <span class="dt">array</span>  = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>splitAtMost delimiter ~limit: n str</code> splits the given <code>str</code> at every occurrence of <code>delimiter</code> and returns an array of the first <code>n</code> resulting substrings. If <code>n</code> is negative or greater than the number of substrings, the array will contain all the substrings.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb135-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb135-2" data-line-number="2">  splitAtMost <span class="st">&quot;/&quot;</span> ~limit: <span class="dv">3</span> <span class="st">&quot;ant/bee/cat/dog/elk&quot;</span> = [|<span class="st">&quot;ant&quot;</span>; <span class="st">&quot;bee&quot;</span>; <span class="st">&quot;cat&quot;</span>|];;</a>
+<a class="sourceLine" id="cb135-3" data-line-number="3">  splitAtMost <span class="st">&quot;/&quot;</span> ~limit: <span class="dv">0</span> <span class="st">&quot;ant/bee/cat/dog/elk&quot;</span> = [| |];;</a>
+<a class="sourceLine" id="cb135-4" data-line-number="4">  splitAtMost <span class="st">&quot;/&quot;</span> ~limit: <span class="dv">9</span> <span class="st">&quot;ant/bee/cat/dog/elk&quot;</span> = [|<span class="st">&quot;ant&quot;</span>; <span class="st">&quot;bee&quot;</span>; <span class="st">&quot;cat&quot;</span>; <span class="st">&quot;dog&quot;</span>; <span class="st">&quot;elk&quot;</span>|];;</a></code></pre></div>
+<pre class="reason"><code>
+  splitAtMost(&quot;/&quot;, ~limit=3, &quot;ant/bee/cat/dog/elk&quot;) == [|&quot;ant&quot;, &quot;bee&quot;, &quot;cat&quot;|];
+  splitAtMost(&quot;/&quot;, ~limit=0, &quot;ant/bee/cat/dog/elk&quot;) == [||];
+  splitAtMost(&quot;/&quot;, ~limit=9, &quot;ant/bee/cat/dog/elk&quot;)
+  == [|&quot;ant&quot;, &quot;bee&quot;, &quot;cat&quot;, &quot;dog&quot;, &quot;elk&quot;|];
+  </code></pre>
+<h3 id="js.string.splitatmost">Js.String.splitAtMost</h3>
+<pre class="reason"><code>[@bs.send.pipe: t]
+external splitAtMost : (t, ~limit: int) =&gt; array(t) = &quot;split&quot;;</code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb138-1" data-line-number="1"><span class="kw">external</span> splitAtMost: t -&gt; limit:<span class="dt">int</span> -&gt; t <span class="dt">array</span> = <span class="st">&quot;split&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p>Deprecated - Please use <code>splitAtMost</code></p>
+<h3 id="js.string.splitlimited">Js.String.splitLimited</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] [@ocaml.deprecated &quot;Please use splitAtMost&quot;]
+external splitLimited : (t, int) =&gt; array(t) = &quot;split&quot;;</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="kw">external</span> splitLimited : t -&gt; <span class="dt">int</span> -&gt; t <span class="dt">array</span> = <span class="st">&quot;split&quot;</span> [@@bs.send.pipe: t]</a>
+<a class="sourceLine" id="cb140-2" data-line-number="2">[@@ocaml.deprecated <span class="st">&quot;Please use splitAtMost&quot;</span>]</a></code></pre></div>
+<p><code>splitByRe regex str</code> splits the given <code>str</code> at every occurrence of <code>regex</code> and returns an array of the resulting substrings.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb141-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb141-2" data-line-number="2">  splitByRe [%re <span class="st">&quot;/</span><span class="ch">\\</span><span class="st">s*[,;]</span><span class="ch">\\</span><span class="st">s*/&quot;</span>] <span class="st">&quot;art; bed , cog ;dad&quot;</span> = [|<span class="st">&quot;art&quot;</span>; <span class="st">&quot;bed&quot;</span>; <span class="st">&quot;cog&quot;</span>; <span class="st">&quot;dad&quot;</span>|];;</a>
+<a class="sourceLine" id="cb141-3" data-line-number="3">  splitByRe [%re <span class="st">&quot;/[,;]/&quot;</span>] <span class="st">&quot;has:no:match&quot;</span> = [|<span class="st">&quot;has:no:match&quot;</span>|];;</a></code></pre></div>
+<pre class="reason"><code>
+  splitByRe([%re &quot;/\\s*[,;]\\s*/&quot;], &quot;art; bed , cog ;dad&quot;)
+  == [|&quot;art&quot;, &quot;bed&quot;, &quot;cog&quot;, &quot;dad&quot;|];
+  splitByRe([%re &quot;/[,;]/&quot;], &quot;has:no:match&quot;) == [|&quot;has:no:match&quot;|];
+  </code></pre>
+<p>;</p>
+<h3 id="js.string.splitbyre">Js.String.splitByRe</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external splitByRe : Js_re.t =&gt; array(t) = &quot;split&quot;;</code></pre>
+<div class="sourceCode" id="cb144"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb144-1" data-line-number="1"><span class="kw">external</span> splitByRe : Js_re.t -&gt;  t <span class="dt">array</span> = <span class="st">&quot;split&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>splitByReAtMost regex ~limit: n str</code> splits the given <code>str</code> at every occurrence of <code>regex</code> and returns an array of the first <code>n</code> resulting substrings. If <code>n</code> is negative or greater than the number of substrings, the array will contain all the substrings.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb145-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb145-2" data-line-number="2">  splitByReAtMost [%re <span class="st">&quot;/</span><span class="ch">\\</span><span class="st">s*:</span><span class="ch">\\</span><span class="st">s*/&quot;</span>] ~limit: <span class="dv">3</span> <span class="st">&quot;one: two: three: four&quot;</span> = [|<span class="st">&quot;one&quot;</span>; <span class="st">&quot;two&quot;</span>; <span class="st">&quot;three&quot;</span>|];;</a>
+<a class="sourceLine" id="cb145-3" data-line-number="3">  splitByReAtMost [%re <span class="st">&quot;/</span><span class="ch">\\</span><span class="st">s*:</span><span class="ch">\\</span><span class="st">s*/&quot;</span>] ~limit: <span class="dv">0</span> <span class="st">&quot;one: two: three: four&quot;</span> = [| |];;</a>
+<a class="sourceLine" id="cb145-4" data-line-number="4">  splitByReAtMost [%re <span class="st">&quot;/</span><span class="ch">\\</span><span class="st">s*:</span><span class="ch">\\</span><span class="st">s*/&quot;</span>] ~limit: <span class="dv">8</span> <span class="st">&quot;one: two: three: four&quot;</span> = [|<span class="st">&quot;one&quot;</span>; <span class="st">&quot;two&quot;</span>; <span class="st">&quot;three&quot;</span>; <span class="st">&quot;four&quot;</span>|];;</a></code></pre></div>
+<pre class="reason"><code>
+  splitByReAtMost([%re &quot;/\\s*:\\s*/&quot;], ~limit=3, &quot;one: two: three: four&quot;)
+  == [|&quot;one&quot;, &quot;two&quot;, &quot;three&quot;|];
+  splitByReAtMost([%re &quot;/\\s*:\\s*/&quot;], ~limit=0, &quot;one: two: three: four&quot;)
+  == [||];
+  splitByReAtMost([%re &quot;/\\s*:\\s*/&quot;], ~limit=8, &quot;one: two: three: four&quot;)
+  == [|&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;|];
+  </code></pre>
+<p>;</p>
+<h3 id="js.string.splitbyreatmost">Js.String.splitByReAtMost</h3>
+<pre class="reason"><code>[@bs.send.pipe: t]
+external splitByReAtMost : (Js_re.t, ~limit: int) =&gt; array(t) = &quot;split&quot;;</code></pre>
+<div class="sourceCode" id="cb148"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb148-1" data-line-number="1"><span class="kw">external</span> splitByReAtMost : Js_re.t -&gt; limit:<span class="dt">int</span> -&gt;  t <span class="dt">array</span> = <span class="st">&quot;split&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p>Deprecated - Please use <code>splitByReAtMost</code></p>
+<h3 id="js.string.splitregexplimited">Js.String.splitRegexpLimited</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] [@ocaml.deprecated &quot;Please use splitByReAtMost&quot;]
+external splitRegexpLimited : (Js_re.t, int) =&gt; array(t) = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb150"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb150-1" data-line-number="1"><span class="kw">external</span> splitRegexpLimited : Js_re.t -&gt; <span class="dt">int</span> -&gt;  t <span class="dt">array</span> = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a>
+<a class="sourceLine" id="cb150-2" data-line-number="2">[@@ocaml.deprecated <span class="st">&quot;Please use splitByReAtMost&quot;</span>]</a></code></pre></div>
+<p>ES2015: <code>startsWith substr str</code> returns <code>true</code> if the <code>str</code> starts with <code>substr</code>, <code>false</code> otherwise.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb151-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb151-2" data-line-number="2">  startsWith <span class="st">&quot;Buckle&quot;</span> <span class="st">&quot;BuckleScript&quot;</span> = <span class="kw">true</span>;;</a>
+<a class="sourceLine" id="cb151-3" data-line-number="3">  startsWith <span class="st">&quot;&quot;</span> <span class="st">&quot;BuckleScript&quot;</span> = <span class="kw">true</span>;;</a>
+<a class="sourceLine" id="cb151-4" data-line-number="4">  startsWith <span class="st">&quot;Buckle&quot;</span> <span class="st">&quot;JavaScript&quot;</span> = <span class="kw">false</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  startsWith(&quot;Buckle&quot;, &quot;BuckleScript&quot;) == true;
+  startsWith(&quot;&quot;, &quot;BuckleScript&quot;) == true;
+  startsWith(&quot;Buckle&quot;, &quot;JavaScript&quot;) == false;
+  </code></pre>
+<h3 id="js.string.startswith">Js.String.startsWith</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external startsWith : t =&gt; bool = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb154-1" data-line-number="1"><span class="kw">external</span> startsWith : t -&gt; <span class="dt">bool</span> = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p>ES2015: <code>startsWithFrom substr n str</code> returns <code>true</code> if the <code>str</code> starts with <code>substr</code> starting at position <code>n</code>, <code>false</code> otherwise. If <code>n</code> is negative, the search starts at the beginning of <code>str</code>.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb155-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb155-2" data-line-number="2">  startsWithFrom <span class="st">&quot;kle&quot;</span> <span class="dv">3</span> <span class="st">&quot;BuckleScript&quot;</span> = <span class="kw">true</span>;;</a>
+<a class="sourceLine" id="cb155-3" data-line-number="3">  startsWithFrom <span class="st">&quot;&quot;</span> <span class="dv">3</span> <span class="st">&quot;BuckleScript&quot;</span> = <span class="kw">true</span>;;</a>
+<a class="sourceLine" id="cb155-4" data-line-number="4">  startsWithFrom <span class="st">&quot;Buckle&quot;</span> <span class="dv">2</span> <span class="st">&quot;JavaScript&quot;</span> = <span class="kw">false</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  startsWithFrom(&quot;kle&quot;, 3, &quot;BuckleScript&quot;) == true;
+  startsWithFrom(&quot;&quot;, 3, &quot;BuckleScript&quot;) == true;
+  startsWithFrom(&quot;Buckle&quot;, 2, &quot;JavaScript&quot;) == false;
+  </code></pre>
+<h3 id="js.string.startswithfrom">Js.String.startsWithFrom</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external startsWithFrom : (t, int) =&gt; bool = &quot;startsWith&quot;;</code></pre>
+<div class="sourceCode" id="cb158"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="kw">external</span> startsWithFrom : t -&gt; <span class="dt">int</span> -&gt; <span class="dt">bool</span> = <span class="st">&quot;startsWith&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>substr ~from: n str</code> returns the substring of <code>str</code> from position <code>n</code> to the end of the string.</p>
+<p>If <code>n</code> is less than zero, the starting position is the length of <code>str</code> - <code>n</code>.</p>
+<p>If <code>n</code> is greater than or equal to the length of <code>str</code>, returns the empty string.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb159-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb159-2" data-line-number="2">  substr ~from: <span class="dv">3</span> <span class="st">&quot;abcdefghij&quot;</span> = <span class="st">&quot;defghij&quot;</span></a>
+<a class="sourceLine" id="cb159-3" data-line-number="3">  substr ~from: (<span class="dv">-3</span>) <span class="st">&quot;abcdefghij&quot;</span> = <span class="st">&quot;hij&quot;</span></a>
+<a class="sourceLine" id="cb159-4" data-line-number="4">  substr ~from: <span class="dv">12</span> <span class="st">&quot;abcdefghij&quot;</span> = <span class="st">&quot;&quot;</span></a></code></pre></div>
+<pre class="reason"><code>
+  substr(~from=3, &quot;abcdefghij&quot;)
+  == &quot;defghij&quot;(substr, ~from=-3, &quot;abcdefghij&quot;) == &quot;hij&quot;(
+                                                     substr,
+                                                     ~from=12,
+                                                     &quot;abcdefghij&quot;,
+                                                   ) == &quot;&quot;;
+  </code></pre>
+<h3 id="js.string.substr">Js.String.substr</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external substr : (~from: int) =&gt; t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb162-1" data-line-number="1"><span class="kw">external</span> substr : from:<span class="dt">int</span> -&gt; t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>substrAtMost ~from: pos ~length: n str</code> returns the substring of <code>str</code> of length <code>n</code> starting at position <code>pos</code>.</p>
+<p>If <code>pos</code> is less than zero, the starting position is the length of <code>str</code> - <code>pos</code>.</p>
+<p>If <code>pos</code> is greater than or equal to the length of <code>str</code>, returns the empty string.</p>
+<p>If <code>n</code> is less than or equal to zero, returns the empty string.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb163-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb163-2" data-line-number="2">  substrAtMost ~from: <span class="dv">3</span> ~length: <span class="dv">4</span> <span class="st">&quot;abcdefghij&quot;</span> = <span class="st">&quot;defghij&quot;</span></a>
+<a class="sourceLine" id="cb163-3" data-line-number="3">  substrAtMost ~from: (<span class="dv">-3</span>) ~length: <span class="dv">4</span> <span class="st">&quot;abcdefghij&quot;</span> = <span class="st">&quot;hij&quot;</span></a>
+<a class="sourceLine" id="cb163-4" data-line-number="4">  substrAtMost ~from: <span class="dv">12</span> ~ length: <span class="dv">2</span> <span class="st">&quot;abcdefghij&quot;</span> = <span class="st">&quot;&quot;</span></a></code></pre></div>
+<pre class="reason"><code>!!!
+  substrAtMost ~from: 3 ~length: 4 &quot;abcdefghij&quot; = &quot;defghij&quot;
+  substrAtMost ~from: (-3) ~length: 4 &quot;abcdefghij&quot; = &quot;hij&quot;
+  substrAtMost ~from: 12 ~ length: 2 &quot;abcdefghij&quot; = &quot;&quot;
+!!!</code></pre>
+<h3 id="js.string.substratmost">Js.String.substrAtMost</h3>
+<pre class="reason"><code>[@bs.send.pipe: t]
+external substrAtMost : (~from: int, ~length: int) =&gt; t = &quot;substr&quot;;</code></pre>
+<div class="sourceCode" id="cb166"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb166-1" data-line-number="1"><span class="kw">external</span> substrAtMost : from:<span class="dt">int</span> -&gt; length:<span class="dt">int</span> -&gt; t = <span class="st">&quot;substr&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>substring ~from: start ~to_: finish str</code> returns characters <code>start</code> up to but not including <code>finish</code> from <code>str</code>.</p>
+<p>If <code>start</code> is less than zero, it is treated as zero.</p>
+<p>If <code>finish</code> is zero or negative, the empty string is returned.</p>
+<p>If <code>start</code> is greater than <code>finish</code>, the start and finish points are swapped.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb167-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb167-2" data-line-number="2">  substring ~from: <span class="dv">3</span> ~to_: <span class="dv">6</span> <span class="st">&quot;playground&quot;</span> = <span class="st">&quot;ygr&quot;</span>;;</a>
+<a class="sourceLine" id="cb167-3" data-line-number="3">  substring ~from: <span class="dv">6</span> ~to_: <span class="dv">3</span> <span class="st">&quot;playground&quot;</span> = <span class="st">&quot;ygr&quot;</span>;;</a>
+<a class="sourceLine" id="cb167-4" data-line-number="4">  substring ~from: <span class="dv">4</span> ~to_: <span class="dv">12</span> <span class="st">&quot;playground&quot;</span> = <span class="st">&quot;ground&quot;</span>;;</a></code></pre></div>
+<pre class="reason"><code>
+  substring(~from=3, ~to_=6, &quot;playground&quot;) == &quot;ygr&quot;;
+  substring(~from=6, ~to_=3, &quot;playground&quot;) == &quot;ygr&quot;;
+  substring(~from=4, ~to_=12, &quot;playground&quot;) == &quot;ground&quot;;
+  </code></pre>
+<h3 id="js.string.substring">Js.String.substring</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external substring : (~from: int, ~to_: int) =&gt; t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb170"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb170-1" data-line-number="1"><span class="kw">external</span> substring : from:<span class="dt">int</span> -&gt; to_:<span class="dt">int</span> -&gt;  t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>substringToEnd ~from: start str</code> returns the substring of <code>str</code> from position <code>start</code> to the end.</p>
+<p>If <code>start</code> is less than or equal to zero, the entire string is returned.</p>
+<p>If <code>start</code> is greater than or equal to the length of <code>str</code>, the empty string is returned.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb171-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb171-2" data-line-number="2">  substringToEnd ~from: <span class="dv">4</span> <span class="st">&quot;playground&quot;</span> = <span class="st">&quot;ground&quot;</span>;;</a>
+<a class="sourceLine" id="cb171-3" data-line-number="3">  substringToEnd ~from: (<span class="dv">-3</span>) <span class="st">&quot;playground&quot;</span> = <span class="st">&quot;playground&quot;</span>;;</a>
+<a class="sourceLine" id="cb171-4" data-line-number="4">  substringToEnd ~from: <span class="dv">12</span> <span class="st">&quot;playground&quot;</span> = <span class="st">&quot;&quot;</span>;</a></code></pre></div>
+<pre class="reason"><code>
+  substringToEnd(~from=4, &quot;playground&quot;) == &quot;ground&quot;;
+  substringToEnd(~from=-3, &quot;playground&quot;) == &quot;playground&quot;;
+  substringToEnd(~from=12, &quot;playground&quot;) == &quot;&quot;;
+  </code></pre>
+<h3 id="js.string.substringtoend">Js.String.substringToEnd</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external substringToEnd : (~from: int) =&gt; t = &quot;substring&quot;;</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb174-1" data-line-number="1"><span class="kw">external</span> substringToEnd : from:<span class="dt">int</span> -&gt;  t = <span class="st">&quot;substring&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>toLowerCase str</code> converts <code>str</code> to lower case using the locale-insensitive case mappings in the Unicode Character Database. Notice that the conversion can give different results depending upon context, for example with the Greek letter sigma, which has two different lower case forms when it is the last character in a string or not.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb175-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb175-2" data-line-number="2">  toLowerCase <span class="st">&quot;ABC&quot;</span> = <span class="st">&quot;abc&quot;</span>;;</a>
+<a class="sourceLine" id="cb175-3" data-line-number="3">  toLowerCase {js|ΣΠ|js} = {js|σπ|js};;</a>
+<a class="sourceLine" id="cb175-4" data-line-number="4">  toLowerCase {js|ΠΣ|js} = {js|πς|js};;</a></code></pre></div>
+<pre class="reason"><code>
+  toLowerCase(&quot;ABC&quot;) == &quot;abc&quot;;
+  toLowerCase({js|ΣΠ|js}) == {js|σπ|js};
+  toLowerCase({js|ΠΣ|js}) == {js|πς|js};
+  </code></pre>
+<h3 id="js.string.tolowercase">Js.String.toLowerCase</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external toLowerCase : t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb178"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb178-1" data-line-number="1"><span class="kw">external</span> toLowerCase : t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>toLocaleLowerCase str</code> converts <code>str</code> to lower case using the current locale</p>
+<h3 id="js.string.tolocalelowercase">Js.String.toLocaleLowerCase</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external toLocaleLowerCase : t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb180"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb180-1" data-line-number="1"><span class="kw">external</span> toLocaleLowerCase : t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>toUpperCase str</code> converts <code>str</code> to upper case using the locale-insensitive case mappings in the Unicode Character Database. Notice that the conversion can expand the number of letters in the result; for example the German <code>ß</code> capitalizes to two <code>S</code>es in a row.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb181-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb181-2" data-line-number="2">  toUpperCase <span class="st">&quot;abc&quot;</span> = <span class="st">&quot;ABC&quot;</span>;;</a>
+<a class="sourceLine" id="cb181-3" data-line-number="3">  toUpperCase {js|Straße|js} = {js|STRASSE|js};;</a>
+<a class="sourceLine" id="cb181-4" data-line-number="4">  toLowerCase {js|πς|js} = {js|ΠΣ|js};;</a></code></pre></div>
+<pre class="reason"><code>
+  toUpperCase(&quot;abc&quot;) == &quot;ABC&quot;;
+  toUpperCase({js|Straße|js}) == {js|STRASSE|js};
+  toLowerCase({js|πς|js}) == {js|ΠΣ|js};
+  </code></pre>
+<h3 id="js.string.touppercase">Js.String.toUpperCase</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external toUpperCase : t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb184-1" data-line-number="1"><span class="kw">external</span> toUpperCase : t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>toLocaleUpperCase str</code> converts <code>str</code> to upper case using the current locale</p>
+<h3 id="js.string.tolocaleuppercase">Js.String.toLocaleUpperCase</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external toLocaleUpperCase : t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb186-1" data-line-number="1"><span class="kw">external</span> toLocaleUpperCase : t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a></code></pre></div>
+<p><code>trim str</code> returns a string that is <code>str</code> with whitespace stripped from both ends. Internal whitespace is not removed.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb187-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb187-2" data-line-number="2">  trim <span class="st">&quot;   abc def   &quot;</span> = <span class="st">&quot;abc def&quot;</span></a>
+<a class="sourceLine" id="cb187-3" data-line-number="3">  trim <span class="st">&quot;</span><span class="ch">\n\r\t</span><span class="st"> abc def </span><span class="ch">\n\n\t\r</span><span class="st"> &quot;</span> = <span class="st">&quot;abc def&quot;</span></a></code></pre></div>
+<pre class="reason"><code>
+  trim(&quot;   abc def   &quot;)
+  == &quot;abc def&quot;(trim, &quot;\n\r\t abc def \n\n\t\r &quot;) == &quot;abc def&quot;;
+  </code></pre>
+<h3 id="js.string.trim">Js.String.trim</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] external trim : t = &quot;&quot;;
+/* HTML wrappers */</code></pre>
+<div class="sourceCode" id="cb190"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb190-1" data-line-number="1"><span class="kw">external</span> trim : t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t]</a>
+<a class="sourceLine" id="cb190-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb190-3" data-line-number="3"><span class="co">(* HTML wrappers *)</span></a></code></pre></div>
+<p><code>anchor anchorName anchorText</code> creates a string with an HTML <code>&lt;a&gt;</code> element with <code>name</code> attribute of <code>anchorName</code> and <code>anchorText</code> as its content.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb191-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb191-2" data-line-number="2">  anchor <span class="st">&quot;page1&quot;</span> <span class="st">&quot;Page One&quot;</span> = <span class="st">&quot;&lt;a name=</span><span class="ch">\&quot;</span><span class="st">page1</span><span class="ch">\&quot;</span><span class="st">&gt;Page One&lt;/a&gt;&quot;</span></a></code></pre></div>
+<pre class="reason"><code>
+  anchor(&quot;page1&quot;, &quot;Page One&quot;) == &quot;&lt;a name=\&quot;page1\&quot;&gt;Page One&lt;/a&gt;&quot;;
+  </code></pre>
+<h3 id="js.string.anchor">Js.String.anchor</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] /** ES2015 */ external anchor : t =&gt; t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb194-1" data-line-number="1"><span class="kw">external</span> anchor : t -&gt; t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t] <span class="co">(** ES2015 *)</span></a></code></pre></div>
+<p><code>link urlText linkText</code> creates a string withan HTML <code>&lt;a&gt;</code> element with <code>href</code> attribute of <code>urlText</code> and <code>linkText</code> as its content.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb195-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb195-2" data-line-number="2">  link <span class="st">&quot;page2.html&quot;</span> <span class="st">&quot;Go to page two&quot;</span> = <span class="st">&quot;&lt;a href=</span><span class="ch">\&quot;</span><span class="st">page2.html</span><span class="ch">\&quot;</span><span class="st">&gt;Go to page two&lt;/a&gt;&quot;</span></a></code></pre></div>
+<pre class="reason"><code>
+  link(&quot;page2.html&quot;, &quot;Go to page two&quot;)
+  == &quot;&lt;a href=\&quot;page2.html\&quot;&gt;Go to page two&lt;/a&gt;&quot;;
+  </code></pre>
+<h3 id="js.string.link">Js.String.link</h3>
+<pre class="reason"><code>[@bs.send.pipe: t] /** ES2015 */ external link : t =&gt; t = &quot;&quot;;</code></pre>
+<div class="sourceCode" id="cb198"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb198-1" data-line-number="1"><span class="kw">external</span> link : t -&gt; t = <span class="st">&quot;&quot;</span> [@@bs.send.pipe: t] <span class="co">(** ES2015 *)</span></a></code></pre></div>
+<h3 id="js.string.casttoarraylike">Js.String.castToArrayLike</h3>
+<pre class="reason"><code>external castToArrayLike : t =&gt; Js_array.array_like(t) = &quot;%identity&quot;;
+/* FIXME: we should not encourage people to use [%identity], better
+       to provide something using [@@bs.val] so that we can track such
+       casting
+   */</code></pre>
+<div class="sourceCode" id="cb200"><pre class="sourceCode ocaml"><code class="sourceCode ocaml"><a class="sourceLine" id="cb200-1" data-line-number="1"><span class="kw">external</span> castToArrayLike : t -&gt; t Js_array.array_like = <span class="st">&quot;%identity&quot;</span> </a>
+<a class="sourceLine" id="cb200-2" data-line-number="2"><span class="co">(* FIXME: we should not encourage people to use [%identity], better</span></a>
+<a class="sourceLine" id="cb200-3" data-line-number="3"><span class="co">    to provide something using [@@bs.val] so that we can track such </span></a>
+<a class="sourceLine" id="cb200-4" data-line-number="4"><span class="co">    casting</span></a>
+<a class="sourceLine" id="cb200-5" data-line-number="5"><span class="co">*)</span></a></code></pre></div>

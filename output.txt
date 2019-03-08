@@ -1,0 +1,3167 @@
+[
+  signature_item (mli_files/belt_List.mli[25,1303+0]..[34,1590+2])
+    Psig_attribute "ocaml.text"
+    [
+      structure_item (mli_files/belt_List.mli[25,1303+0]..[34,1590+2])
+        Pstr_eval
+        expression (mli_files/belt_List.mli[25,1303+0]..[34,1590+2])
+          Pexp_constant Const_string(" {!Belt.List}\n    \n    Utilities for List data type.\n    \n    This module is compatible with original ocaml stdlib.\n    In general, all functions comes with the original stdlib also\n    applies to this collection, however, this module provides  faster\n    and stack safer utilities \n\n",None)
+    ]
+  signature_item (mli_files/belt_List.mli[36,1594+0]..[36,1594+19])
+    Psig_type
+    [
+      type_declaration "t" (mli_files/belt_List.mli[36,1594+8]..[36,1594+9]) (mli_files/belt_List.mli[36,1594+0]..[36,1594+19])
+        attribute "ocaml.doc"
+          [
+            structure_item (mli_files/belt_List.mli[37,1614+0]..[37,1614+53])
+              Pstr_eval
+              expression (mli_files/belt_List.mli[37,1614+0]..[37,1614+53])
+                Pexp_constant Const_string(" ['a t] is compatible with built-in [list] type ",None)
+          ]
+        ptype_params =
+          [
+            core_type (mli_files/belt_List.mli[36,1594+5]..[36,1594+7])
+              Ptyp_var a
+          ]
+        ptype_cstrs =
+          []
+        ptype_kind =
+          Ptype_abstract
+        ptype_private = Public
+        ptype_manifest =
+          Some
+            core_type (mli_files/belt_List.mli[36,1594+12]..[36,1594+19])
+              Ptyp_constr "list" (mli_files/belt_List.mli[36,1594+15]..[36,1594+19])
+              [
+                core_type (mli_files/belt_List.mli[36,1594+12]..[36,1594+14])
+                  Ptyp_var a
+              ]
+    ]
+  signature_item (mli_files/belt_List.mli[39,1669+0]..[39,1669+23])
+    Psig_value
+    value_description "length" (mli_files/belt_List.mli[39,1669+4]..[39,1669+10]) (mli_files/belt_List.mli[39,1669+0]..[39,1669+23])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[40,1693+0]..[43,1748+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[40,1693+0]..[43,1748+2])
+              Pexp_constant Const_string(" [length l]\n\n    @return the length of the list [l]\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[39,1669+12]..[39,1669+23])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[39,1669+12]..[39,1669+16])
+          Ptyp_constr "t" (mli_files/belt_List.mli[39,1669+15]..[39,1669+16])
+          [
+            core_type (mli_files/belt_List.mli[39,1669+12]..[39,1669+14])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[39,1669+20]..[39,1669+23])
+          Ptyp_constr "int" (mli_files/belt_List.mli[39,1669+20]..[39,1669+23])
+          []
+      []
+  signature_item (mli_files/belt_List.mli[45,1752+0]..[45,1752+21])
+    Psig_value
+    value_description "size" (mli_files/belt_List.mli[45,1752+4]..[45,1752+8]) (mli_files/belt_List.mli[45,1752+0]..[45,1752+21])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[46,1774+0]..[46,1774+24])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[46,1774+0]..[46,1774+24])
+              Pexp_constant Const_string(" {b See} {!length} ",None)
+        ]
+      core_type (mli_files/belt_List.mli[45,1752+10]..[45,1752+21])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[45,1752+10]..[45,1752+14])
+          Ptyp_constr "t" (mli_files/belt_List.mli[45,1752+13]..[45,1752+14])
+          [
+            core_type (mli_files/belt_List.mli[45,1752+10]..[45,1752+12])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[45,1752+18]..[45,1752+21])
+          Ptyp_constr "int" (mli_files/belt_List.mli[45,1752+18]..[45,1752+21])
+          []
+      []
+  signature_item (mli_files/belt_List.mli[48,1800+0]..[48,1800+27])
+    Psig_value
+    value_description "head" (mli_files/belt_List.mli[48,1800+4]..[48,1800+8]) (mli_files/belt_List.mli[48,1800+0]..[48,1800+27])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[49,1828+0]..[54,1906+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[49,1828+0]..[54,1906+2])
+              Pexp_constant Const_string("\n   @example {[\n     head [] = None ;;\n     head [1;2;3] = Some 1 ;;\n   ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[48,1800+10]..[48,1800+27])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[48,1800+10]..[48,1800+14])
+          Ptyp_constr "t" (mli_files/belt_List.mli[48,1800+13]..[48,1800+14])
+          [
+            core_type (mli_files/belt_List.mli[48,1800+10]..[48,1800+12])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[48,1800+18]..[48,1800+27])
+          Ptyp_constr "option" (mli_files/belt_List.mli[48,1800+21]..[48,1800+27])
+          [
+            core_type (mli_files/belt_List.mli[48,1800+18]..[48,1800+20])
+              Ptyp_var a
+          ]
+      []
+  signature_item (mli_files/belt_List.mli[55,1909+0]..[55,1909+23])
+    Psig_value
+    value_description "headExn" (mli_files/belt_List.mli[55,1909+4]..[55,1909+11]) (mli_files/belt_List.mli[55,1909+0]..[55,1909+23])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[49,1828+0]..[54,1906+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[49,1828+0]..[54,1906+2])
+              Pexp_constant Const_string("\n   @example {[\n     head [] = None ;;\n     head [1;2;3] = Some 1 ;;\n   ]}\n",None)
+        ]
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[56,1935+0]..[62,2021+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[56,1935+0]..[62,2021+2])
+              Pexp_constant Const_string(" [headExn h]\n\n    {b See} {!head}\n    \n    {b raise} an exception if [h] is empty\n\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[55,1909+13]..[55,1909+23])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[55,1909+13]..[55,1909+17])
+          Ptyp_constr "t" (mli_files/belt_List.mli[55,1909+16]..[55,1909+17])
+          [
+            core_type (mli_files/belt_List.mli[55,1909+13]..[55,1909+15])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[55,1909+21]..[55,1909+23])
+          Ptyp_var a
+      []
+  signature_item (mli_files/belt_List.mli[64,2025+0]..[64,2025+29])
+    Psig_value
+    value_description "tail" (mli_files/belt_List.mli[64,2025+4]..[64,2025+8]) (mli_files/belt_List.mli[64,2025+0]..[64,2025+29])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[65,2055+0]..[70,2132+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[65,2055+0]..[70,2132+2])
+              Pexp_constant Const_string(" @example{[\n\n      tail [] = None ;;\n      tail [1;2] = Some [2];;\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[64,2025+10]..[64,2025+29])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[64,2025+10]..[64,2025+14])
+          Ptyp_constr "t" (mli_files/belt_List.mli[64,2025+13]..[64,2025+14])
+          [
+            core_type (mli_files/belt_List.mli[64,2025+10]..[64,2025+12])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[64,2025+18]..[64,2025+29])
+          Ptyp_constr "option" (mli_files/belt_List.mli[64,2025+23]..[64,2025+29])
+          [
+            core_type (mli_files/belt_List.mli[64,2025+18]..[64,2025+22])
+              Ptyp_constr "t" (mli_files/belt_List.mli[64,2025+21]..[64,2025+22])
+              [
+                core_type (mli_files/belt_List.mli[64,2025+18]..[64,2025+20])
+                  Ptyp_var a
+              ]
+          ]
+      []
+  signature_item (mli_files/belt_List.mli[72,2140+0]..[72,2140+25])
+    Psig_value
+    value_description "tailExn" (mli_files/belt_List.mli[72,2140+4]..[72,2140+11]) (mli_files/belt_List.mli[72,2140+0]..[72,2140+25])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[73,2167+0]..[78,2252+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[73,2167+0]..[78,2252+2])
+              Pexp_constant Const_string(" [tailExn h]\n\n    {b See} {!tail}\n    \n    {b raise} an exception if [h] is empty\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[72,2140+13]..[72,2140+25])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[72,2140+13]..[72,2140+17])
+          Ptyp_constr "t" (mli_files/belt_List.mli[72,2140+16]..[72,2140+17])
+          [
+            core_type (mli_files/belt_List.mli[72,2140+13]..[72,2140+15])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[72,2140+21]..[72,2140+25])
+          Ptyp_constr "t" (mli_files/belt_List.mli[72,2140+24]..[72,2140+25])
+          [
+            core_type (mli_files/belt_List.mli[72,2140+21]..[72,2140+23])
+              Ptyp_var a
+          ]
+      []
+  signature_item (mli_files/belt_List.mli[80,2256+0]..[80,2256+27])
+    Psig_value
+    value_description "add" (mli_files/belt_List.mli[80,2256+4]..[80,2256+7]) (mli_files/belt_List.mli[80,2256+0]..[80,2256+27])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[81,2284+0]..[85,2333+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[81,2284+0]..[85,2333+2])
+              Pexp_constant Const_string("\n   @example{[\n     add [1] 3 = [3;1];;\n   ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[80,2256+9]..[80,2256+27])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[80,2256+9]..[80,2256+13])
+          Ptyp_constr "t" (mli_files/belt_List.mli[80,2256+12]..[80,2256+13])
+          [
+            core_type (mli_files/belt_List.mli[80,2256+9]..[80,2256+11])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[80,2256+17]..[80,2256+27])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[80,2256+17]..[80,2256+19])
+            Ptyp_var a
+          core_type (mli_files/belt_List.mli[80,2256+23]..[80,2256+27])
+            Ptyp_constr "t" (mli_files/belt_List.mli[80,2256+26]..[80,2256+27])
+            [
+              core_type (mli_files/belt_List.mli[80,2256+23]..[80,2256+25])
+                Ptyp_var a
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[86,2336+0]..[86,2336+33])
+    Psig_value
+    value_description "get" (mli_files/belt_List.mli[86,2336+4]..[86,2336+7]) (mli_files/belt_List.mli[86,2336+0]..[86,2336+33])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[81,2284+0]..[85,2333+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[81,2284+0]..[85,2333+2])
+              Pexp_constant Const_string("\n   @example{[\n     add [1] 3 = [3;1];;\n   ]}\n",None)
+        ]
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[87,2370+0]..[96,2556+3])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[87,2370+0]..[96,2556+3])
+              Pexp_constant Const_string(" [get xs n]\n\n    return the nth element in [xs],\n    or [None] if [n] is larger than the length\n\n    @example {[\n      get [0;3;32] 2 = Some 2 ;;\n      get [0;3;32] 3 = None;;\n    ]}\n ",None)
+        ]
+      core_type (mli_files/belt_List.mli[86,2336+9]..[86,2336+33])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[86,2336+9]..[86,2336+13])
+          Ptyp_constr "t" (mli_files/belt_List.mli[86,2336+12]..[86,2336+13])
+          [
+            core_type (mli_files/belt_List.mli[86,2336+9]..[86,2336+11])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[86,2336+17]..[86,2336+33])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[86,2336+17]..[86,2336+20])
+            Ptyp_constr "int" (mli_files/belt_List.mli[86,2336+17]..[86,2336+20])
+            []
+          core_type (mli_files/belt_List.mli[86,2336+24]..[86,2336+33])
+            Ptyp_constr "option" (mli_files/belt_List.mli[86,2336+27]..[86,2336+33])
+            [
+              core_type (mli_files/belt_List.mli[86,2336+24]..[86,2336+26])
+                Ptyp_var a
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[98,2561+0]..[98,2561+29])
+    Psig_value
+    value_description "getExn" (mli_files/belt_List.mli[98,2561+4]..[98,2561+10]) (mli_files/belt_List.mli[98,2561+0]..[98,2561+29])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[99,2591+0]..[104,2694+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[99,2591+0]..[104,2694+2])
+              Pexp_constant Const_string(" [getExn xs n]\n\n    {b See} {!get}\n    \n    {b raise} an exception if [n] is larger than the length\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[98,2561+12]..[98,2561+29])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[98,2561+12]..[98,2561+16])
+          Ptyp_constr "t" (mli_files/belt_List.mli[98,2561+15]..[98,2561+16])
+          [
+            core_type (mli_files/belt_List.mli[98,2561+12]..[98,2561+14])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[98,2561+20]..[98,2561+29])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[98,2561+20]..[98,2561+23])
+            Ptyp_constr "int" (mli_files/belt_List.mli[98,2561+20]..[98,2561+23])
+            []
+          core_type (mli_files/belt_List.mli[98,2561+27]..[98,2561+29])
+            Ptyp_var a
+      []
+  signature_item (mli_files/belt_List.mli[106,2700+0]..[106,2700+27])
+    Psig_value
+    value_description "make" (mli_files/belt_List.mli[106,2700+4]..[106,2700+8]) (mli_files/belt_List.mli[106,2700+0]..[106,2700+27])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[107,2728+0]..[115,2918+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[107,2728+0]..[115,2918+2])
+              Pexp_constant Const_string("  [make n v] \n  \n    - return a list of length [n] with each element filled with [v]  \n    - return the empty list if [n] is negative\n\n     @example {[\n       make 3 1 =  [1;1;1]\n     ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[106,2700+10]..[106,2700+27])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[106,2700+10]..[106,2700+13])
+          Ptyp_constr "int" (mli_files/belt_List.mli[106,2700+10]..[106,2700+13])
+          []
+        core_type (mli_files/belt_List.mli[106,2700+17]..[106,2700+27])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[106,2700+17]..[106,2700+19])
+            Ptyp_var a
+          core_type (mli_files/belt_List.mli[106,2700+23]..[106,2700+27])
+            Ptyp_constr "t" (mli_files/belt_List.mli[106,2700+26]..[106,2700+27])
+            [
+              core_type (mli_files/belt_List.mli[106,2700+23]..[106,2700+25])
+                Ptyp_var a
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[117,2926+0]..[117,2926+45])
+    Psig_value
+    value_description "makeByU" (mli_files/belt_List.mli[117,2926+4]..[117,2926+11]) (mli_files/belt_List.mli[117,2926+0]..[117,2926+45])
+      core_type (mli_files/belt_List.mli[117,2926+13]..[117,2926+45])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[117,2926+13]..[117,2926+16])
+          Ptyp_constr "int" (mli_files/belt_List.mli[117,2926+13]..[117,2926+16])
+          []
+        core_type (mli_files/belt_List.mli[117,2926+20]..[117,2926+45])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[117,2926+21]..[117,2926+30])
+            attribute "bs"
+              []
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[117,2926+21]..[117,2926+24])
+              Ptyp_constr "int" (mli_files/belt_List.mli[117,2926+21]..[117,2926+24])
+              []
+            core_type (mli_files/belt_List.mli[117,2926+28]..[117,2926+30])
+              Ptyp_var a
+          core_type (mli_files/belt_List.mli[117,2926+41]..[117,2926+45])
+            Ptyp_constr "t" (mli_files/belt_List.mli[117,2926+44]..[117,2926+45])
+            [
+              core_type (mli_files/belt_List.mli[117,2926+41]..[117,2926+43])
+                Ptyp_var a
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[118,2973+0]..[118,2973+38])
+    Psig_value
+    value_description "makeBy" (mli_files/belt_List.mli[118,2973+4]..[118,2973+10]) (mli_files/belt_List.mli[118,2973+0]..[118,2973+38])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[119,3012+0]..[127,3222+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[119,3012+0]..[127,3222+2])
+              Pexp_constant Const_string(" [makeBy n f] \n    \n    - return a list of length [n] with element [i] initialized with [f i]\n    - return the empty list if [n] is negative\n\n    @example {[\n      makeBy 5 (fun i -> i) = [0;1;2;3;4]\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[118,2973+12]..[118,2973+38])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[118,2973+12]..[118,2973+15])
+          Ptyp_constr "int" (mli_files/belt_List.mli[118,2973+12]..[118,2973+15])
+          []
+        core_type (mli_files/belt_List.mli[118,2973+19]..[118,2973+38])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[118,2973+20]..[118,2973+29])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[118,2973+20]..[118,2973+23])
+              Ptyp_constr "int" (mli_files/belt_List.mli[118,2973+20]..[118,2973+23])
+              []
+            core_type (mli_files/belt_List.mli[118,2973+27]..[118,2973+29])
+              Ptyp_var a
+          core_type (mli_files/belt_List.mli[118,2973+34]..[118,2973+38])
+            Ptyp_constr "t" (mli_files/belt_List.mli[118,2973+37]..[118,2973+38])
+            [
+              core_type (mli_files/belt_List.mli[118,2973+34]..[118,2973+36])
+                Ptyp_var a
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[129,3230+0]..[129,3230+36])
+    Psig_value
+    value_description "drop" (mli_files/belt_List.mli[129,3230+4]..[129,3230+8]) (mli_files/belt_List.mli[129,3230+0]..[129,3230+36])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[130,3268+0]..[140,3521+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[130,3268+0]..[140,3521+2])
+              Pexp_constant Const_string(" [drop xs n]\n\n    return the list obtained by dropping the first [n] elements,\n    or [None] if [xs] has fewer than [n] elements\n\n    @example {[\n      drop [1;2;3] 2 = Some [3];;\n      drop [1;2;3] 3 = Some [];;\n      drop [1;2;3] 4 = None;;\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[129,3230+10]..[129,3230+36])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[129,3230+10]..[129,3230+14])
+          Ptyp_constr "t" (mli_files/belt_List.mli[129,3230+13]..[129,3230+14])
+          [
+            core_type (mli_files/belt_List.mli[129,3230+10]..[129,3230+12])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[129,3230+18]..[129,3230+36])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[129,3230+18]..[129,3230+21])
+            Ptyp_constr "int" (mli_files/belt_List.mli[129,3230+18]..[129,3230+21])
+            []
+          core_type (mli_files/belt_List.mli[129,3230+25]..[129,3230+36])
+            Ptyp_constr "option" (mli_files/belt_List.mli[129,3230+30]..[129,3230+36])
+            [
+              core_type (mli_files/belt_List.mli[129,3230+25]..[129,3230+29])
+                Ptyp_constr "t" (mli_files/belt_List.mli[129,3230+28]..[129,3230+29])
+                [
+                  core_type (mli_files/belt_List.mli[129,3230+25]..[129,3230+27])
+                    Ptyp_var a
+                ]
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[142,3525+0]..[142,3525+36])
+    Psig_value
+    value_description "take" (mli_files/belt_List.mli[142,3525+4]..[142,3525+8]) (mli_files/belt_List.mli[142,3525+0]..[142,3525+36])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[143,3563+0]..[153,3811+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[143,3563+0]..[153,3811+2])
+              Pexp_constant Const_string(" [take xs n]\n\n    return a list with the first [n] elements from [xs],\n    or [None] if [xs] has fewer than [n] elements\n\n    @example {[\n      take [1;2;3] 1 = Some [1];;\n      take [1;2;3] 2 = Some [1;2];;\n      take [1;2;3] 4 = None;;\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[142,3525+10]..[142,3525+36])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[142,3525+10]..[142,3525+14])
+          Ptyp_constr "t" (mli_files/belt_List.mli[142,3525+13]..[142,3525+14])
+          [
+            core_type (mli_files/belt_List.mli[142,3525+10]..[142,3525+12])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[142,3525+18]..[142,3525+36])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[142,3525+18]..[142,3525+21])
+            Ptyp_constr "int" (mli_files/belt_List.mli[142,3525+18]..[142,3525+21])
+            []
+          core_type (mli_files/belt_List.mli[142,3525+25]..[142,3525+36])
+            Ptyp_constr "option" (mli_files/belt_List.mli[142,3525+30]..[142,3525+36])
+            [
+              core_type (mli_files/belt_List.mli[142,3525+25]..[142,3525+29])
+                Ptyp_constr "t" (mli_files/belt_List.mli[142,3525+28]..[142,3525+29])
+                [
+                  core_type (mli_files/belt_List.mli[142,3525+25]..[142,3525+27])
+                    Ptyp_var a
+                ]
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[155,3815+0]..[155,3815+54])
+    Psig_value
+    value_description "splitAt" (mli_files/belt_List.mli[155,3815+4]..[155,3815+11]) (mli_files/belt_List.mli[155,3815+0]..[155,3815+54])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[156,3871+0]..[164,4064+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[156,3871+0]..[164,4064+2])
+              Pexp_constant Const_string("\n    [splitAt xs n]\n    split the list [xs] at position [n]\n    return None when the length of [xs] is less than [n]\n\n   @example{[\n     splitAt [0;1;2;3;4] 2 = Some ([0;1], [2;3;4])\n   ]} \n",None)
+        ]
+      core_type (mli_files/belt_List.mli[155,3815+13]..[155,3815+54])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[155,3815+13]..[155,3815+17])
+          Ptyp_constr "t" (mli_files/belt_List.mli[155,3815+16]..[155,3815+17])
+          [
+            core_type (mli_files/belt_List.mli[155,3815+13]..[155,3815+15])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[155,3815+21]..[155,3815+54])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[155,3815+21]..[155,3815+24])
+            Ptyp_constr "int" (mli_files/belt_List.mli[155,3815+21]..[155,3815+24])
+            []
+          core_type (mli_files/belt_List.mli[155,3815+28]..[155,3815+54])
+            Ptyp_constr "option" (mli_files/belt_List.mli[155,3815+48]..[155,3815+54])
+            [
+              core_type (mli_files/belt_List.mli[155,3815+29]..[155,3815+46])
+                Ptyp_tuple
+                [
+                  core_type (mli_files/belt_List.mli[155,3815+29]..[155,3815+36])
+                    Ptyp_constr "list" (mli_files/belt_List.mli[155,3815+32]..[155,3815+36])
+                    [
+                      core_type (mli_files/belt_List.mli[155,3815+29]..[155,3815+31])
+                        Ptyp_var a
+                    ]
+                  core_type (mli_files/belt_List.mli[155,3815+39]..[155,3815+46])
+                    Ptyp_constr "list" (mli_files/belt_List.mli[155,3815+42]..[155,3815+46])
+                    [
+                      core_type (mli_files/belt_List.mli[155,3815+39]..[155,3815+41])
+                        Ptyp_var a
+                    ]
+                ]
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[166,4072+0]..[166,4072+32])
+    Psig_value
+    value_description "concat" (mli_files/belt_List.mli[166,4072+4]..[166,4072+10]) (mli_files/belt_List.mli[166,4072+0]..[166,4072+32])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[167,4105+0]..[175,4247+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[167,4105+0]..[175,4247+2])
+              Pexp_constant Const_string("\n    [concat xs ys]\n\n    @return the list obtained by adding [ys] after [xs]\n\n   @example {[\n     concat [1;2;3] [4;5] = [1;2;3;4;5]\n   ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[166,4072+12]..[166,4072+32])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[166,4072+12]..[166,4072+16])
+          Ptyp_constr "t" (mli_files/belt_List.mli[166,4072+15]..[166,4072+16])
+          [
+            core_type (mli_files/belt_List.mli[166,4072+12]..[166,4072+14])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[166,4072+20]..[166,4072+32])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[166,4072+20]..[166,4072+24])
+            Ptyp_constr "t" (mli_files/belt_List.mli[166,4072+23]..[166,4072+24])
+            [
+              core_type (mli_files/belt_List.mli[166,4072+20]..[166,4072+22])
+                Ptyp_var a
+            ]
+          core_type (mli_files/belt_List.mli[166,4072+28]..[166,4072+32])
+            Ptyp_constr "t" (mli_files/belt_List.mli[166,4072+31]..[166,4072+32])
+            [
+              core_type (mli_files/belt_List.mli[166,4072+28]..[166,4072+30])
+                Ptyp_var a
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[177,4251+0]..[177,4251+34])
+    Psig_value
+    value_description "concatMany" (mli_files/belt_List.mli[177,4251+4]..[177,4251+14]) (mli_files/belt_List.mli[177,4251+0]..[177,4251+34])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[178,4286+0]..[185,4472+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[178,4286+0]..[185,4472+2])
+              Pexp_constant Const_string("\n    [concatMany a]\n    return the list obtained by concatenating in order all the lists in array [a]\n\n   @example {[\n     concatMany [| [1;2;3] ; []; [3]; [4] |] = [1;2;3;3;4]\n   ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[177,4251+16]..[177,4251+34])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[177,4251+16]..[177,4251+26])
+          Ptyp_constr "array" (mli_files/belt_List.mli[177,4251+21]..[177,4251+26])
+          [
+            core_type (mli_files/belt_List.mli[177,4251+16]..[177,4251+20])
+              Ptyp_constr "t" (mli_files/belt_List.mli[177,4251+19]..[177,4251+20])
+              [
+                core_type (mli_files/belt_List.mli[177,4251+16]..[177,4251+18])
+                  Ptyp_var a
+              ]
+          ]
+        core_type (mli_files/belt_List.mli[177,4251+30]..[177,4251+34])
+          Ptyp_constr "t" (mli_files/belt_List.mli[177,4251+33]..[177,4251+34])
+          [
+            core_type (mli_files/belt_List.mli[177,4251+30]..[177,4251+32])
+              Ptyp_var a
+          ]
+      []
+  signature_item (mli_files/belt_List.mli[187,4476+0]..[187,4476+39])
+    Psig_value
+    value_description "reverseConcat" (mli_files/belt_List.mli[187,4476+4]..[187,4476+17]) (mli_files/belt_List.mli[187,4476+0]..[187,4476+39])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[188,4516+0]..[193,4652+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[188,4516+0]..[193,4652+2])
+              Pexp_constant Const_string("\n   [reverseConcat xs ys] is  equivalent to [concat (reverse xs) ys]\n   @example {[\n     reverseConcat [1;2] [3;4] = [2;1;3;4]\n   ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[187,4476+19]..[187,4476+39])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[187,4476+19]..[187,4476+23])
+          Ptyp_constr "t" (mli_files/belt_List.mli[187,4476+22]..[187,4476+23])
+          [
+            core_type (mli_files/belt_List.mli[187,4476+19]..[187,4476+21])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[187,4476+27]..[187,4476+39])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[187,4476+27]..[187,4476+31])
+            Ptyp_constr "t" (mli_files/belt_List.mli[187,4476+30]..[187,4476+31])
+            [
+              core_type (mli_files/belt_List.mli[187,4476+27]..[187,4476+29])
+                Ptyp_var a
+            ]
+          core_type (mli_files/belt_List.mli[187,4476+35]..[187,4476+39])
+            Ptyp_constr "t" (mli_files/belt_List.mli[187,4476+38]..[187,4476+39])
+            [
+              core_type (mli_files/belt_List.mli[187,4476+35]..[187,4476+37])
+                Ptyp_var a
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[195,4660+0]..[195,4660+27])
+    Psig_value
+    value_description "flatten" (mli_files/belt_List.mli[195,4660+4]..[195,4660+11]) (mli_files/belt_List.mli[195,4660+0]..[195,4660+27])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[196,4688+0]..[203,4867+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[196,4688+0]..[203,4867+2])
+              Pexp_constant Const_string("\n    [flatten ls]\n    return the list obtained by concatenating in order all the lists in list [ls]\n\n   @example {[\n     flatten [ [1;2;3] ; []; [3]; [4] ] = [1;2;3;3;4]\n   ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[195,4660+13]..[195,4660+27])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[195,4660+13]..[195,4660+19])
+          Ptyp_constr "t" (mli_files/belt_List.mli[195,4660+18]..[195,4660+19])
+          [
+            core_type (mli_files/belt_List.mli[195,4660+13]..[195,4660+17])
+              Ptyp_constr "t" (mli_files/belt_List.mli[195,4660+16]..[195,4660+17])
+              [
+                core_type (mli_files/belt_List.mli[195,4660+13]..[195,4660+15])
+                  Ptyp_var a
+              ]
+          ]
+        core_type (mli_files/belt_List.mli[195,4660+23]..[195,4660+27])
+          Ptyp_constr "t" (mli_files/belt_List.mli[195,4660+26]..[195,4660+27])
+          [
+            core_type (mli_files/belt_List.mli[195,4660+23]..[195,4660+25])
+              Ptyp_var a
+          ]
+      []
+  signature_item (mli_files/belt_List.mli[205,4871+0]..[205,4871+42])
+    Psig_value
+    value_description "mapU" (mli_files/belt_List.mli[205,4871+4]..[205,4871+8]) (mli_files/belt_List.mli[205,4871+0]..[205,4871+42])
+      core_type (mli_files/belt_List.mli[205,4871+10]..[205,4871+42])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[205,4871+10]..[205,4871+14])
+          Ptyp_constr "t" (mli_files/belt_List.mli[205,4871+13]..[205,4871+14])
+          [
+            core_type (mli_files/belt_List.mli[205,4871+10]..[205,4871+12])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[205,4871+18]..[205,4871+42])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[205,4871+19]..[205,4871+27])
+            attribute "bs"
+              []
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[205,4871+19]..[205,4871+21])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[205,4871+25]..[205,4871+27])
+              Ptyp_var b
+          core_type (mli_files/belt_List.mli[205,4871+38]..[205,4871+42])
+            Ptyp_constr "t" (mli_files/belt_List.mli[205,4871+41]..[205,4871+42])
+            [
+              core_type (mli_files/belt_List.mli[205,4871+38]..[205,4871+40])
+                Ptyp_var b
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[206,4914+0]..[206,4914+35])
+    Psig_value
+    value_description "map" (mli_files/belt_List.mli[206,4914+4]..[206,4914+7]) (mli_files/belt_List.mli[206,4914+0]..[206,4914+35])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[207,4950+0]..[215,5099+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[207,4950+0]..[215,5099+2])
+              Pexp_constant Const_string("\n    [map xs f]\n\n    return the list obtained by applying [f] to the element of [xs]\n\n   @example {[\n     map [1;2] (fun x-> x + 1) = [3;4]\n   ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[206,4914+9]..[206,4914+35])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[206,4914+9]..[206,4914+13])
+          Ptyp_constr "t" (mli_files/belt_List.mli[206,4914+12]..[206,4914+13])
+          [
+            core_type (mli_files/belt_List.mli[206,4914+9]..[206,4914+11])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[206,4914+17]..[206,4914+35])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[206,4914+18]..[206,4914+26])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[206,4914+18]..[206,4914+20])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[206,4914+24]..[206,4914+26])
+              Ptyp_var b
+          core_type (mli_files/belt_List.mli[206,4914+31]..[206,4914+35])
+            Ptyp_constr "t" (mli_files/belt_List.mli[206,4914+34]..[206,4914+35])
+            [
+              core_type (mli_files/belt_List.mli[206,4914+31]..[206,4914+33])
+                Ptyp_var b
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[217,5103+0]..[217,5103+36])
+    Psig_value
+    value_description "zip" (mli_files/belt_List.mli[217,5103+4]..[217,5103+7]) (mli_files/belt_List.mli[217,5103+0]..[217,5103+36])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[218,5140+0]..[226,5309+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[218,5140+0]..[226,5309+2])
+              Pexp_constant Const_string(" [zip xs ys]\n\n    @return a list of pairs from the two lists\n    with the length of the shorter list\n\n    @example {[\n      zip [1;2] [1;2;3] = [(1,1); (2,2)]\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[217,5103+9]..[217,5103+36])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[217,5103+9]..[217,5103+13])
+          Ptyp_constr "t" (mli_files/belt_List.mli[217,5103+12]..[217,5103+13])
+          [
+            core_type (mli_files/belt_List.mli[217,5103+9]..[217,5103+11])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[217,5103+17]..[217,5103+36])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[217,5103+17]..[217,5103+21])
+            Ptyp_constr "t" (mli_files/belt_List.mli[217,5103+20]..[217,5103+21])
+            [
+              core_type (mli_files/belt_List.mli[217,5103+17]..[217,5103+19])
+                Ptyp_var b
+            ]
+          core_type (mli_files/belt_List.mli[217,5103+25]..[217,5103+36])
+            Ptyp_constr "t" (mli_files/belt_List.mli[217,5103+35]..[217,5103+36])
+            [
+              core_type (mli_files/belt_List.mli[217,5103+26]..[217,5103+33])
+                Ptyp_tuple
+                [
+                  core_type (mli_files/belt_List.mli[217,5103+26]..[217,5103+28])
+                    Ptyp_var a
+                  core_type (mli_files/belt_List.mli[217,5103+31]..[217,5103+33])
+                    Ptyp_var b
+                ]
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[228,5313+0]..[228,5313+58])
+    Psig_value
+    value_description "zipByU" (mli_files/belt_List.mli[228,5313+4]..[228,5313+10]) (mli_files/belt_List.mli[228,5313+0]..[228,5313+58])
+      core_type (mli_files/belt_List.mli[228,5313+12]..[228,5313+58])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[228,5313+12]..[228,5313+16])
+          Ptyp_constr "t" (mli_files/belt_List.mli[228,5313+15]..[228,5313+16])
+          [
+            core_type (mli_files/belt_List.mli[228,5313+12]..[228,5313+14])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[228,5313+20]..[228,5313+58])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[228,5313+20]..[228,5313+24])
+            Ptyp_constr "t" (mli_files/belt_List.mli[228,5313+23]..[228,5313+24])
+            [
+              core_type (mli_files/belt_List.mli[228,5313+20]..[228,5313+22])
+                Ptyp_var b
+            ]
+          core_type (mli_files/belt_List.mli[228,5313+28]..[228,5313+58])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[228,5313+29]..[228,5313+43])
+              attribute "bs"
+                []
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[228,5313+29]..[228,5313+31])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[228,5313+35]..[228,5313+43])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[228,5313+35]..[228,5313+37])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[228,5313+41]..[228,5313+43])
+                  Ptyp_var c
+            core_type (mli_files/belt_List.mli[228,5313+54]..[228,5313+58])
+              Ptyp_constr "t" (mli_files/belt_List.mli[228,5313+57]..[228,5313+58])
+              [
+                core_type (mli_files/belt_List.mli[228,5313+54]..[228,5313+56])
+                  Ptyp_var c
+              ]
+      []
+  signature_item (mli_files/belt_List.mli[229,5372+0]..[229,5372+51])
+    Psig_value
+    value_description "zipBy" (mli_files/belt_List.mli[229,5372+4]..[229,5372+9]) (mli_files/belt_List.mli[229,5372+0]..[229,5372+51])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[230,5424+0]..[235,5532+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[230,5424+0]..[235,5532+2])
+              Pexp_constant Const_string(" [zipBy xs ys f]\n\n    {b See} {!zip}\n    \n    Equivalent to [zip xs ys |> List.map (fun (x,y) -> f x y)]\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[229,5372+11]..[229,5372+51])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[229,5372+11]..[229,5372+15])
+          Ptyp_constr "t" (mli_files/belt_List.mli[229,5372+14]..[229,5372+15])
+          [
+            core_type (mli_files/belt_List.mli[229,5372+11]..[229,5372+13])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[229,5372+19]..[229,5372+51])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[229,5372+19]..[229,5372+23])
+            Ptyp_constr "t" (mli_files/belt_List.mli[229,5372+22]..[229,5372+23])
+            [
+              core_type (mli_files/belt_List.mli[229,5372+19]..[229,5372+21])
+                Ptyp_var b
+            ]
+          core_type (mli_files/belt_List.mli[229,5372+27]..[229,5372+51])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[229,5372+28]..[229,5372+42])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[229,5372+28]..[229,5372+30])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[229,5372+34]..[229,5372+42])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[229,5372+34]..[229,5372+36])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[229,5372+40]..[229,5372+42])
+                  Ptyp_var c
+            core_type (mli_files/belt_List.mli[229,5372+47]..[229,5372+51])
+              Ptyp_constr "t" (mli_files/belt_List.mli[229,5372+50]..[229,5372+51])
+              [
+                core_type (mli_files/belt_List.mli[229,5372+47]..[229,5372+49])
+                  Ptyp_var c
+              ]
+      []
+  signature_item (mli_files/belt_List.mli[237,5536+0]..[237,5536+58])
+    Psig_value
+    value_description "mapWithIndexU" (mli_files/belt_List.mli[237,5536+4]..[237,5536+17]) (mli_files/belt_List.mli[237,5536+0]..[237,5536+58])
+      core_type (mli_files/belt_List.mli[237,5536+19]..[237,5536+58])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[237,5536+19]..[237,5536+23])
+          Ptyp_constr "t" (mli_files/belt_List.mli[237,5536+22]..[237,5536+23])
+          [
+            core_type (mli_files/belt_List.mli[237,5536+19]..[237,5536+21])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[237,5536+27]..[237,5536+58])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[237,5536+28]..[237,5536+43])
+            attribute "bs"
+              []
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[237,5536+28]..[237,5536+31])
+              Ptyp_constr "int" (mli_files/belt_List.mli[237,5536+28]..[237,5536+31])
+              []
+            core_type (mli_files/belt_List.mli[237,5536+35]..[237,5536+43])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[237,5536+35]..[237,5536+37])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[237,5536+41]..[237,5536+43])
+                Ptyp_var b
+          core_type (mli_files/belt_List.mli[237,5536+54]..[237,5536+58])
+            Ptyp_constr "t" (mli_files/belt_List.mli[237,5536+57]..[237,5536+58])
+            [
+              core_type (mli_files/belt_List.mli[237,5536+54]..[237,5536+56])
+                Ptyp_var b
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[238,5595+0]..[238,5595+51])
+    Psig_value
+    value_description "mapWithIndex" (mli_files/belt_List.mli[238,5595+4]..[238,5595+16]) (mli_files/belt_List.mli[238,5595+0]..[238,5595+51])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[239,5647+0]..[243,5747+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[239,5647+0]..[243,5747+2])
+              Pexp_constant Const_string(" @example {[\n      mapWithIndex [1;2;3] (fun i x -> i + x) =\n      [0 + 1; 1 + 2; 2 + 3 ]\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[238,5595+18]..[238,5595+51])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[238,5595+18]..[238,5595+22])
+          Ptyp_constr "t" (mli_files/belt_List.mli[238,5595+21]..[238,5595+22])
+          [
+            core_type (mli_files/belt_List.mli[238,5595+18]..[238,5595+20])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[238,5595+26]..[238,5595+51])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[238,5595+27]..[238,5595+42])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[238,5595+27]..[238,5595+30])
+              Ptyp_constr "int" (mli_files/belt_List.mli[238,5595+27]..[238,5595+30])
+              []
+            core_type (mli_files/belt_List.mli[238,5595+34]..[238,5595+42])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[238,5595+34]..[238,5595+36])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[238,5595+40]..[238,5595+42])
+                Ptyp_var b
+          core_type (mli_files/belt_List.mli[238,5595+47]..[238,5595+51])
+            Ptyp_constr "t" (mli_files/belt_List.mli[238,5595+50]..[238,5595+51])
+            [
+              core_type (mli_files/belt_List.mli[238,5595+47]..[238,5595+49])
+                Ptyp_var b
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[245,5751+0]..[245,5751+29])
+    Psig_value
+    value_description "ofArray" (mli_files/belt_List.mli[245,5751+4]..[245,5751+11]) (mli_files/belt_List.mli[245,5751+0]..[245,5751+29])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[246,5782+0]..[249,5840+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[246,5782+0]..[249,5840+2])
+              Pexp_constant Const_string(" @example {[\n      ofArray [|1;2;3|]  = [1;2;3]\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[245,5751+13]..[245,5751+29])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[245,5751+13]..[245,5751+21])
+          Ptyp_constr "array" (mli_files/belt_List.mli[245,5751+16]..[245,5751+21])
+          [
+            core_type (mli_files/belt_List.mli[245,5751+13]..[245,5751+15])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[245,5751+25]..[245,5751+29])
+          Ptyp_constr "t" (mli_files/belt_List.mli[245,5751+28]..[245,5751+29])
+          [
+            core_type (mli_files/belt_List.mli[245,5751+25]..[245,5751+27])
+              Ptyp_var a
+          ]
+      []
+  signature_item (mli_files/belt_List.mli[251,5844+0]..[251,5844+29])
+    Psig_value
+    value_description "toArray" (mli_files/belt_List.mli[251,5844+4]..[251,5844+11]) (mli_files/belt_List.mli[251,5844+0]..[251,5844+29])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[252,5874+0]..[255,5931+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[252,5874+0]..[255,5931+2])
+              Pexp_constant Const_string(" @example {[\n      toArray [1;2;3] = [|1;2;3|]\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[251,5844+13]..[251,5844+29])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[251,5844+13]..[251,5844+17])
+          Ptyp_constr "t" (mli_files/belt_List.mli[251,5844+16]..[251,5844+17])
+          [
+            core_type (mli_files/belt_List.mli[251,5844+13]..[251,5844+15])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[251,5844+21]..[251,5844+29])
+          Ptyp_constr "array" (mli_files/belt_List.mli[251,5844+24]..[251,5844+29])
+          [
+            core_type (mli_files/belt_List.mli[251,5844+21]..[251,5844+23])
+              Ptyp_var a
+          ]
+      []
+  signature_item (mli_files/belt_List.mli[262,6078+0]..[262,6078+25])
+    Psig_value
+    value_description "reverse" (mli_files/belt_List.mli[262,6078+4]..[262,6078+11]) (mli_files/belt_List.mli[262,6078+0]..[262,6078+25])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[263,6104+0]..[266,6159+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[263,6104+0]..[266,6159+2])
+              Pexp_constant Const_string(" @example {[\n      reverse [1;2;3] = [3;2;1]\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[262,6078+13]..[262,6078+25])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[262,6078+13]..[262,6078+17])
+          Ptyp_constr "t" (mli_files/belt_List.mli[262,6078+16]..[262,6078+17])
+          [
+            core_type (mli_files/belt_List.mli[262,6078+13]..[262,6078+15])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[262,6078+21]..[262,6078+25])
+          Ptyp_constr "t" (mli_files/belt_List.mli[262,6078+24]..[262,6078+25])
+          [
+            core_type (mli_files/belt_List.mli[262,6078+21]..[262,6078+23])
+              Ptyp_var a
+          ]
+      []
+  signature_item (mli_files/belt_List.mli[268,6167+0]..[268,6167+49])
+    Psig_value
+    value_description "mapReverseU" (mli_files/belt_List.mli[268,6167+4]..[268,6167+15]) (mli_files/belt_List.mli[268,6167+0]..[268,6167+49])
+      core_type (mli_files/belt_List.mli[268,6167+17]..[268,6167+49])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[268,6167+17]..[268,6167+21])
+          Ptyp_constr "t" (mli_files/belt_List.mli[268,6167+20]..[268,6167+21])
+          [
+            core_type (mli_files/belt_List.mli[268,6167+17]..[268,6167+19])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[268,6167+25]..[268,6167+49])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[268,6167+26]..[268,6167+34])
+            attribute "bs"
+              []
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[268,6167+26]..[268,6167+28])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[268,6167+32]..[268,6167+34])
+              Ptyp_var b
+          core_type (mli_files/belt_List.mli[268,6167+45]..[268,6167+49])
+            Ptyp_constr "t" (mli_files/belt_List.mli[268,6167+48]..[268,6167+49])
+            [
+              core_type (mli_files/belt_List.mli[268,6167+45]..[268,6167+47])
+                Ptyp_var b
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[269,6217+0]..[269,6217+42])
+    Psig_value
+    value_description "mapReverse" (mli_files/belt_List.mli[269,6217+4]..[269,6217+14]) (mli_files/belt_List.mli[269,6217+0]..[269,6217+42])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[270,6260+0]..[273,6324+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[270,6260+0]..[273,6324+2])
+              Pexp_constant Const_string(" [mapReverse a f]\n\n    Equivalent to [reverse (map a f)]    \n",None)
+        ]
+      core_type (mli_files/belt_List.mli[269,6217+16]..[269,6217+42])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[269,6217+16]..[269,6217+20])
+          Ptyp_constr "t" (mli_files/belt_List.mli[269,6217+19]..[269,6217+20])
+          [
+            core_type (mli_files/belt_List.mli[269,6217+16]..[269,6217+18])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[269,6217+24]..[269,6217+42])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[269,6217+25]..[269,6217+33])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[269,6217+25]..[269,6217+27])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[269,6217+31]..[269,6217+33])
+              Ptyp_var b
+          core_type (mli_files/belt_List.mli[269,6217+38]..[269,6217+42])
+            Ptyp_constr "t" (mli_files/belt_List.mli[269,6217+41]..[269,6217+42])
+            [
+              core_type (mli_files/belt_List.mli[269,6217+38]..[269,6217+40])
+                Ptyp_var b
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[275,6328+0]..[275,6328+46])
+    Psig_value
+    value_description "forEachU" (mli_files/belt_List.mli[275,6328+4]..[275,6328+12]) (mli_files/belt_List.mli[275,6328+0]..[275,6328+46])
+      core_type (mli_files/belt_List.mli[275,6328+14]..[275,6328+46])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[275,6328+14]..[275,6328+18])
+          Ptyp_constr "t" (mli_files/belt_List.mli[275,6328+17]..[275,6328+18])
+          [
+            core_type (mli_files/belt_List.mli[275,6328+14]..[275,6328+16])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[275,6328+22]..[275,6328+46])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[275,6328+23]..[275,6328+31])
+            attribute "bs"
+              []
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[275,6328+23]..[275,6328+25])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[275,6328+29]..[275,6328+31])
+              Ptyp_var b
+          core_type (mli_files/belt_List.mli[275,6328+42]..[275,6328+46])
+            Ptyp_constr "unit" (mli_files/belt_List.mli[275,6328+42]..[275,6328+46])
+            []
+      []
+  signature_item (mli_files/belt_List.mli[276,6375+0]..[276,6375+39])
+    Psig_value
+    value_description "forEach" (mli_files/belt_List.mli[276,6375+4]..[276,6375+11]) (mli_files/belt_List.mli[276,6375+0]..[276,6375+39])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[277,6415+0]..[283,6561+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[277,6415+0]..[283,6561+2])
+              Pexp_constant Const_string(" [forEach xs f ]\n    @example {[\n      let us = ref 0;;\n      forEach [1;2;3;4] (fun x -> us := !us + x);;\n      !us  = 1 + 2 + 3 + 4;;\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[276,6375+13]..[276,6375+39])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[276,6375+13]..[276,6375+17])
+          Ptyp_constr "t" (mli_files/belt_List.mli[276,6375+16]..[276,6375+17])
+          [
+            core_type (mli_files/belt_List.mli[276,6375+13]..[276,6375+15])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[276,6375+21]..[276,6375+39])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[276,6375+22]..[276,6375+30])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[276,6375+22]..[276,6375+24])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[276,6375+28]..[276,6375+30])
+              Ptyp_var b
+          core_type (mli_files/belt_List.mli[276,6375+35]..[276,6375+39])
+            Ptyp_constr "unit" (mli_files/belt_List.mli[276,6375+35]..[276,6375+39])
+            []
+      []
+  signature_item (mli_files/belt_List.mli[285,6567+0]..[285,6567+62])
+    Psig_value
+    value_description "forEachWithIndexU" (mli_files/belt_List.mli[285,6567+4]..[285,6567+21]) (mli_files/belt_List.mli[285,6567+0]..[285,6567+62])
+      core_type (mli_files/belt_List.mli[285,6567+23]..[285,6567+62])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[285,6567+23]..[285,6567+27])
+          Ptyp_constr "t" (mli_files/belt_List.mli[285,6567+26]..[285,6567+27])
+          [
+            core_type (mli_files/belt_List.mli[285,6567+23]..[285,6567+25])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[285,6567+31]..[285,6567+62])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[285,6567+32]..[285,6567+47])
+            attribute "bs"
+              []
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[285,6567+32]..[285,6567+35])
+              Ptyp_constr "int" (mli_files/belt_List.mli[285,6567+32]..[285,6567+35])
+              []
+            core_type (mli_files/belt_List.mli[285,6567+39]..[285,6567+47])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[285,6567+39]..[285,6567+41])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[285,6567+45]..[285,6567+47])
+                Ptyp_var b
+          core_type (mli_files/belt_List.mli[285,6567+58]..[285,6567+62])
+            Ptyp_constr "unit" (mli_files/belt_List.mli[285,6567+58]..[285,6567+62])
+            []
+      []
+  signature_item (mli_files/belt_List.mli[286,6630+0]..[286,6630+55])
+    Psig_value
+    value_description "forEachWithIndex" (mli_files/belt_List.mli[286,6630+4]..[286,6630+20]) (mli_files/belt_List.mli[286,6630+0]..[286,6630+55])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[287,6686+0]..[294,6874+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[287,6686+0]..[294,6874+2])
+              Pexp_constant Const_string(" [forEachWithIndex xs f]\n\n    @example {[\n      let us = ref 0 ;;\n      forEachWithIndex [1;1;1;1] (fun i x -> us := !us + x + i);;\n      !us  = 0 + 1 + 1 +  1 + 2 + 1 + 3 + 1;;\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[286,6630+22]..[286,6630+55])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[286,6630+22]..[286,6630+26])
+          Ptyp_constr "t" (mli_files/belt_List.mli[286,6630+25]..[286,6630+26])
+          [
+            core_type (mli_files/belt_List.mli[286,6630+22]..[286,6630+24])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[286,6630+30]..[286,6630+55])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[286,6630+31]..[286,6630+46])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[286,6630+31]..[286,6630+34])
+              Ptyp_constr "int" (mli_files/belt_List.mli[286,6630+31]..[286,6630+34])
+              []
+            core_type (mli_files/belt_List.mli[286,6630+38]..[286,6630+46])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[286,6630+38]..[286,6630+40])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[286,6630+44]..[286,6630+46])
+                Ptyp_var b
+          core_type (mli_files/belt_List.mli[286,6630+51]..[286,6630+55])
+            Ptyp_constr "unit" (mli_files/belt_List.mli[286,6630+51]..[286,6630+55])
+            []
+      []
+  signature_item (mli_files/belt_List.mli[296,6878+0]..[296,6878+56])
+    Psig_value
+    value_description "reduceU" (mli_files/belt_List.mli[296,6878+4]..[296,6878+11]) (mli_files/belt_List.mli[296,6878+0]..[296,6878+56])
+      core_type (mli_files/belt_List.mli[296,6878+14]..[296,6878+56])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[296,6878+14]..[296,6878+18])
+          Ptyp_constr "t" (mli_files/belt_List.mli[296,6878+17]..[296,6878+18])
+          [
+            core_type (mli_files/belt_List.mli[296,6878+14]..[296,6878+16])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[296,6878+22]..[296,6878+56])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[296,6878+22]..[296,6878+24])
+            Ptyp_var b
+          core_type (mli_files/belt_List.mli[296,6878+28]..[296,6878+56])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[296,6878+29]..[296,6878+43])
+              attribute "bs"
+                []
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[296,6878+29]..[296,6878+31])
+                Ptyp_var b
+              core_type (mli_files/belt_List.mli[296,6878+35]..[296,6878+43])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[296,6878+35]..[296,6878+37])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[296,6878+41]..[296,6878+43])
+                  Ptyp_var b
+            core_type (mli_files/belt_List.mli[296,6878+54]..[296,6878+56])
+              Ptyp_var b
+      []
+  signature_item (mli_files/belt_List.mli[297,6935+0]..[297,6935+49])
+    Psig_value
+    value_description "reduce" (mli_files/belt_List.mli[297,6935+4]..[297,6935+10]) (mli_files/belt_List.mli[297,6935+0]..[297,6935+49])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[298,6985+0]..[305,7142+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[298,6985+0]..[305,7142+2])
+              Pexp_constant Const_string(" [reduce xs f]\n\n    @example {[\n      reduce [1;2;3;4] 0 (+) = 10;;\n      reduce [1;2;3;4] 10 (-) = 0;;\n      reduce [1;2;3;4] [] add = [4;3;2;1];\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[297,6935+13]..[297,6935+49])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[297,6935+13]..[297,6935+17])
+          Ptyp_constr "t" (mli_files/belt_List.mli[297,6935+16]..[297,6935+17])
+          [
+            core_type (mli_files/belt_List.mli[297,6935+13]..[297,6935+15])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[297,6935+21]..[297,6935+49])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[297,6935+21]..[297,6935+23])
+            Ptyp_var b
+          core_type (mli_files/belt_List.mli[297,6935+27]..[297,6935+49])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[297,6935+28]..[297,6935+42])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[297,6935+28]..[297,6935+30])
+                Ptyp_var b
+              core_type (mli_files/belt_List.mli[297,6935+34]..[297,6935+42])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[297,6935+34]..[297,6935+36])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[297,6935+40]..[297,6935+42])
+                  Ptyp_var b
+            core_type (mli_files/belt_List.mli[297,6935+47]..[297,6935+49])
+              Ptyp_var b
+      []
+  signature_item (mli_files/belt_List.mli[307,7148+0]..[307,7148+63])
+    Psig_value
+    value_description "reduceReverseU" (mli_files/belt_List.mli[307,7148+4]..[307,7148+18]) (mli_files/belt_List.mli[307,7148+0]..[307,7148+63])
+      core_type (mli_files/belt_List.mli[307,7148+20]..[307,7148+63])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[307,7148+20]..[307,7148+24])
+          Ptyp_constr "t" (mli_files/belt_List.mli[307,7148+23]..[307,7148+24])
+          [
+            core_type (mli_files/belt_List.mli[307,7148+20]..[307,7148+22])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[307,7148+28]..[307,7148+63])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[307,7148+28]..[307,7148+30])
+            Ptyp_var b
+          core_type (mli_files/belt_List.mli[307,7148+34]..[307,7148+63])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[307,7148+35]..[307,7148+50])
+              attribute "bs"
+                []
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[307,7148+35]..[307,7148+37])
+                Ptyp_var b
+              core_type (mli_files/belt_List.mli[307,7148+41]..[307,7148+50])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[307,7148+41]..[307,7148+43])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[307,7148+48]..[307,7148+50])
+                  Ptyp_var b
+            core_type (mli_files/belt_List.mli[307,7148+61]..[307,7148+63])
+              Ptyp_var b
+      []
+  signature_item (mli_files/belt_List.mli[308,7212+0]..[308,7212+56])
+    Psig_value
+    value_description "reduceReverse" (mli_files/belt_List.mli[308,7212+4]..[308,7212+17]) (mli_files/belt_List.mli[308,7212+0]..[308,7212+56])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[309,7269+0]..[316,7455+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[309,7269+0]..[316,7455+2])
+              Pexp_constant Const_string(" [reduceReverse xs f]\n\n    @example {[\n      reduceReverse [1;2;3;4] 0 (+) = 10;;\n      reduceReverse [1;2;3;4] 10 (-) = 0;;\n      reduceReverse [1;2;3;4] [] add = [1;2;3;4];;\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[308,7212+19]..[308,7212+56])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[308,7212+19]..[308,7212+23])
+          Ptyp_constr "t" (mli_files/belt_List.mli[308,7212+22]..[308,7212+23])
+          [
+            core_type (mli_files/belt_List.mli[308,7212+19]..[308,7212+21])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[308,7212+27]..[308,7212+56])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[308,7212+27]..[308,7212+29])
+            Ptyp_var b
+          core_type (mli_files/belt_List.mli[308,7212+33]..[308,7212+56])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[308,7212+34]..[308,7212+49])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[308,7212+34]..[308,7212+36])
+                Ptyp_var b
+              core_type (mli_files/belt_List.mli[308,7212+40]..[308,7212+49])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[308,7212+40]..[308,7212+42])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[308,7212+47]..[308,7212+49])
+                  Ptyp_var b
+            core_type (mli_files/belt_List.mli[308,7212+54]..[308,7212+56])
+              Ptyp_var b
+      []
+  signature_item (mli_files/belt_List.mli[318,7461+0]..[318,7461+64])
+    Psig_value
+    value_description "mapReverse2U" (mli_files/belt_List.mli[318,7461+4]..[318,7461+16]) (mli_files/belt_List.mli[318,7461+0]..[318,7461+64])
+      core_type (mli_files/belt_List.mli[318,7461+18]..[318,7461+64])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[318,7461+18]..[318,7461+22])
+          Ptyp_constr "t" (mli_files/belt_List.mli[318,7461+21]..[318,7461+22])
+          [
+            core_type (mli_files/belt_List.mli[318,7461+18]..[318,7461+20])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[318,7461+26]..[318,7461+64])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[318,7461+26]..[318,7461+30])
+            Ptyp_constr "t" (mli_files/belt_List.mli[318,7461+29]..[318,7461+30])
+            [
+              core_type (mli_files/belt_List.mli[318,7461+26]..[318,7461+28])
+                Ptyp_var b
+            ]
+          core_type (mli_files/belt_List.mli[318,7461+34]..[318,7461+64])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[318,7461+35]..[318,7461+49])
+              attribute "bs"
+                []
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[318,7461+35]..[318,7461+37])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[318,7461+41]..[318,7461+49])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[318,7461+41]..[318,7461+43])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[318,7461+47]..[318,7461+49])
+                  Ptyp_var c
+            core_type (mli_files/belt_List.mli[318,7461+60]..[318,7461+64])
+              Ptyp_constr "t" (mli_files/belt_List.mli[318,7461+63]..[318,7461+64])
+              [
+                core_type (mli_files/belt_List.mli[318,7461+60]..[318,7461+62])
+                  Ptyp_var c
+              ]
+      []
+  signature_item (mli_files/belt_List.mli[319,7526+0]..[319,7526+57])
+    Psig_value
+    value_description "mapReverse2" (mli_files/belt_List.mli[319,7526+4]..[319,7526+15]) (mli_files/belt_List.mli[319,7526+0]..[319,7526+57])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[320,7584+0]..[327,7727+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[320,7584+0]..[327,7727+2])
+              Pexp_constant Const_string(" [mapReverse2 xs ys f]\n\n    equivalent to [reverse (zipBy xs ys f)]    \n\n    @example {[\n      mapReverse2 [1;2;3] [1;2] (+) = [4;2]\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[319,7526+17]..[319,7526+57])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[319,7526+17]..[319,7526+21])
+          Ptyp_constr "t" (mli_files/belt_List.mli[319,7526+20]..[319,7526+21])
+          [
+            core_type (mli_files/belt_List.mli[319,7526+17]..[319,7526+19])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[319,7526+25]..[319,7526+57])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[319,7526+25]..[319,7526+29])
+            Ptyp_constr "t" (mli_files/belt_List.mli[319,7526+28]..[319,7526+29])
+            [
+              core_type (mli_files/belt_List.mli[319,7526+25]..[319,7526+27])
+                Ptyp_var b
+            ]
+          core_type (mli_files/belt_List.mli[319,7526+33]..[319,7526+57])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[319,7526+34]..[319,7526+48])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[319,7526+34]..[319,7526+36])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[319,7526+40]..[319,7526+48])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[319,7526+40]..[319,7526+42])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[319,7526+46]..[319,7526+48])
+                  Ptyp_var c
+            core_type (mli_files/belt_List.mli[319,7526+53]..[319,7526+57])
+              Ptyp_constr "t" (mli_files/belt_List.mli[319,7526+56]..[319,7526+57])
+              [
+                core_type (mli_files/belt_List.mli[319,7526+53]..[319,7526+55])
+                  Ptyp_var c
+              ]
+      []
+  signature_item (mli_files/belt_List.mli[329,7731+0]..[329,7731+61])
+    Psig_value
+    value_description "forEach2U" (mli_files/belt_List.mli[329,7731+4]..[329,7731+13]) (mli_files/belt_List.mli[329,7731+0]..[329,7731+61])
+      core_type (mli_files/belt_List.mli[329,7731+15]..[329,7731+61])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[329,7731+15]..[329,7731+19])
+          Ptyp_constr "t" (mli_files/belt_List.mli[329,7731+18]..[329,7731+19])
+          [
+            core_type (mli_files/belt_List.mli[329,7731+15]..[329,7731+17])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[329,7731+23]..[329,7731+61])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[329,7731+23]..[329,7731+27])
+            Ptyp_constr "t" (mli_files/belt_List.mli[329,7731+26]..[329,7731+27])
+            [
+              core_type (mli_files/belt_List.mli[329,7731+23]..[329,7731+25])
+                Ptyp_var b
+            ]
+          core_type (mli_files/belt_List.mli[329,7731+31]..[329,7731+61])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[329,7731+32]..[329,7731+46])
+              attribute "bs"
+                []
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[329,7731+32]..[329,7731+34])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[329,7731+38]..[329,7731+46])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[329,7731+38]..[329,7731+40])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[329,7731+44]..[329,7731+46])
+                  Ptyp_var c
+            core_type (mli_files/belt_List.mli[329,7731+57]..[329,7731+61])
+              Ptyp_constr "unit" (mli_files/belt_List.mli[329,7731+57]..[329,7731+61])
+              []
+      []
+  signature_item (mli_files/belt_List.mli[330,7793+0]..[330,7793+54])
+    Psig_value
+    value_description "forEach2" (mli_files/belt_List.mli[330,7793+4]..[330,7793+12]) (mli_files/belt_List.mli[330,7793+0]..[330,7793+54])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[331,7848+0]..[332,7898+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[331,7848+0]..[332,7898+2])
+              Pexp_constant Const_string(" [forEach2 xs ys f] stop with the shorter list\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[330,7793+14]..[330,7793+54])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[330,7793+14]..[330,7793+18])
+          Ptyp_constr "t" (mli_files/belt_List.mli[330,7793+17]..[330,7793+18])
+          [
+            core_type (mli_files/belt_List.mli[330,7793+14]..[330,7793+16])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[330,7793+22]..[330,7793+54])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[330,7793+22]..[330,7793+26])
+            Ptyp_constr "t" (mli_files/belt_List.mli[330,7793+25]..[330,7793+26])
+            [
+              core_type (mli_files/belt_List.mli[330,7793+22]..[330,7793+24])
+                Ptyp_var b
+            ]
+          core_type (mli_files/belt_List.mli[330,7793+30]..[330,7793+54])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[330,7793+31]..[330,7793+45])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[330,7793+31]..[330,7793+33])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[330,7793+37]..[330,7793+45])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[330,7793+37]..[330,7793+39])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[330,7793+43]..[330,7793+45])
+                  Ptyp_var c
+            core_type (mli_files/belt_List.mli[330,7793+50]..[330,7793+54])
+              Ptyp_constr "unit" (mli_files/belt_List.mli[330,7793+50]..[330,7793+54])
+              []
+      []
+  signature_item (mli_files/belt_List.mli[335,7905+0]..[336,7919+58])
+    Psig_value
+    value_description "reduce2U" (mli_files/belt_List.mli[335,7905+4]..[335,7905+12]) (mli_files/belt_List.mli[335,7905+0]..[336,7919+58])
+      core_type (mli_files/belt_List.mli[336,7919+2]..[336,7919+58])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[336,7919+2]..[336,7919+6])
+          Ptyp_constr "t" (mli_files/belt_List.mli[336,7919+5]..[336,7919+6])
+          [
+            core_type (mli_files/belt_List.mli[336,7919+2]..[336,7919+4])
+              Ptyp_var b
+          ]
+        core_type (mli_files/belt_List.mli[336,7919+10]..[336,7919+58])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[336,7919+10]..[336,7919+14])
+            Ptyp_constr "t" (mli_files/belt_List.mli[336,7919+13]..[336,7919+14])
+            [
+              core_type (mli_files/belt_List.mli[336,7919+10]..[336,7919+12])
+                Ptyp_var c
+            ]
+          core_type (mli_files/belt_List.mli[336,7919+18]..[336,7919+58])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[336,7919+18]..[336,7919+20])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[336,7919+24]..[336,7919+58])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[336,7919+25]..[336,7919+45])
+                attribute "bs"
+                  []
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[336,7919+25]..[336,7919+27])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[336,7919+31]..[336,7919+45])
+                  Ptyp_arrow
+                  ""
+                  core_type (mli_files/belt_List.mli[336,7919+31]..[336,7919+33])
+                    Ptyp_var b
+                  core_type (mli_files/belt_List.mli[336,7919+37]..[336,7919+45])
+                    Ptyp_arrow
+                    ""
+                    core_type (mli_files/belt_List.mli[336,7919+37]..[336,7919+39])
+                      Ptyp_var c
+                    core_type (mli_files/belt_List.mli[336,7919+43]..[336,7919+45])
+                      Ptyp_var a
+              core_type (mli_files/belt_List.mli[336,7919+56]..[336,7919+58])
+                Ptyp_var a
+      []
+  signature_item (mli_files/belt_List.mli[337,7978+0]..[338,7991+52])
+    Psig_value
+    value_description "reduce2" (mli_files/belt_List.mli[337,7978+4]..[337,7978+11]) (mli_files/belt_List.mli[337,7978+0]..[338,7991+52])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[339,8044+0]..[342,8107+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[339,8044+0]..[342,8107+2])
+              Pexp_constant Const_string(" [reduce2 xs ys init f ]\n\n    stops with the shorter list. \n",None)
+        ]
+      core_type (mli_files/belt_List.mli[338,7991+2]..[338,7991+52])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[338,7991+2]..[338,7991+6])
+          Ptyp_constr "t" (mli_files/belt_List.mli[338,7991+5]..[338,7991+6])
+          [
+            core_type (mli_files/belt_List.mli[338,7991+2]..[338,7991+4])
+              Ptyp_var b
+          ]
+        core_type (mli_files/belt_List.mli[338,7991+10]..[338,7991+52])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[338,7991+10]..[338,7991+14])
+            Ptyp_constr "t" (mli_files/belt_List.mli[338,7991+13]..[338,7991+14])
+            [
+              core_type (mli_files/belt_List.mli[338,7991+10]..[338,7991+12])
+                Ptyp_var c
+            ]
+          core_type (mli_files/belt_List.mli[338,7991+18]..[338,7991+52])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[338,7991+18]..[338,7991+20])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[338,7991+24]..[338,7991+52])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[338,7991+25]..[338,7991+45])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[338,7991+25]..[338,7991+27])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[338,7991+31]..[338,7991+45])
+                  Ptyp_arrow
+                  ""
+                  core_type (mli_files/belt_List.mli[338,7991+31]..[338,7991+33])
+                    Ptyp_var b
+                  core_type (mli_files/belt_List.mli[338,7991+37]..[338,7991+45])
+                    Ptyp_arrow
+                    ""
+                    core_type (mli_files/belt_List.mli[338,7991+37]..[338,7991+39])
+                      Ptyp_var c
+                    core_type (mli_files/belt_List.mli[338,7991+43]..[338,7991+45])
+                      Ptyp_var a
+              core_type (mli_files/belt_List.mli[338,7991+50]..[338,7991+52])
+                Ptyp_var a
+      []
+  signature_item (mli_files/belt_List.mli[344,8111+0]..[345,8132+59])
+    Psig_value
+    value_description "reduceReverse2U" (mli_files/belt_List.mli[344,8111+4]..[344,8111+19]) (mli_files/belt_List.mli[344,8111+0]..[345,8132+59])
+      core_type (mli_files/belt_List.mli[345,8132+2]..[345,8132+59])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[345,8132+2]..[345,8132+6])
+          Ptyp_constr "t" (mli_files/belt_List.mli[345,8132+5]..[345,8132+6])
+          [
+            core_type (mli_files/belt_List.mli[345,8132+2]..[345,8132+4])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[345,8132+10]..[345,8132+59])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[345,8132+10]..[345,8132+14])
+            Ptyp_constr "t" (mli_files/belt_List.mli[345,8132+13]..[345,8132+14])
+            [
+              core_type (mli_files/belt_List.mli[345,8132+10]..[345,8132+12])
+                Ptyp_var b
+            ]
+          core_type (mli_files/belt_List.mli[345,8132+18]..[345,8132+59])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[345,8132+18]..[345,8132+20])
+              Ptyp_var c
+            core_type (mli_files/belt_List.mli[345,8132+24]..[345,8132+59])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[345,8132+25]..[345,8132+46])
+                attribute "bs"
+                  []
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[345,8132+25]..[345,8132+27])
+                  Ptyp_var c
+                core_type (mli_files/belt_List.mli[345,8132+31]..[345,8132+46])
+                  Ptyp_arrow
+                  ""
+                  core_type (mli_files/belt_List.mli[345,8132+31]..[345,8132+33])
+                    Ptyp_var a
+                  core_type (mli_files/belt_List.mli[345,8132+37]..[345,8132+46])
+                    Ptyp_arrow
+                    ""
+                    core_type (mli_files/belt_List.mli[345,8132+37]..[345,8132+39])
+                      Ptyp_var b
+                    core_type (mli_files/belt_List.mli[345,8132+44]..[345,8132+46])
+                      Ptyp_var c
+              core_type (mli_files/belt_List.mli[345,8132+57]..[345,8132+59])
+                Ptyp_var c
+      []
+  signature_item (mli_files/belt_List.mli[346,8192+0]..[347,8212+53])
+    Psig_value
+    value_description "reduceReverse2" (mli_files/belt_List.mli[346,8192+4]..[346,8192+18]) (mli_files/belt_List.mli[346,8192+0]..[347,8212+53])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[348,8266+0]..[356,8427+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[348,8266+0]..[356,8427+2])
+              Pexp_constant Const_string("\n   [reduceReverse2 xs ys init f ]\n\n   Stops with the shorter list\n\n   @example {[\n     reduceReverse2 [1;2;3] [1;2] 0 (fun acc x y -> acc + x + y) = 6\n   ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[347,8212+2]..[347,8212+53])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[347,8212+2]..[347,8212+6])
+          Ptyp_constr "t" (mli_files/belt_List.mli[347,8212+5]..[347,8212+6])
+          [
+            core_type (mli_files/belt_List.mli[347,8212+2]..[347,8212+4])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[347,8212+10]..[347,8212+53])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[347,8212+10]..[347,8212+14])
+            Ptyp_constr "t" (mli_files/belt_List.mli[347,8212+13]..[347,8212+14])
+            [
+              core_type (mli_files/belt_List.mli[347,8212+10]..[347,8212+12])
+                Ptyp_var b
+            ]
+          core_type (mli_files/belt_List.mli[347,8212+18]..[347,8212+53])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[347,8212+18]..[347,8212+20])
+              Ptyp_var c
+            core_type (mli_files/belt_List.mli[347,8212+24]..[347,8212+53])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[347,8212+25]..[347,8212+46])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[347,8212+25]..[347,8212+27])
+                  Ptyp_var c
+                core_type (mli_files/belt_List.mli[347,8212+31]..[347,8212+46])
+                  Ptyp_arrow
+                  ""
+                  core_type (mli_files/belt_List.mli[347,8212+31]..[347,8212+33])
+                    Ptyp_var a
+                  core_type (mli_files/belt_List.mli[347,8212+37]..[347,8212+46])
+                    Ptyp_arrow
+                    ""
+                    core_type (mli_files/belt_List.mli[347,8212+37]..[347,8212+39])
+                      Ptyp_var b
+                    core_type (mli_files/belt_List.mli[347,8212+44]..[347,8212+46])
+                      Ptyp_var c
+              core_type (mli_files/belt_List.mli[347,8212+51]..[347,8212+53])
+                Ptyp_var c
+      []
+  signature_item (mli_files/belt_List.mli[358,8431+0]..[358,8431+47])
+    Psig_value
+    value_description "everyU" (mli_files/belt_List.mli[358,8431+4]..[358,8431+10]) (mli_files/belt_List.mli[358,8431+0]..[358,8431+47])
+      core_type (mli_files/belt_List.mli[358,8431+12]..[358,8431+47])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[358,8431+12]..[358,8431+16])
+          Ptyp_constr "t" (mli_files/belt_List.mli[358,8431+15]..[358,8431+16])
+          [
+            core_type (mli_files/belt_List.mli[358,8431+12]..[358,8431+14])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[358,8431+20]..[358,8431+47])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[358,8431+21]..[358,8431+31])
+            attribute "bs"
+              []
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[358,8431+21]..[358,8431+23])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[358,8431+27]..[358,8431+31])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[358,8431+27]..[358,8431+31])
+              []
+          core_type (mli_files/belt_List.mli[358,8431+43]..[358,8431+47])
+            Ptyp_constr "bool" (mli_files/belt_List.mli[358,8431+43]..[358,8431+47])
+            []
+      []
+  signature_item (mli_files/belt_List.mli[359,8479+0]..[359,8479+41])
+    Psig_value
+    value_description "every" (mli_files/belt_List.mli[359,8479+4]..[359,8479+9]) (mli_files/belt_List.mli[359,8479+0]..[359,8479+41])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[360,8521+0]..[366,8658+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[360,8521+0]..[366,8658+2])
+              Pexp_constant Const_string(" [every ls p]\n\n    @example {[\n      every [] (fun x -> x mod 2 = 0) = true;;\n      every [2;4] (fun x -> x mod 2 = 0 ) true;;\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[359,8479+11]..[359,8479+41])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[359,8479+11]..[359,8479+15])
+          Ptyp_constr "t" (mli_files/belt_List.mli[359,8479+14]..[359,8479+15])
+          [
+            core_type (mli_files/belt_List.mli[359,8479+11]..[359,8479+13])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[359,8479+19]..[359,8479+41])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[359,8479+20]..[359,8479+30])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[359,8479+20]..[359,8479+22])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[359,8479+26]..[359,8479+30])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[359,8479+26]..[359,8479+30])
+              []
+          core_type (mli_files/belt_List.mli[359,8479+37]..[359,8479+41])
+            Ptyp_constr "bool" (mli_files/belt_List.mli[359,8479+37]..[359,8479+41])
+            []
+      []
+  signature_item (mli_files/belt_List.mli[367,8661+0]..[367,8661+45])
+    Psig_value
+    value_description "someU" (mli_files/belt_List.mli[367,8661+4]..[367,8661+9]) (mli_files/belt_List.mli[367,8661+0]..[367,8661+45])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[360,8521+0]..[366,8658+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[360,8521+0]..[366,8658+2])
+              Pexp_constant Const_string(" [every ls p]\n\n    @example {[\n      every [] (fun x -> x mod 2 = 0) = true;;\n      every [2;4] (fun x -> x mod 2 = 0 ) true;;\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[367,8661+11]..[367,8661+45])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[367,8661+11]..[367,8661+15])
+          Ptyp_constr "t" (mli_files/belt_List.mli[367,8661+14]..[367,8661+15])
+          [
+            core_type (mli_files/belt_List.mli[367,8661+11]..[367,8661+13])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[367,8661+19]..[367,8661+45])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[367,8661+20]..[367,8661+30])
+            attribute "bs"
+              []
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[367,8661+20]..[367,8661+22])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[367,8661+26]..[367,8661+30])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[367,8661+26]..[367,8661+30])
+              []
+          core_type (mli_files/belt_List.mli[367,8661+41]..[367,8661+45])
+            Ptyp_constr "bool" (mli_files/belt_List.mli[367,8661+41]..[367,8661+45])
+            []
+      []
+  signature_item (mli_files/belt_List.mli[368,8707+0]..[368,8707+39])
+    Psig_value
+    value_description "some" (mli_files/belt_List.mli[368,8707+4]..[368,8707+8]) (mli_files/belt_List.mli[368,8707+0]..[368,8707+39])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[369,8747+0]..[375,8885+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[369,8747+0]..[375,8885+2])
+              Pexp_constant Const_string(" [some ls p]\n\n    @example {[\n      some [] (fun x -> x mod 2 = 0) = false ;;\n      some [1;2] (fun x -> x mod 2 = 0) = true;;)\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[368,8707+10]..[368,8707+39])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[368,8707+10]..[368,8707+14])
+          Ptyp_constr "t" (mli_files/belt_List.mli[368,8707+13]..[368,8707+14])
+          [
+            core_type (mli_files/belt_List.mli[368,8707+10]..[368,8707+12])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[368,8707+18]..[368,8707+39])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[368,8707+19]..[368,8707+29])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[368,8707+19]..[368,8707+21])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[368,8707+25]..[368,8707+29])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[368,8707+25]..[368,8707+29])
+              []
+          core_type (mli_files/belt_List.mli[368,8707+35]..[368,8707+39])
+            Ptyp_constr "bool" (mli_files/belt_List.mli[368,8707+35]..[368,8707+39])
+            []
+      []
+  signature_item (mli_files/belt_List.mli[377,8889+0]..[377,8889+61])
+    Psig_value
+    value_description "every2U" (mli_files/belt_List.mli[377,8889+4]..[377,8889+11]) (mli_files/belt_List.mli[377,8889+0]..[377,8889+61])
+      core_type (mli_files/belt_List.mli[377,8889+13]..[377,8889+61])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[377,8889+13]..[377,8889+17])
+          Ptyp_constr "t" (mli_files/belt_List.mli[377,8889+16]..[377,8889+17])
+          [
+            core_type (mli_files/belt_List.mli[377,8889+13]..[377,8889+15])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[377,8889+21]..[377,8889+61])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[377,8889+21]..[377,8889+25])
+            Ptyp_constr "t" (mli_files/belt_List.mli[377,8889+24]..[377,8889+25])
+            [
+              core_type (mli_files/belt_List.mli[377,8889+21]..[377,8889+23])
+                Ptyp_var b
+            ]
+          core_type (mli_files/belt_List.mli[377,8889+29]..[377,8889+61])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[377,8889+30]..[377,8889+46])
+              attribute "bs"
+                []
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[377,8889+30]..[377,8889+32])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[377,8889+36]..[377,8889+46])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[377,8889+36]..[377,8889+38])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[377,8889+42]..[377,8889+46])
+                  Ptyp_constr "bool" (mli_files/belt_List.mli[377,8889+42]..[377,8889+46])
+                  []
+            core_type (mli_files/belt_List.mli[377,8889+57]..[377,8889+61])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[377,8889+57]..[377,8889+61])
+              []
+      []
+  signature_item (mli_files/belt_List.mli[378,8951+0]..[378,8951+55])
+    Psig_value
+    value_description "every2" (mli_files/belt_List.mli[378,8951+4]..[378,8951+10]) (mli_files/belt_List.mli[378,8951+0]..[378,8951+55])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[379,9007+0]..[384,9189+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[379,9007+0]..[384,9189+2])
+              Pexp_constant Const_string(" [every2 xs ys p] stop with the shorter list\n    @example {[\n      (every2 [] [1] (fun   x y -> x > y)) = true;;\n      (every2 [2;3] [1] (fun   x y -> x > y)) = true;;    \n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[378,8951+12]..[378,8951+55])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[378,8951+12]..[378,8951+16])
+          Ptyp_constr "t" (mli_files/belt_List.mli[378,8951+15]..[378,8951+16])
+          [
+            core_type (mli_files/belt_List.mli[378,8951+12]..[378,8951+14])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[378,8951+20]..[378,8951+55])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[378,8951+20]..[378,8951+24])
+            Ptyp_constr "t" (mli_files/belt_List.mli[378,8951+23]..[378,8951+24])
+            [
+              core_type (mli_files/belt_List.mli[378,8951+20]..[378,8951+22])
+                Ptyp_var b
+            ]
+          core_type (mli_files/belt_List.mli[378,8951+28]..[378,8951+55])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[378,8951+29]..[378,8951+45])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[378,8951+29]..[378,8951+31])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[378,8951+35]..[378,8951+45])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[378,8951+35]..[378,8951+37])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[378,8951+41]..[378,8951+45])
+                  Ptyp_constr "bool" (mli_files/belt_List.mli[378,8951+41]..[378,8951+45])
+                  []
+            core_type (mli_files/belt_List.mli[378,8951+51]..[378,8951+55])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[378,8951+51]..[378,8951+55])
+              []
+      []
+  signature_item (mli_files/belt_List.mli[386,9193+0]..[386,9193+61])
+    Psig_value
+    value_description "some2U" (mli_files/belt_List.mli[386,9193+4]..[386,9193+10]) (mli_files/belt_List.mli[386,9193+0]..[386,9193+61])
+      core_type (mli_files/belt_List.mli[386,9193+13]..[386,9193+61])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[386,9193+13]..[386,9193+17])
+          Ptyp_constr "t" (mli_files/belt_List.mli[386,9193+16]..[386,9193+17])
+          [
+            core_type (mli_files/belt_List.mli[386,9193+13]..[386,9193+15])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[386,9193+21]..[386,9193+61])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[386,9193+21]..[386,9193+25])
+            Ptyp_constr "t" (mli_files/belt_List.mli[386,9193+24]..[386,9193+25])
+            [
+              core_type (mli_files/belt_List.mli[386,9193+21]..[386,9193+23])
+                Ptyp_var b
+            ]
+          core_type (mli_files/belt_List.mli[386,9193+29]..[386,9193+61])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[386,9193+30]..[386,9193+46])
+              attribute "bs"
+                []
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[386,9193+30]..[386,9193+32])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[386,9193+36]..[386,9193+46])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[386,9193+36]..[386,9193+38])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[386,9193+42]..[386,9193+46])
+                  Ptyp_constr "bool" (mli_files/belt_List.mli[386,9193+42]..[386,9193+46])
+                  []
+            core_type (mli_files/belt_List.mli[386,9193+57]..[386,9193+61])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[386,9193+57]..[386,9193+61])
+              []
+      []
+  signature_item (mli_files/belt_List.mli[387,9255+0]..[387,9255+54])
+    Psig_value
+    value_description "some2" (mli_files/belt_List.mli[387,9255+4]..[387,9255+9]) (mli_files/belt_List.mli[387,9255+0]..[387,9255+54])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[388,9310+0]..[393,9462+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[388,9310+0]..[393,9462+2])
+              Pexp_constant Const_string(" [some2 xs ys p]\n    @example {[\n      (some2 [] [1] (fun   x y -> x > y)) =  false;;\n      (some2 [2;3] [1;4] (fun   x y -> x > y)) = true;;\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[387,9255+12]..[387,9255+54])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[387,9255+12]..[387,9255+16])
+          Ptyp_constr "t" (mli_files/belt_List.mli[387,9255+15]..[387,9255+16])
+          [
+            core_type (mli_files/belt_List.mli[387,9255+12]..[387,9255+14])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[387,9255+20]..[387,9255+54])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[387,9255+20]..[387,9255+24])
+            Ptyp_constr "t" (mli_files/belt_List.mli[387,9255+23]..[387,9255+24])
+            [
+              core_type (mli_files/belt_List.mli[387,9255+20]..[387,9255+22])
+                Ptyp_var b
+            ]
+          core_type (mli_files/belt_List.mli[387,9255+28]..[387,9255+54])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[387,9255+29]..[387,9255+45])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[387,9255+29]..[387,9255+31])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[387,9255+35]..[387,9255+45])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[387,9255+35]..[387,9255+37])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[387,9255+41]..[387,9255+45])
+                  Ptyp_constr "bool" (mli_files/belt_List.mli[387,9255+41]..[387,9255+45])
+                  []
+            core_type (mli_files/belt_List.mli[387,9255+50]..[387,9255+54])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[387,9255+50]..[387,9255+54])
+              []
+      []
+  signature_item (mli_files/belt_List.mli[395,9466+0]..[395,9466+36])
+    Psig_value
+    value_description "cmpByLength" (mli_files/belt_List.mli[395,9466+4]..[395,9466+15]) (mli_files/belt_List.mli[395,9466+0]..[395,9466+36])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[396,9503+0]..[399,9567+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[396,9503+0]..[399,9567+2])
+              Pexp_constant Const_string(" [cmpByLength l1 l2]\n\n    Compare two lists solely by length\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[395,9466+17]..[395,9466+36])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[395,9466+17]..[395,9466+21])
+          Ptyp_constr "t" (mli_files/belt_List.mli[395,9466+20]..[395,9466+21])
+          [
+            core_type (mli_files/belt_List.mli[395,9466+17]..[395,9466+19])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[395,9466+25]..[395,9466+36])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[395,9466+25]..[395,9466+29])
+            Ptyp_constr "t" (mli_files/belt_List.mli[395,9466+28]..[395,9466+29])
+            [
+              core_type (mli_files/belt_List.mli[395,9466+25]..[395,9466+27])
+                Ptyp_var a
+            ]
+          core_type (mli_files/belt_List.mli[395,9466+33]..[395,9466+36])
+            Ptyp_constr "int" (mli_files/belt_List.mli[395,9466+33]..[395,9466+36])
+            []
+      []
+  signature_item (mli_files/belt_List.mli[401,9573+0]..[401,9573+56])
+    Psig_value
+    value_description "cmpU" (mli_files/belt_List.mli[401,9573+4]..[401,9573+8]) (mli_files/belt_List.mli[401,9573+0]..[401,9573+56])
+      core_type (mli_files/belt_List.mli[401,9573+10]..[401,9573+56])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[401,9573+10]..[401,9573+14])
+          Ptyp_constr "t" (mli_files/belt_List.mli[401,9573+13]..[401,9573+14])
+          [
+            core_type (mli_files/belt_List.mli[401,9573+10]..[401,9573+12])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[401,9573+18]..[401,9573+56])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[401,9573+18]..[401,9573+22])
+            Ptyp_constr "t" (mli_files/belt_List.mli[401,9573+21]..[401,9573+22])
+            [
+              core_type (mli_files/belt_List.mli[401,9573+18]..[401,9573+20])
+                Ptyp_var a
+            ]
+          core_type (mli_files/belt_List.mli[401,9573+26]..[401,9573+56])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[401,9573+27]..[401,9573+42])
+              attribute "bs"
+                []
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[401,9573+27]..[401,9573+29])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[401,9573+33]..[401,9573+42])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[401,9573+33]..[401,9573+35])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[401,9573+39]..[401,9573+42])
+                  Ptyp_constr "int" (mli_files/belt_List.mli[401,9573+39]..[401,9573+42])
+                  []
+            core_type (mli_files/belt_List.mli[401,9573+53]..[401,9573+56])
+              Ptyp_constr "int" (mli_files/belt_List.mli[401,9573+53]..[401,9573+56])
+              []
+      []
+  signature_item (mli_files/belt_List.mli[402,9630+0]..[402,9630+49])
+    Psig_value
+    value_description "cmp" (mli_files/belt_List.mli[402,9630+4]..[402,9630+7]) (mli_files/belt_List.mli[402,9630+0]..[402,9630+49])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[403,9680+0]..[414,10064+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[403,9680+0]..[414,10064+2])
+              Pexp_constant Const_string("\n    [cmp xs ys cmpElem]\n    compare lists [xs] and [ys] using [cmpElem] to compare elements\n    @example {[\n      cmp [1;2;3] [1;2;3] compare = 0;;\n      cmp [1;2;3] [0;1;2;3] compare = 1 ;;]\n  ]}\n\n   {b Attention}: The total ordering of List is different from Array,\n   for Array, we compare the length first and one by one later, while\n   for lists, we just compare one by one \n",None)
+        ]
+      core_type (mli_files/belt_List.mli[402,9630+9]..[402,9630+49])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[402,9630+9]..[402,9630+13])
+          Ptyp_constr "t" (mli_files/belt_List.mli[402,9630+12]..[402,9630+13])
+          [
+            core_type (mli_files/belt_List.mli[402,9630+9]..[402,9630+11])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[402,9630+17]..[402,9630+49])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[402,9630+17]..[402,9630+21])
+            Ptyp_constr "t" (mli_files/belt_List.mli[402,9630+20]..[402,9630+21])
+            [
+              core_type (mli_files/belt_List.mli[402,9630+17]..[402,9630+19])
+                Ptyp_var a
+            ]
+          core_type (mli_files/belt_List.mli[402,9630+25]..[402,9630+49])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[402,9630+26]..[402,9630+41])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[402,9630+26]..[402,9630+28])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[402,9630+32]..[402,9630+41])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[402,9630+32]..[402,9630+34])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[402,9630+38]..[402,9630+41])
+                  Ptyp_constr "int" (mli_files/belt_List.mli[402,9630+38]..[402,9630+41])
+                  []
+            core_type (mli_files/belt_List.mli[402,9630+46]..[402,9630+49])
+              Ptyp_constr "int" (mli_files/belt_List.mli[402,9630+46]..[402,9630+49])
+              []
+      []
+  signature_item (mli_files/belt_List.mli[417,10069+0]..[417,10069+57])
+    Psig_value
+    value_description "eqU" (mli_files/belt_List.mli[417,10069+4]..[417,10069+7]) (mli_files/belt_List.mli[417,10069+0]..[417,10069+57])
+      core_type (mli_files/belt_List.mli[417,10069+9]..[417,10069+57])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[417,10069+9]..[417,10069+13])
+          Ptyp_constr "t" (mli_files/belt_List.mli[417,10069+12]..[417,10069+13])
+          [
+            core_type (mli_files/belt_List.mli[417,10069+9]..[417,10069+11])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[417,10069+17]..[417,10069+57])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[417,10069+17]..[417,10069+21])
+            Ptyp_constr "t" (mli_files/belt_List.mli[417,10069+20]..[417,10069+21])
+            [
+              core_type (mli_files/belt_List.mli[417,10069+17]..[417,10069+19])
+                Ptyp_var a
+            ]
+          core_type (mli_files/belt_List.mli[417,10069+25]..[417,10069+57])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[417,10069+26]..[417,10069+42])
+              attribute "bs"
+                []
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[417,10069+26]..[417,10069+28])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[417,10069+32]..[417,10069+42])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[417,10069+32]..[417,10069+34])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[417,10069+38]..[417,10069+42])
+                  Ptyp_constr "bool" (mli_files/belt_List.mli[417,10069+38]..[417,10069+42])
+                  []
+            core_type (mli_files/belt_List.mli[417,10069+53]..[417,10069+57])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[417,10069+53]..[417,10069+57])
+              []
+      []
+  signature_item (mli_files/belt_List.mli[418,10127+0]..[418,10127+50])
+    Psig_value
+    value_description "eq" (mli_files/belt_List.mli[418,10127+4]..[418,10127+6]) (mli_files/belt_List.mli[418,10127+0]..[418,10127+50])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[419,10178+0]..[427,10372+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[419,10178+0]..[427,10372+2])
+              Pexp_constant Const_string("\n   [eq xs ys eqElem]\n   check equality of [xs] and [ys] using [eqElem] for equality on elements\n\n    @example {[\n      eq [1;2;3] [1;2] (=) = false ;;\n      eq [1;2] [1;2] (=) = true\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[418,10127+8]..[418,10127+50])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[418,10127+8]..[418,10127+12])
+          Ptyp_constr "t" (mli_files/belt_List.mli[418,10127+11]..[418,10127+12])
+          [
+            core_type (mli_files/belt_List.mli[418,10127+8]..[418,10127+10])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[418,10127+16]..[418,10127+50])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[418,10127+16]..[418,10127+20])
+            Ptyp_constr "t" (mli_files/belt_List.mli[418,10127+19]..[418,10127+20])
+            [
+              core_type (mli_files/belt_List.mli[418,10127+16]..[418,10127+18])
+                Ptyp_var a
+            ]
+          core_type (mli_files/belt_List.mli[418,10127+24]..[418,10127+50])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[418,10127+25]..[418,10127+41])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[418,10127+25]..[418,10127+27])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[418,10127+31]..[418,10127+41])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[418,10127+31]..[418,10127+33])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[418,10127+37]..[418,10127+41])
+                  Ptyp_constr "bool" (mli_files/belt_List.mli[418,10127+37]..[418,10127+41])
+                  []
+            core_type (mli_files/belt_List.mli[418,10127+46]..[418,10127+50])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[418,10127+46]..[418,10127+50])
+              []
+      []
+  signature_item (mli_files/belt_List.mli[430,10379+0]..[430,10379+57])
+    Psig_value
+    value_description "hasU" (mli_files/belt_List.mli[430,10379+4]..[430,10379+8]) (mli_files/belt_List.mli[430,10379+0]..[430,10379+57])
+      core_type (mli_files/belt_List.mli[430,10379+11]..[430,10379+57])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[430,10379+11]..[430,10379+15])
+          Ptyp_constr "t" (mli_files/belt_List.mli[430,10379+14]..[430,10379+15])
+          [
+            core_type (mli_files/belt_List.mli[430,10379+11]..[430,10379+13])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[430,10379+19]..[430,10379+57])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[430,10379+19]..[430,10379+21])
+            Ptyp_var b
+          core_type (mli_files/belt_List.mli[430,10379+25]..[430,10379+57])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[430,10379+26]..[430,10379+42])
+              attribute "bs"
+                []
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[430,10379+26]..[430,10379+28])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[430,10379+32]..[430,10379+42])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[430,10379+32]..[430,10379+34])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[430,10379+38]..[430,10379+42])
+                  Ptyp_constr "bool" (mli_files/belt_List.mli[430,10379+38]..[430,10379+42])
+                  []
+            core_type (mli_files/belt_List.mli[430,10379+53]..[430,10379+57])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[430,10379+53]..[430,10379+57])
+              []
+      []
+  signature_item (mli_files/belt_List.mli[431,10437+0]..[431,10437+50])
+    Psig_value
+    value_description "has" (mli_files/belt_List.mli[431,10437+4]..[431,10437+7]) (mli_files/belt_List.mli[431,10437+0]..[431,10437+50])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[432,10488+0]..[436,10578+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[432,10488+0]..[436,10578+2])
+              Pexp_constant Const_string(" @example {[\n      has [1;2;3] 2 (=) = true;;\n      has [1;2;3] 4 (=) = false;;\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[431,10437+10]..[431,10437+50])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[431,10437+10]..[431,10437+14])
+          Ptyp_constr "t" (mli_files/belt_List.mli[431,10437+13]..[431,10437+14])
+          [
+            core_type (mli_files/belt_List.mli[431,10437+10]..[431,10437+12])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[431,10437+18]..[431,10437+50])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[431,10437+18]..[431,10437+20])
+            Ptyp_var b
+          core_type (mli_files/belt_List.mli[431,10437+24]..[431,10437+50])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[431,10437+25]..[431,10437+41])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[431,10437+25]..[431,10437+27])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[431,10437+31]..[431,10437+41])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[431,10437+31]..[431,10437+33])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[431,10437+37]..[431,10437+41])
+                  Ptyp_constr "bool" (mli_files/belt_List.mli[431,10437+37]..[431,10437+41])
+                  []
+            core_type (mli_files/belt_List.mli[431,10437+46]..[431,10437+50])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[431,10437+46]..[431,10437+50])
+              []
+      []
+  signature_item (mli_files/belt_List.mli[438,10582+0]..[438,10582+51])
+    Psig_value
+    value_description "getByU" (mli_files/belt_List.mli[438,10582+4]..[438,10582+10]) (mli_files/belt_List.mli[438,10582+0]..[438,10582+51])
+      core_type (mli_files/belt_List.mli[438,10582+12]..[438,10582+51])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[438,10582+12]..[438,10582+16])
+          Ptyp_constr "t" (mli_files/belt_List.mli[438,10582+15]..[438,10582+16])
+          [
+            core_type (mli_files/belt_List.mli[438,10582+12]..[438,10582+14])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[438,10582+20]..[438,10582+51])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[438,10582+21]..[438,10582+31])
+            attribute "bs"
+              []
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[438,10582+21]..[438,10582+23])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[438,10582+27]..[438,10582+31])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[438,10582+27]..[438,10582+31])
+              []
+          core_type (mli_files/belt_List.mli[438,10582+42]..[438,10582+51])
+            Ptyp_constr "option" (mli_files/belt_List.mli[438,10582+45]..[438,10582+51])
+            [
+              core_type (mli_files/belt_List.mli[438,10582+42]..[438,10582+44])
+                Ptyp_var a
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[439,10634+0]..[439,10634+44])
+    Psig_value
+    value_description "getBy" (mli_files/belt_List.mli[439,10634+4]..[439,10634+9]) (mli_files/belt_List.mli[439,10634+0]..[439,10634+44])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[440,10679+0]..[443,10756+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[440,10679+0]..[443,10756+2])
+              Pexp_constant Const_string(" @example {[\n      getBy [1;4;3;2] (fun x -> x mod 2 = 0) = Some 4\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[439,10634+11]..[439,10634+44])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[439,10634+11]..[439,10634+15])
+          Ptyp_constr "t" (mli_files/belt_List.mli[439,10634+14]..[439,10634+15])
+          [
+            core_type (mli_files/belt_List.mli[439,10634+11]..[439,10634+13])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[439,10634+19]..[439,10634+44])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[439,10634+20]..[439,10634+30])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[439,10634+20]..[439,10634+22])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[439,10634+26]..[439,10634+30])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[439,10634+26]..[439,10634+30])
+              []
+          core_type (mli_files/belt_List.mli[439,10634+35]..[439,10634+44])
+            Ptyp_constr "option" (mli_files/belt_List.mli[439,10634+38]..[439,10634+44])
+            [
+              core_type (mli_files/belt_List.mli[439,10634+35]..[439,10634+37])
+                Ptyp_var a
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[445,10764+0]..[445,10764+46])
+    Psig_value
+    value_description "keepU" (mli_files/belt_List.mli[445,10764+4]..[445,10764+9]) (mli_files/belt_List.mli[445,10764+0]..[445,10764+46])
+      core_type (mli_files/belt_List.mli[445,10764+11]..[445,10764+46])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[445,10764+11]..[445,10764+15])
+          Ptyp_constr "t" (mli_files/belt_List.mli[445,10764+14]..[445,10764+15])
+          [
+            core_type (mli_files/belt_List.mli[445,10764+11]..[445,10764+13])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[445,10764+20]..[445,10764+46])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[445,10764+21]..[445,10764+31])
+            attribute "bs"
+              []
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[445,10764+21]..[445,10764+23])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[445,10764+27]..[445,10764+31])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[445,10764+27]..[445,10764+31])
+              []
+          core_type (mli_files/belt_List.mli[445,10764+42]..[445,10764+46])
+            Ptyp_constr "t" (mli_files/belt_List.mli[445,10764+45]..[445,10764+46])
+            [
+              core_type (mli_files/belt_List.mli[445,10764+42]..[445,10764+44])
+                Ptyp_var a
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[446,10811+0]..[446,10811+39])
+    Psig_value
+    value_description "keep" (mli_files/belt_List.mli[446,10811+4]..[446,10811+8]) (mli_files/belt_List.mli[446,10811+0]..[446,10811+39])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[447,10851+0]..[453,10950+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[447,10851+0]..[453,10950+2])
+              Pexp_constant Const_string(" [keep  xs p]\n\n    @example {[\n      keep [1;2;3;4] (fun x -> x mod 2 = 0) =\n      [2;4]\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[446,10811+10]..[446,10811+39])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[446,10811+10]..[446,10811+14])
+          Ptyp_constr "t" (mli_files/belt_List.mli[446,10811+13]..[446,10811+14])
+          [
+            core_type (mli_files/belt_List.mli[446,10811+10]..[446,10811+12])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[446,10811+19]..[446,10811+39])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[446,10811+20]..[446,10811+30])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[446,10811+20]..[446,10811+22])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[446,10811+26]..[446,10811+30])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[446,10811+26]..[446,10811+30])
+              []
+          core_type (mli_files/belt_List.mli[446,10811+35]..[446,10811+39])
+            Ptyp_constr "t" (mli_files/belt_List.mli[446,10811+38]..[446,10811+39])
+            [
+              core_type (mli_files/belt_List.mli[446,10811+35]..[446,10811+37])
+                Ptyp_var a
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[454,10953+0]..[454,10953+53])
+    Psig_value
+    value_description "keepMapU" (mli_files/belt_List.mli[454,10953+4]..[454,10953+12]) (mli_files/belt_List.mli[454,10953+0]..[454,10953+53])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[447,10851+0]..[453,10950+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[447,10851+0]..[453,10950+2])
+              Pexp_constant Const_string(" [keep  xs p]\n\n    @example {[\n      keep [1;2;3;4] (fun x -> x mod 2 = 0) =\n      [2;4]\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[454,10953+14]..[454,10953+53])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[454,10953+14]..[454,10953+18])
+          Ptyp_constr "t" (mli_files/belt_List.mli[454,10953+17]..[454,10953+18])
+          [
+            core_type (mli_files/belt_List.mli[454,10953+14]..[454,10953+16])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[454,10953+22]..[454,10953+53])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[454,10953+23]..[454,10953+38])
+            attribute "bs"
+              []
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[454,10953+23]..[454,10953+25])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[454,10953+29]..[454,10953+38])
+              Ptyp_constr "option" (mli_files/belt_List.mli[454,10953+32]..[454,10953+38])
+              [
+                core_type (mli_files/belt_List.mli[454,10953+29]..[454,10953+31])
+                  Ptyp_var b
+              ]
+          core_type (mli_files/belt_List.mli[454,10953+49]..[454,10953+53])
+            Ptyp_constr "t" (mli_files/belt_List.mli[454,10953+52]..[454,10953+53])
+            [
+              core_type (mli_files/belt_List.mli[454,10953+49]..[454,10953+51])
+                Ptyp_var b
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[455,11007+0]..[455,11007+46])
+    Psig_value
+    value_description "keepMap" (mli_files/belt_List.mli[455,11007+4]..[455,11007+11]) (mli_files/belt_List.mli[455,11007+0]..[455,11007+46])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[456,11054+0]..[463,11195+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[456,11054+0]..[463,11195+2])
+              Pexp_constant Const_string(" [keepMap xs f]\n\n    @example {[\n      keepMap [1;2;3;4] (fun x -> if x mod 2 = 0 then Some (-x ) else None)\n      =\n      [-2;-4]\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[455,11007+13]..[455,11007+46])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[455,11007+13]..[455,11007+17])
+          Ptyp_constr "t" (mli_files/belt_List.mli[455,11007+16]..[455,11007+17])
+          [
+            core_type (mli_files/belt_List.mli[455,11007+13]..[455,11007+15])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[455,11007+21]..[455,11007+46])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[455,11007+22]..[455,11007+37])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[455,11007+22]..[455,11007+24])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[455,11007+28]..[455,11007+37])
+              Ptyp_constr "option" (mli_files/belt_List.mli[455,11007+31]..[455,11007+37])
+              [
+                core_type (mli_files/belt_List.mli[455,11007+28]..[455,11007+30])
+                  Ptyp_var b
+              ]
+          core_type (mli_files/belt_List.mli[455,11007+42]..[455,11007+46])
+            Ptyp_constr "t" (mli_files/belt_List.mli[455,11007+45]..[455,11007+46])
+            [
+              core_type (mli_files/belt_List.mli[455,11007+42]..[455,11007+44])
+                Ptyp_var b
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[464,11198+0]..[464,11198+58])
+    Psig_value
+    value_description "partitionU" (mli_files/belt_List.mli[464,11198+4]..[464,11198+14]) (mli_files/belt_List.mli[464,11198+0]..[464,11198+58])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[456,11054+0]..[463,11195+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[456,11054+0]..[463,11195+2])
+              Pexp_constant Const_string(" [keepMap xs f]\n\n    @example {[\n      keepMap [1;2;3;4] (fun x -> if x mod 2 = 0 then Some (-x ) else None)\n      =\n      [-2;-4]\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[464,11198+16]..[464,11198+58])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[464,11198+16]..[464,11198+20])
+          Ptyp_constr "t" (mli_files/belt_List.mli[464,11198+19]..[464,11198+20])
+          [
+            core_type (mli_files/belt_List.mli[464,11198+16]..[464,11198+18])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[464,11198+24]..[464,11198+58])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[464,11198+25]..[464,11198+35])
+            attribute "bs"
+              []
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[464,11198+25]..[464,11198+27])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[464,11198+31]..[464,11198+35])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[464,11198+31]..[464,11198+35])
+              []
+          core_type (mli_files/belt_List.mli[464,11198+47]..[464,11198+58])
+            Ptyp_tuple
+            [
+              core_type (mli_files/belt_List.mli[464,11198+47]..[464,11198+51])
+                Ptyp_constr "t" (mli_files/belt_List.mli[464,11198+50]..[464,11198+51])
+                [
+                  core_type (mli_files/belt_List.mli[464,11198+47]..[464,11198+49])
+                    Ptyp_var a
+                ]
+              core_type (mli_files/belt_List.mli[464,11198+54]..[464,11198+58])
+                Ptyp_constr "t" (mli_files/belt_List.mli[464,11198+57]..[464,11198+58])
+                [
+                  core_type (mli_files/belt_List.mli[464,11198+54]..[464,11198+56])
+                    Ptyp_var a
+                ]
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[465,11257+0]..[465,11257+51])
+    Psig_value
+    value_description "partition" (mli_files/belt_List.mli[465,11257+4]..[465,11257+13]) (mli_files/belt_List.mli[465,11257+0]..[465,11257+51])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[466,11309+0]..[472,11426+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[466,11309+0]..[472,11426+2])
+              Pexp_constant Const_string(" [partition xs p]\n\n    @example {[\n      partition [1;2;3;4] (fun x -> x mod 2 = 0) =\n      ([2;4], [1;3])\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[465,11257+15]..[465,11257+51])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[465,11257+15]..[465,11257+19])
+          Ptyp_constr "t" (mli_files/belt_List.mli[465,11257+18]..[465,11257+19])
+          [
+            core_type (mli_files/belt_List.mli[465,11257+15]..[465,11257+17])
+              Ptyp_var a
+          ]
+        core_type (mli_files/belt_List.mli[465,11257+23]..[465,11257+51])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[465,11257+24]..[465,11257+34])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[465,11257+24]..[465,11257+26])
+              Ptyp_var a
+            core_type (mli_files/belt_List.mli[465,11257+30]..[465,11257+34])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[465,11257+30]..[465,11257+34])
+              []
+          core_type (mli_files/belt_List.mli[465,11257+40]..[465,11257+51])
+            Ptyp_tuple
+            [
+              core_type (mli_files/belt_List.mli[465,11257+40]..[465,11257+44])
+                Ptyp_constr "t" (mli_files/belt_List.mli[465,11257+43]..[465,11257+44])
+                [
+                  core_type (mli_files/belt_List.mli[465,11257+40]..[465,11257+42])
+                    Ptyp_var a
+                ]
+              core_type (mli_files/belt_List.mli[465,11257+47]..[465,11257+51])
+                Ptyp_constr "t" (mli_files/belt_List.mli[465,11257+50]..[465,11257+51])
+                [
+                  core_type (mli_files/belt_List.mli[465,11257+47]..[465,11257+49])
+                    Ptyp_var a
+                ]
+            ]
+      []
+  signature_item (mli_files/belt_List.mli[473,11429+0]..[473,11429+37])
+    Psig_value
+    value_description "unzip" (mli_files/belt_List.mli[473,11429+4]..[473,11429+9]) (mli_files/belt_List.mli[473,11429+0]..[473,11429+37])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[466,11309+0]..[472,11426+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[466,11309+0]..[472,11426+2])
+              Pexp_constant Const_string(" [partition xs p]\n\n    @example {[\n      partition [1;2;3;4] (fun x -> x mod 2 = 0) =\n      ([2;4], [1;3])\n    ]}\n",None)
+        ]
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[474,11467+0]..[479,11551+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[474,11467+0]..[479,11551+2])
+              Pexp_constant Const_string(" [unzip xs]\n\n    @example {[\n      unzip [(1,2) ; (3,4)] = ([1;3], [2;4])\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[473,11429+11]..[473,11429+37])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[473,11429+11]..[473,11429+22])
+          Ptyp_constr "t" (mli_files/belt_List.mli[473,11429+21]..[473,11429+22])
+          [
+            core_type (mli_files/belt_List.mli[473,11429+12]..[473,11429+19])
+              Ptyp_tuple
+              [
+                core_type (mli_files/belt_List.mli[473,11429+12]..[473,11429+14])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[473,11429+17]..[473,11429+19])
+                  Ptyp_var b
+              ]
+          ]
+        core_type (mli_files/belt_List.mli[473,11429+26]..[473,11429+37])
+          Ptyp_tuple
+          [
+            core_type (mli_files/belt_List.mli[473,11429+26]..[473,11429+30])
+              Ptyp_constr "t" (mli_files/belt_List.mli[473,11429+29]..[473,11429+30])
+              [
+                core_type (mli_files/belt_List.mli[473,11429+26]..[473,11429+28])
+                  Ptyp_var a
+              ]
+            core_type (mli_files/belt_List.mli[473,11429+33]..[473,11429+37])
+              Ptyp_constr "t" (mli_files/belt_List.mli[473,11429+36]..[473,11429+37])
+              [
+                core_type (mli_files/belt_List.mli[473,11429+33]..[473,11429+35])
+                  Ptyp_var b
+              ]
+          ]
+      []
+  signature_item (mli_files/belt_List.mli[480,11554+0]..[480,11554+75])
+    Psig_value
+    value_description "getAssocU" (mli_files/belt_List.mli[480,11554+4]..[480,11554+13]) (mli_files/belt_List.mli[480,11554+0]..[480,11554+75])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[474,11467+0]..[479,11551+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[474,11467+0]..[479,11551+2])
+              Pexp_constant Const_string(" [unzip xs]\n\n    @example {[\n      unzip [(1,2) ; (3,4)] = ([1;3], [2;4])\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[480,11554+15]..[480,11554+75])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[480,11554+15]..[480,11554+26])
+          Ptyp_constr "t" (mli_files/belt_List.mli[480,11554+25]..[480,11554+26])
+          [
+            core_type (mli_files/belt_List.mli[480,11554+16]..[480,11554+23])
+              Ptyp_tuple
+              [
+                core_type (mli_files/belt_List.mli[480,11554+16]..[480,11554+18])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[480,11554+21]..[480,11554+23])
+                  Ptyp_var c
+              ]
+          ]
+        core_type (mli_files/belt_List.mli[480,11554+30]..[480,11554+75])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[480,11554+30]..[480,11554+32])
+            Ptyp_var b
+          core_type (mli_files/belt_List.mli[480,11554+37]..[480,11554+75])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[480,11554+38]..[480,11554+54])
+              attribute "bs"
+                []
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[480,11554+38]..[480,11554+40])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[480,11554+44]..[480,11554+54])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[480,11554+44]..[480,11554+46])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[480,11554+50]..[480,11554+54])
+                  Ptyp_constr "bool" (mli_files/belt_List.mli[480,11554+50]..[480,11554+54])
+                  []
+            core_type (mli_files/belt_List.mli[480,11554+66]..[480,11554+75])
+              Ptyp_constr "option" (mli_files/belt_List.mli[480,11554+69]..[480,11554+75])
+              [
+                core_type (mli_files/belt_List.mli[480,11554+66]..[480,11554+68])
+                  Ptyp_var c
+              ]
+      []
+  signature_item (mli_files/belt_List.mli[481,11630+0]..[481,11630+68])
+    Psig_value
+    value_description "getAssoc" (mli_files/belt_List.mli[481,11630+4]..[481,11630+12]) (mli_files/belt_List.mli[481,11630+0]..[481,11630+68])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[482,11699+0]..[489,11919+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[482,11699+0]..[489,11919+2])
+              Pexp_constant Const_string(" [getAssoc xs k eq]\n    \n    return the second element of a pair in [xs] where the first element equals [x],\n    or [None] if not found\n    @example {[\n      getAssoc [ 1, \"a\"; 2, \"b\"; 3, \"c\"] 2 (=) = Some \"b\"\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[481,11630+14]..[481,11630+68])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[481,11630+14]..[481,11630+25])
+          Ptyp_constr "t" (mli_files/belt_List.mli[481,11630+24]..[481,11630+25])
+          [
+            core_type (mli_files/belt_List.mli[481,11630+15]..[481,11630+22])
+              Ptyp_tuple
+              [
+                core_type (mli_files/belt_List.mli[481,11630+15]..[481,11630+17])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[481,11630+20]..[481,11630+22])
+                  Ptyp_var c
+              ]
+          ]
+        core_type (mli_files/belt_List.mli[481,11630+29]..[481,11630+68])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[481,11630+29]..[481,11630+31])
+            Ptyp_var b
+          core_type (mli_files/belt_List.mli[481,11630+36]..[481,11630+68])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[481,11630+37]..[481,11630+53])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[481,11630+37]..[481,11630+39])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[481,11630+43]..[481,11630+53])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[481,11630+43]..[481,11630+45])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[481,11630+49]..[481,11630+53])
+                  Ptyp_constr "bool" (mli_files/belt_List.mli[481,11630+49]..[481,11630+53])
+                  []
+            core_type (mli_files/belt_List.mli[481,11630+59]..[481,11630+68])
+              Ptyp_constr "option" (mli_files/belt_List.mli[481,11630+62]..[481,11630+68])
+              [
+                core_type (mli_files/belt_List.mli[481,11630+59]..[481,11630+61])
+                  Ptyp_var c
+              ]
+      []
+  signature_item (mli_files/belt_List.mli[491,11923+0]..[491,11923+68])
+    Psig_value
+    value_description "hasAssocU" (mli_files/belt_List.mli[491,11923+4]..[491,11923+13]) (mli_files/belt_List.mli[491,11923+0]..[491,11923+68])
+      core_type (mli_files/belt_List.mli[491,11923+15]..[491,11923+68])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[491,11923+15]..[491,11923+26])
+          Ptyp_constr "t" (mli_files/belt_List.mli[491,11923+25]..[491,11923+26])
+          [
+            core_type (mli_files/belt_List.mli[491,11923+16]..[491,11923+23])
+              Ptyp_tuple
+              [
+                core_type (mli_files/belt_List.mli[491,11923+16]..[491,11923+18])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[491,11923+21]..[491,11923+23])
+                  Ptyp_var c
+              ]
+          ]
+        core_type (mli_files/belt_List.mli[491,11923+30]..[491,11923+68])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[491,11923+30]..[491,11923+32])
+            Ptyp_var b
+          core_type (mli_files/belt_List.mli[491,11923+36]..[491,11923+68])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[491,11923+37]..[491,11923+53])
+              attribute "bs"
+                []
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[491,11923+37]..[491,11923+39])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[491,11923+43]..[491,11923+53])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[491,11923+43]..[491,11923+45])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[491,11923+49]..[491,11923+53])
+                  Ptyp_constr "bool" (mli_files/belt_List.mli[491,11923+49]..[491,11923+53])
+                  []
+            core_type (mli_files/belt_List.mli[491,11923+64]..[491,11923+68])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[491,11923+64]..[491,11923+68])
+              []
+      []
+  signature_item (mli_files/belt_List.mli[492,11992+0]..[492,11992+62])
+    Psig_value
+    value_description "hasAssoc" (mli_files/belt_List.mli[492,11992+4]..[492,11992+12]) (mli_files/belt_List.mli[492,11992+0]..[492,11992+62])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[493,12055+0]..[498,12232+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[493,12055+0]..[498,12232+2])
+              Pexp_constant Const_string(" [hasAssoc xs x eq]\n     return true if there is a pair in [xs] where the first element equals [x]\n    @example {[\n      hasAssoc [1, \"a\"; 2, \"b\"; 3,\"c\"] 1 (=) = true\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[492,11992+14]..[492,11992+62])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[492,11992+14]..[492,11992+25])
+          Ptyp_constr "t" (mli_files/belt_List.mli[492,11992+24]..[492,11992+25])
+          [
+            core_type (mli_files/belt_List.mli[492,11992+15]..[492,11992+22])
+              Ptyp_tuple
+              [
+                core_type (mli_files/belt_List.mli[492,11992+15]..[492,11992+17])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[492,11992+20]..[492,11992+22])
+                  Ptyp_var c
+              ]
+          ]
+        core_type (mli_files/belt_List.mli[492,11992+29]..[492,11992+62])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[492,11992+29]..[492,11992+31])
+            Ptyp_var b
+          core_type (mli_files/belt_List.mli[492,11992+35]..[492,11992+62])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[492,11992+36]..[492,11992+52])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[492,11992+36]..[492,11992+38])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[492,11992+42]..[492,11992+52])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[492,11992+42]..[492,11992+44])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[492,11992+48]..[492,11992+52])
+                  Ptyp_constr "bool" (mli_files/belt_List.mli[492,11992+48]..[492,11992+52])
+                  []
+            core_type (mli_files/belt_List.mli[492,11992+58]..[492,11992+62])
+              Ptyp_constr "bool" (mli_files/belt_List.mli[492,11992+58]..[492,11992+62])
+              []
+      []
+  signature_item (mli_files/belt_List.mli[500,12236+0]..[500,12236+77])
+    Psig_value
+    value_description "removeAssocU" (mli_files/belt_List.mli[500,12236+4]..[500,12236+16]) (mli_files/belt_List.mli[500,12236+0]..[500,12236+77])
+      core_type (mli_files/belt_List.mli[500,12236+17]..[500,12236+77])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[500,12236+17]..[500,12236+28])
+          Ptyp_constr "t" (mli_files/belt_List.mli[500,12236+27]..[500,12236+28])
+          [
+            core_type (mli_files/belt_List.mli[500,12236+18]..[500,12236+25])
+              Ptyp_tuple
+              [
+                core_type (mli_files/belt_List.mli[500,12236+18]..[500,12236+20])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[500,12236+23]..[500,12236+25])
+                  Ptyp_var c
+              ]
+          ]
+        core_type (mli_files/belt_List.mli[500,12236+32]..[500,12236+77])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[500,12236+32]..[500,12236+34])
+            Ptyp_var b
+          core_type (mli_files/belt_List.mli[500,12236+38]..[500,12236+77])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[500,12236+39]..[500,12236+55])
+              attribute "bs"
+                []
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[500,12236+39]..[500,12236+41])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[500,12236+45]..[500,12236+55])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[500,12236+45]..[500,12236+47])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[500,12236+51]..[500,12236+55])
+                  Ptyp_constr "bool" (mli_files/belt_List.mli[500,12236+51]..[500,12236+55])
+                  []
+            core_type (mli_files/belt_List.mli[500,12236+66]..[500,12236+77])
+              Ptyp_constr "t" (mli_files/belt_List.mli[500,12236+76]..[500,12236+77])
+              [
+                core_type (mli_files/belt_List.mli[500,12236+67]..[500,12236+74])
+                  Ptyp_tuple
+                  [
+                    core_type (mli_files/belt_List.mli[500,12236+67]..[500,12236+69])
+                      Ptyp_var a
+                    core_type (mli_files/belt_List.mli[500,12236+72]..[500,12236+74])
+                      Ptyp_var c
+                  ]
+              ]
+      []
+  signature_item (mli_files/belt_List.mli[501,12314+0]..[501,12314+72])
+    Psig_value
+    value_description "removeAssoc" (mli_files/belt_List.mli[501,12314+4]..[501,12314+15]) (mli_files/belt_List.mli[501,12314+0]..[501,12314+72])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[502,12387+0]..[508,12578+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[502,12387+0]..[508,12578+2])
+              Pexp_constant Const_string(" [removeAssoc xs x eq]\n    Try to remove the first pair, if not found, leave it untouched.\n    @example {[\n      removeAssoc [1,\"a\"; 2, \"b\"; 3, \"c\" ] 1 (=) =\n      [2, \"b\"; 3, \"c\"]\n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[501,12314+17]..[501,12314+72])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[501,12314+17]..[501,12314+28])
+          Ptyp_constr "t" (mli_files/belt_List.mli[501,12314+27]..[501,12314+28])
+          [
+            core_type (mli_files/belt_List.mli[501,12314+18]..[501,12314+25])
+              Ptyp_tuple
+              [
+                core_type (mli_files/belt_List.mli[501,12314+18]..[501,12314+20])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[501,12314+23]..[501,12314+25])
+                  Ptyp_var c
+              ]
+          ]
+        core_type (mli_files/belt_List.mli[501,12314+32]..[501,12314+72])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[501,12314+32]..[501,12314+34])
+            Ptyp_var b
+          core_type (mli_files/belt_List.mli[501,12314+39]..[501,12314+72])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[501,12314+40]..[501,12314+56])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[501,12314+40]..[501,12314+42])
+                Ptyp_var a
+              core_type (mli_files/belt_List.mli[501,12314+46]..[501,12314+56])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[501,12314+46]..[501,12314+48])
+                  Ptyp_var b
+                core_type (mli_files/belt_List.mli[501,12314+52]..[501,12314+56])
+                  Ptyp_constr "bool" (mli_files/belt_List.mli[501,12314+52]..[501,12314+56])
+                  []
+            core_type (mli_files/belt_List.mli[501,12314+61]..[501,12314+72])
+              Ptyp_constr "t" (mli_files/belt_List.mli[501,12314+71]..[501,12314+72])
+              [
+                core_type (mli_files/belt_List.mli[501,12314+62]..[501,12314+69])
+                  Ptyp_tuple
+                  [
+                    core_type (mli_files/belt_List.mli[501,12314+62]..[501,12314+64])
+                      Ptyp_var a
+                    core_type (mli_files/belt_List.mli[501,12314+67]..[501,12314+69])
+                      Ptyp_var c
+                  ]
+              ]
+      []
+  signature_item (mli_files/belt_List.mli[510,12582+0]..[510,12582+81])
+    Psig_value
+    value_description "setAssocU" (mli_files/belt_List.mli[510,12582+4]..[510,12582+13]) (mli_files/belt_List.mli[510,12582+0]..[510,12582+81])
+      core_type (mli_files/belt_List.mli[510,12582+15]..[510,12582+81])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[510,12582+15]..[510,12582+26])
+          Ptyp_constr "t" (mli_files/belt_List.mli[510,12582+25]..[510,12582+26])
+          [
+            core_type (mli_files/belt_List.mli[510,12582+16]..[510,12582+23])
+              Ptyp_tuple
+              [
+                core_type (mli_files/belt_List.mli[510,12582+16]..[510,12582+18])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[510,12582+21]..[510,12582+23])
+                  Ptyp_var c
+              ]
+          ]
+        core_type (mli_files/belt_List.mli[510,12582+30]..[510,12582+81])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[510,12582+30]..[510,12582+32])
+            Ptyp_var a
+          core_type (mli_files/belt_List.mli[510,12582+36]..[510,12582+81])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[510,12582+36]..[510,12582+38])
+              Ptyp_var c
+            core_type (mli_files/belt_List.mli[510,12582+42]..[510,12582+81])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[510,12582+43]..[510,12582+59])
+                attribute "bs"
+                  []
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[510,12582+43]..[510,12582+45])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[510,12582+49]..[510,12582+59])
+                  Ptyp_arrow
+                  ""
+                  core_type (mli_files/belt_List.mli[510,12582+49]..[510,12582+51])
+                    Ptyp_var a
+                  core_type (mli_files/belt_List.mli[510,12582+55]..[510,12582+59])
+                    Ptyp_constr "bool" (mli_files/belt_List.mli[510,12582+55]..[510,12582+59])
+                    []
+              core_type (mli_files/belt_List.mli[510,12582+70]..[510,12582+81])
+                Ptyp_constr "t" (mli_files/belt_List.mli[510,12582+80]..[510,12582+81])
+                [
+                  core_type (mli_files/belt_List.mli[510,12582+71]..[510,12582+78])
+                    Ptyp_tuple
+                    [
+                      core_type (mli_files/belt_List.mli[510,12582+71]..[510,12582+73])
+                        Ptyp_var a
+                      core_type (mli_files/belt_List.mli[510,12582+76]..[510,12582+78])
+                        Ptyp_var c
+                    ]
+                ]
+      []
+  signature_item (mli_files/belt_List.mli[511,12664+0]..[511,12664+74])
+    Psig_value
+    value_description "setAssoc" (mli_files/belt_List.mli[511,12664+4]..[511,12664+12]) (mli_files/belt_List.mli[511,12664+0]..[511,12664+74])
+      attribute "ocaml.doc"
+        [
+          structure_item (mli_files/belt_List.mli[512,12743+0]..[522,13040+2])
+            Pstr_eval
+            expression (mli_files/belt_List.mli[512,12743+0]..[522,13040+2])
+              Pexp_constant Const_string(" [setAssoc xs k v eq]\n    if [k] exists in [xs], replace it with the new [v], otherwise, add\n    it to the head\n    @example {[\n      setAssoc [1,\"a\"; 2, \"b\"; 3, \"c\"] 2 \"x\" (=) =\n      [1,\"a\"; 2, \"x\"; 3,\"c\"] ;; \n\n      setAssoc [1,\"a\"; 3, \"c\"] 2 \"2\" (=) = \n      [2,\"2\"; 1,\"a\"; 3, \"c\"] \n    ]}\n",None)
+        ]
+      core_type (mli_files/belt_List.mli[511,12664+14]..[511,12664+74])
+        Ptyp_arrow
+        ""
+        core_type (mli_files/belt_List.mli[511,12664+14]..[511,12664+25])
+          Ptyp_constr "t" (mli_files/belt_List.mli[511,12664+24]..[511,12664+25])
+          [
+            core_type (mli_files/belt_List.mli[511,12664+15]..[511,12664+22])
+              Ptyp_tuple
+              [
+                core_type (mli_files/belt_List.mli[511,12664+15]..[511,12664+17])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[511,12664+20]..[511,12664+22])
+                  Ptyp_var c
+              ]
+          ]
+        core_type (mli_files/belt_List.mli[511,12664+29]..[511,12664+74])
+          Ptyp_arrow
+          ""
+          core_type (mli_files/belt_List.mli[511,12664+29]..[511,12664+31])
+            Ptyp_var a
+          core_type (mli_files/belt_List.mli[511,12664+35]..[511,12664+74])
+            Ptyp_arrow
+            ""
+            core_type (mli_files/belt_List.mli[511,12664+35]..[511,12664+37])
+              Ptyp_var c
+            core_type (mli_files/belt_List.mli[511,12664+41]..[511,12664+74])
+              Ptyp_arrow
+              ""
+              core_type (mli_files/belt_List.mli[511,12664+42]..[511,12664+58])
+                Ptyp_arrow
+                ""
+                core_type (mli_files/belt_List.mli[511,12664+42]..[511,12664+44])
+                  Ptyp_var a
+                core_type (mli_files/belt_List.mli[511,12664+48]..[511,12664+58])
+                  Ptyp_arrow
+                  ""
+                  core_type (mli_files/belt_List.mli[511,12664+48]..[511,12664+50])
+                    Ptyp_var a
+                  core_type (mli_files/belt_List.mli[511,12664+54]..[511,12664+58])
+                    Ptyp_constr "bool" (mli_files/belt_List.mli[511,12664+54]..[511,12664+58])
+                    []
+              core_type (mli_files/belt_List.mli[511,12664+63]..[511,12664+74])
+                Ptyp_constr "t" (mli_files/belt_List.mli[511,12664+73]..[511,12664+74])
+                [
+                  core_type (mli_files/belt_List.mli[511,12664+64]..[511,12664+71])
+                    Ptyp_tuple
+                    [
+                      core_type (mli_files/belt_List.mli[511,12664+64]..[511,12664+66])
+                        Ptyp_var a
+                      core_type (mli_files/belt_List.mli[511,12664+69]..[511,12664+71])
+                        Ptyp_var c
+                    ]
+                ]
+      []
+]
