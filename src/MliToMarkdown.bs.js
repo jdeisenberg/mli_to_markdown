@@ -91,7 +91,7 @@ function processLines(moduleName, _result, lines, _index) {
       var identifier = matchResult !== null ? Caml_array.caml_array_get(matchResult, 2) : "*unknown name*";
       return "### " + (moduleName + ("." + (identifier + ("\n```reason\n" + (Utils$Docconvert.multiLineToRE(/* Interface */1, defn) + ("```\n\n```ocaml\n" + (defn + "\n```\n\n")))))));
     };
-    var convertCodeBrackets = function (s) {
+    var convertBracketsBraces = function (s) {
       var __x = s.replace((/\[([^\]]+)\]/g), "`$1`");
       var __x$1 = __x.replace((/\{b ([^\}]+)\}/g), "**$1**");
       return __x$1.replace((/\{(?:i|em) ([^\}]+)\}/g), "*$1*");
@@ -104,15 +104,15 @@ function processLines(moduleName, _result, lines, _index) {
       if (result !== null) {
         var items = result;
         var match = Js_types.test(Caml_array.caml_array_get(items, 1), /* String */4);
-        var preExample = match ? convertCodeBrackets(Caml_array.caml_array_get(items, 1)) : "";
+        var preExample = match ? convertBracketsBraces(Caml_array.caml_array_get(items, 1)) : "";
         var match$1 = Js_types.test(Caml_array.caml_array_get(items, 3), /* String */4);
-        var postExample = match$1 ? convertCodeBrackets(Caml_array.caml_array_get(items, 3)) : "";
+        var postExample = match$1 ? convertBracketsBraces(Caml_array.caml_array_get(items, 3)) : "";
         var reasonExample = Utils$Docconvert.multiLineToRE(/* Implementation */0, Caml_array.caml_array_get(items, 2));
         return preExample + ("\nExamples:\n```ocaml\n" + (Caml_array.caml_array_get(items, 2) + ("\n```\n\n```reason\n" + (reasonExample + ("\n```\n" + (postExample + "\n"))))));
       } else {
         var result2 = comment.match(noExamplePattern);
         if (result2 !== null) {
-          return "\n" + (convertCodeBrackets(Caml_array.caml_array_get(result2, 1)) + "\n");
+          return "\n" + (convertBracketsBraces(Caml_array.caml_array_get(result2, 1)) + "\n");
         } else {
           return "";
         }

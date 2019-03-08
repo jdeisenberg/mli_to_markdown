@@ -90,7 +90,7 @@ let rec processLines = (moduleName: string, result: string, lines: array(string)
       | None => {
           let result2 = Js.String.match(noExamplePattern, comment);
           switch (result2) {
-            | Some(items) => "\n" ++ convertCodeBrackets(items[1]) ++ "\n"
+            | Some(items) => "\n" ++ convertBracketsBraces(items[1]) ++ "\n"
             | None => ""
           }
       }
