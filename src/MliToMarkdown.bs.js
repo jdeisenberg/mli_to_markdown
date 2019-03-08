@@ -94,7 +94,7 @@ function processLines(moduleName, _result, lines, _index) {
     var convertBracketsBraces = function (s) {
       var __x = s.replace((/\[([^\]]+)\]/g), "`$1`");
       var __x$1 = __x.replace((/\{b ([^\}]+)\}/g), "**$1**");
-      return __x$1.replace((/\{(?:i|em) ([^\}]+)\}/g), "*$1*");
+      return __x$1.replace((/\{[ie] ([^\}]+)\}/g), "*$1*");
     };
     var examplePattern = (/\(\*\*((?:.|\n)+)?@example \{\[((?:.|\n)+)\]\}((?:.|\n)*)\*\)/);
     var noExamplePattern = (/\(\*\*((?:.|\n)*)\*\)/);

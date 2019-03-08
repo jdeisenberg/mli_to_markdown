@@ -65,7 +65,7 @@ let rec processLines = (moduleName: string, result: string, lines: array(string)
   let convertBracketsBraces = (s: string): string => {
     Js.String.replaceByRe([%re {|/\[([^\]]+)\]/g|}], "`$1`", s) ->
     Js.String.replaceByRe([%re {|/\{b ([^\}]+)\}/g|}], "**$1**", _) -> 
-    Js.String.replaceByRe([%re {|/\{(?:i|em) ([^\}]+)\}/g|}], "*$1*", _); 
+    Js.String.replaceByRe([%re {|/\{[ie] ([^\}]+)\}/g|}], "*$1*", _); 
   };  
 
   let convertExample = (items: array(string)): string => {
