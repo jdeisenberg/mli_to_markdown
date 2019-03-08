@@ -10,7 +10,7 @@ let isCommentStart(s: string): bool {
 };
  
 let rec processLines = (moduleName: string, result: string, lines: array(string), index: int): string => {
- 
+
   let rec collectDefinition = (acc: string, index: int): (string, int) => {
     if (index >= Ba.length(lines)) {
       (acc, index)
@@ -62,13 +62,15 @@ let rec processLines = (moduleName: string, result: string, lines: array(string)
     "\n```\n\n";
   };
 
-  let replaceCodeBrackets = (s: string): string => {
-    Js.String.replaceByRe([%re {|/\[([^\]]+)\]/g|}], "`$1`", s); 
+  let convertBracketsBraces = (s: string): string => {
+    Js.String.replaceByRe([%re {|/\[([^\]]+)\]/g|}], "`$1`", s) ->
+    Js.String.replaceByRe([%re {|/\{b ([^\}]+)\}/g|}], "**$1**", _) -> 
+    Js.String.replaceByRe([%re {|/\{(?:i|em) ([^\}]+)\}/g|}], "*$1*", _); 
   };  
 
   let convertExample = (items: array(string)): string => {
-    let preExample = Js.Types.test(items[1], Js.Types.String) ? replaceCodeBrackets(items[1]) : "";
-    let postExample = Js.Types.test(items[3], Js.Types.String) ? replaceCodeBrackets(items[3]) : "";
+    let preExample = Js.Types.test(items[1], Js.Types.String) ? convertBracketsBraces(items[1]) : "";
+    let postExample = Js.Types.test(items[3], Js.Types.String) ? convertBracketsBraces(items[3]) : "";
     let reasonExample = Utils.multiLineToRE(Utils.Implementation, items[2]);
     preExample ++ "\nExamples:\n" ++
       "```ocaml\n" ++
@@ -88,7 +90,7 @@ let rec processLines = (moduleName: string, result: string, lines: array(string)
       | None => {
           let result2 = Js.String.match(noExamplePattern, comment);
           switch (result2) {
-            | Some(items) => "\n" ++ replaceCodeBrackets(items[1]) ++ "\n"
+            | Some(items) => "\n" ++ convertCodeBrackets(items[1]) ++ "\n"
             | None => ""
           }
       }
