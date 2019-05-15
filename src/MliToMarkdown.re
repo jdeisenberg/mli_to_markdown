@@ -6,7 +6,7 @@ let startCommentPattern = [%re "/\\(\\*/"];
 let endCommentPattern = [%re "/\\*\\)/"];
 
 let isCommentStart(s: string): bool {
-  Js.Re.test(s, startDocCommentPattern) && (! Js.Re.test(s, endCommentPattern))
+  Js.Re.test_(startDocCommentPattern, s) && (! Js.Re.test_(endCommentPattern, s))
 };
  
 let rec processLines = (moduleName: string, result: string, lines: array(string), index: int): string => {
@@ -16,7 +16,7 @@ let rec processLines = (moduleName: string, result: string, lines: array(string)
       (acc, index)
     } else {
       let line = lines[index];
-      if (Js.Re.test(line, defnPattern) || isCommentStart(line)) {
+      if (Js.Re.test_(defnPattern, line) || isCommentStart(line)) {
         (acc, index)
       } else {
         collectDefinition(acc ++ "\n" ++ line, index + 1)
@@ -28,8 +28,8 @@ let rec processLines = (moduleName: string, result: string, lines: array(string)
     Determine how much to increment or decrement comment nesting level
   */
   let getCommentIncr = (s: string): int => {
-    let nStart = Js.Re.test(s, startCommentPattern) ? 1 : 0;
-    let nEnd = Js.Re.test(s, endCommentPattern) ? 1 : 0;
+    let nStart = Js.Re.test_(startCommentPattern, s) ? 1 : 0;
+    let nEnd = Js.Re.test_(endCommentPattern, s) ? 1 : 0;
     nStart - nEnd;
   }
   
@@ -39,7 +39,7 @@ let rec processLines = (moduleName: string, result: string, lines: array(string)
     } else {
       let line = lines[index];
       let newNesting = nesting + getCommentIncr(line)
-      if (Js.Re.test(line, endCommentPattern) && newNesting == 0) {
+      if (Js.Re.test_(endCommentPattern, line) && newNesting == 0) {
         (acc ++ "\n" ++ line, index)
       } else {
         collectComment(acc ++ "\n" ++ line, index + 1, newNesting)
@@ -103,7 +103,7 @@ let rec processLines = (moduleName: string, result: string, lines: array(string)
     result
   } else {
     let line = lines[index];
-    if (Js.Re.test(line, defnPattern)) {
+    if (Js.Re.test_(defnPattern, line)) {
       let (defn, n) = collectDefinition(line, index + 1);
       processLines(moduleName, result ++ processDefn(defn), lines, n);
     } else if (isCommentStart(line)) {

@@ -28,5 +28,5 @@ bsb -make-world
 In the markdown, the names of the functions are preceded by the module name. Rather than try to make some clever algorithm to extract the module name from the file name, I ask you to provide it on the command line.
 
 ```
-node src/MLI_REI_convert.bs.js inputfile.mli ModuleName > outputfile.md
+node src/MliToMarkdown.bs.js inputfile.mli ModuleName > outputfile.md
 ```

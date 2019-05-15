@@ -140,7 +140,7 @@ val zip: 'a array -> 'b array -> ('a * 'b) array
     Stop with the shorter array
 
     @example {[
-      zip [|1;2] [|1;2;3|] = [| (1,2); (2;2)|]
+      zip [|1;2|] [|1;2;3|] = [| (1,1); (2,2)|]
     ]}
  *)
 
